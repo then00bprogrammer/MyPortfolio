@@ -81,7 +81,7 @@ const Features: React.FC<FeaturesProps> = ({ features }) => {
           Features
         </Text>
       </Flex>
-      <Divider width="1px" height="100vh" bg="black"></Divider>
+      <Divider width="1px" height="100vh" bg={useColorModeValue('black','#735F32')}></Divider>
 
       <HStack width="85%" textAlign="left">
         <VStack
@@ -145,7 +145,7 @@ const Features: React.FC<FeaturesProps> = ({ features }) => {
           />
         </VStack>
       </HStack>
-      <Divider width="1px" height="100vh" bg="black"></Divider>
+      <Divider width="1px" height="100vh" bg={useColorModeValue('black','#735F32')}></Divider>
     </HStack>
   );
 };

@@ -121,13 +121,13 @@ const Services = () => {
           </HStack>
         </VStack>
         <VStack>
-          <Heading fontSize="7xl" fontWeight="extrabold">
+          <Heading fontSize="7xl" fontWeight="extrabold" color={useColorModeValue("gray.800", "gray.100")}>
             SERVICES
           </Heading>
-          <Heading fontSize="7xl" fontWeight="extrabold">
+          <Heading fontSize="7xl" fontWeight="extrabold" color={useColorModeValue("gray.800", "gray.100")}>
             & TECH
           </Heading>
-          <VStack paddingLeft="30%">
+          <VStack paddingLeft="30%" color={useColorModeValue('black','#735F32')}>
             <HStack ml="auto">
               <Icon as={SiReact} boxSize="20" p={2}></Icon>
               <Icon as={SiNodedotjs} boxSize="20" p={2}></Icon>

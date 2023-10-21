@@ -88,7 +88,7 @@ const Project = () => {
               <a href={data.siteLink} target="_blank">
                 <Button
                   variant="solid"
-                  colorScheme={useColorModeValue('green','green')}
+                  colorScheme={useColorModeValue('green','yellow')}
                   borderRadius={0}
                   size="lg"
                   w="15vw"
@@ -102,7 +102,7 @@ const Project = () => {
                   variant="outline"
                   borderRadius={0}
                   size="lg"
-                  colorScheme={useColorModeValue('blackAlpha','green')}
+                  colorScheme={useColorModeValue('blackAlpha','yellow')}
                 >
                   Source Code
                 </Button>
