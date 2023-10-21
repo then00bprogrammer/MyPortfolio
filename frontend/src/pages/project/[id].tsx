@@ -16,6 +16,7 @@ import { FaEnvelope, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa6";
 import { SiCodeforces, SiLeetcode } from "react-icons/si";
 import VideoPlayer from "@/components/VideoPlayer";
 import client from "@/client";
+import Social from "@/components/Social";
 
 type Project = {
   title: string;
@@ -67,7 +68,7 @@ const Project = () => {
   }, []);
   if (data)
     return (
-      <VStack w="full" minHeight="100vh">
+      <VStack w="full" minHeight="100vh" spacing={0}>
         <HStack w="80%" m="auto" height="85vh">
           <VStack lineHeight="2" letterSpacing="wider" w="50%" pl="5%" pr="5%">
             <Heading
@@ -157,31 +158,7 @@ const Project = () => {
             />
           </Box>
         </HStack>
-        <HStack
-          mr="auto"
-          h="5vh"
-          w="70%"
-          justifyContent="center"
-          alignItems="center"
-          marginTop="5vh"
-          marginBottom="25vh"
-        >
-          <Divider bg="black" orientation="horizontal" height="1px"></Divider>
-          <HStack
-            color="gray.800"
-            marginLeft="30px"
-            marginRight="30px"
-            spacing={5}
-          >
-            <Icon as={FaGithub} cursor="pointer" boxSize="10"></Icon>
-            <Icon as={FaLinkedin} cursor="pointer" boxSize="10"></Icon>
-            <Icon as={SiLeetcode} cursor="pointer" boxSize="10"></Icon>
-            <Icon as={SiCodeforces} cursor="pointer" boxSize="10"></Icon>
-            <Icon as={FaTwitter} cursor="pointer" boxSize="10"></Icon>
-            <Icon as={FaEnvelope} cursor="pointer" boxSize="10"></Icon>
-          </HStack>
-          <Divider bg="black" orientation="horizontal" height="1px"></Divider>
-        </HStack>
+        <Social/>
         <Features features={data.features} />
         <Technology
           description={data.techStackDescription}

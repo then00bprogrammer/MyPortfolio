@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import {
   Divider,
   Flex,
@@ -18,12 +18,37 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { TypeAnimation } from "react-type-animation";
+import { useInView } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 interface FeaturesProps {
-  features: string[]; 
+  features: string[];
 }
 
+const headingVariants: Variants = {
+  offscreen: {
+    y: 20,
+    rotate:15,
+  },
+  onscreen: {
+    y: 0,
+    rotate: 0,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 10,
+      mass: 2
+    },
+  },
+};
+
 const Features: React.FC<FeaturesProps> = ({ features }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref);
+
+  useEffect(() => {
+    console.log("Element is in view: ", isInView);
+  }, [isInView]);
   return (
     <HStack
       h="100vh"
@@ -67,15 +92,25 @@ const Features: React.FC<FeaturesProps> = ({ features }) => {
           textAlign="left"
           color="gray.600"
         >
-          <Heading
-            fontSize="7xl"
-            fontWeight="extrabold"
-            mt="2.5vh"
-            mb="2.5vh"
-            color="gray.800"
+          <motion.div
+            ref={ref}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
           >
-            Features
-          </Heading>
+            <motion.div variants={headingVariants}>
+              <Heading
+                fontSize="7xl"
+                fontWeight="extrabold"
+                mt="2.5vh"
+                mb="2.5vh"
+                color="gray.800"
+              >
+                Features
+              </Heading>
+
+            </motion.div>
+          </motion.div>
           {features.map((feature, index) => (
             <HStack spacing={2} pl="15%" mr="auto" key={index}>
               <Icon as={FaHashtag}></Icon>

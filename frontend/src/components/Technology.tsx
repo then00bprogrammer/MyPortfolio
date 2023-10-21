@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useRef} from "react";
 import {
   Divider,
   Flex,
@@ -26,6 +26,8 @@ import {
 } from "react-icons/si";
 import { TbBrandNextjs } from "react-icons/tb";
 import { Player } from "@lottiefiles/react-lottie-player";
+// import { Variants } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 const iconMap = {
   React: SiReact,
@@ -42,6 +44,23 @@ const iconMap = {
   Scikit: SiScikitlearn,
 };
 
+const headingVariants: Variants = {
+  offscreen: {
+    y: 20,
+    rotate:15,
+  },
+  onscreen: {
+    y: 0,
+    rotate: 0,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      duration: 10,
+      mass: 2
+    },
+  },
+};
+
 const Technology = ({
   description,
   techStack,
@@ -49,6 +68,7 @@ const Technology = ({
   description: string;
   techStack: string[];
 }) => {
+  const ref=useRef(null);
   return (
     <HStack
       h="100vh"
@@ -91,15 +111,25 @@ const Technology = ({
           textAlign="left"
           color="gray.600"
         >
-          <Heading
-            fontSize="7xl"
-            fontWeight="extrabold"
-            mt="2.5vh"
-            mb="2.5vh"
-            color="gray.800"
+          <motion.div
+            ref={ref}
+            initial="offscreen"
+            whileInView="onscreen"
+            viewport={{ once: true, amount: 0.8 }}
           >
-            Technology
-          </Heading>
+            <motion.div variants={headingVariants}>
+              <Heading
+                fontSize="7xl"
+                fontWeight="extrabold"
+                mt="2.5vh"
+                mb="2.5vh"
+                color="gray.800"
+              >
+                Technology
+              </Heading>
+
+            </motion.div>
+          </motion.div>
           <Text>{description}</Text>
           <Wrap spacing="2" mt="2.5vh" pr='30%'>
             {techStack.map((tech, index) => (

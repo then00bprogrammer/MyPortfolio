@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
@@ -29,12 +29,16 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import client from "@/client";
 
+
 type ProjectSlide = {
   projectPhoto: string;
   id: string;
 };
 
+
+
 const Projects = () => {
+  const ref = useRef(null);
   const router = useRouter();
   const [data, setData] = useState<ProjectSlide[]>();
   const fetchPost = async () => {
@@ -61,6 +65,7 @@ const Projects = () => {
       justifyContent="space-between"
       color="black"
       position="relative"
+      id="projects"
     >
       <Flex
         bg="red.400"
@@ -116,6 +121,10 @@ const Projects = () => {
               borderRadius={0}
               size="lg"
               color="black"
+              onClick={() => {
+                const section = document.querySelector("#contact");
+                section?.scrollIntoView({ behavior: "smooth", block: "start" });
+              }}
             >
               Read More
             </Button>
@@ -142,8 +151,8 @@ const Projects = () => {
             className="mySwiper"
           >
             {data &&
-              data.map((slide) => (
-                <SwiperSlide>
+              data.map((slide, id) => (
+                <SwiperSlide key={id}>
                   <Image
                     src={slide.projectPhoto}
                     onClick={() => router.push(`./project/${slide.id}`)}

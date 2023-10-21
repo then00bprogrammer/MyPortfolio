@@ -111,6 +111,10 @@ const Services = () => {
               borderRadius={0}
               size="lg"
               color="black"
+              onClick={()=>{
+                const section = document.querySelector( '#projects' );
+                section?.scrollIntoView( { behavior: 'smooth', block: 'start' } );
+              }}    
             >
               Read More
             </Button>

@@ -15,6 +15,7 @@ import { SiCodeforces, SiLeetcode } from "react-icons/si";
 import { Player } from "@lottiefiles/react-lottie-player";
 import client from "@/client";
 import ProjectCard from "@/components/ProjectCard";
+import Social from "@/components/Social";
 
 type Project = {
   title: string;
@@ -52,8 +53,8 @@ const projects = () => {
     fetchPost();
   }, []);
   return (
-    <VStack w="full" minHeight="100vh">
-      <Flex w={`calc(100vw - 12px)`} h="85vh">
+    <VStack w="full" minHeight="100vh"  spacing={0}>
+      <Flex w={`calc(100vw - 12px)`} h="85vh" bgImage='./pencil.jpg' bgSize='contain' bgRepeat='no-repeat'>
         <VStack
           w="50%"
           h="full"
@@ -62,6 +63,7 @@ const projects = () => {
           alignItems="center"
           pl="10%"
           pr="10%"
+          spacing={0}
         >
           <Heading size="3xl" color="gray.700" mb="2.5vh">
             PROJECTS
@@ -94,32 +96,8 @@ const projects = () => {
           />
         </Flex>
       </Flex>
-      <HStack
-        mr="auto"
-        h="5vh"
-        w="70%"
-        justifyContent="center"
-        alignItems="center"
-        marginTop="5vh"
-        marginBottom="25vh"
-      >
-        <Divider bg="black" orientation="horizontal" height="1px"></Divider>
-        <HStack
-          color="gray.800"
-          marginLeft="30px"
-          marginRight="30px"
-          spacing={5}
-        >
-          <Icon as={FaGithub} cursor="pointer" boxSize="10"></Icon>
-          <Icon as={FaLinkedin} cursor="pointer" boxSize="10"></Icon>
-          <Icon as={SiLeetcode} cursor="pointer" boxSize="10"></Icon>
-          <Icon as={SiCodeforces} cursor="pointer" boxSize="10"></Icon>
-          <Icon as={FaTwitter} cursor="pointer" boxSize="10"></Icon>
-          <Icon as={FaEnvelope} cursor="pointer" boxSize="10"></Icon>
-        </HStack>
-        <Divider bg="black" orientation="horizontal" height="1px"></Divider>
-      </HStack>
-      { data && data.map(proj => <ProjectCard project={proj} key={proj.siteLink}/>)}
+      <Social/>
+      { data && data.map((proj,i) => <ProjectCard project={proj} key={proj.siteLink} />)}
     </VStack>
   );
 };

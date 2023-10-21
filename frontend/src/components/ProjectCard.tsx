@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import {
   Box,
   Button,
@@ -11,6 +11,22 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import Link from "next/link";
+import { motion, Variants } from "framer-motion";
+
+const headingVariants: Variants = {
+  offscreen: {
+    y: 20,
+  },
+  onscreen: {
+    y: 0,
+    rotate: 0,
+    transition: {
+      type: "spring",
+      bounce: 0.4,
+      mass: 2,
+    },
+  },
+};
 
 const colorMap = {
   gray: {
@@ -29,8 +45,8 @@ const colorMap = {
     theme: "blue.50",
     buttonColor: "blue",
     frameColor: "blue.100",
-    borderColor: "blue"
-  }
+    borderColor: "blue",
+  },
 };
 
 type Project = {
@@ -45,6 +61,7 @@ type Project = {
 };
 
 const ProjectCard = (data: { project: Project }) => {
+  const ref = useRef(null);
   const [projectData, setprojectData] = useState<Project | null>();
   useEffect(() => {
     setprojectData(data.project);
@@ -61,6 +78,7 @@ const ProjectCard = (data: { project: Project }) => {
         color="black"
         position="relative"
         bg={colorMap[projectData.color as keyof typeof colorMap].theme}
+        className="projectCard"
       >
         <Flex
           bgImage={projectData.sidePhoto}
@@ -88,23 +106,33 @@ const ProjectCard = (data: { project: Project }) => {
         <Divider width="1px" height="100vh" bg="black"></Divider>
         <HStack width="85%">
           <VStack lineHeight="2" letterSpacing="wider" w="50%" pl="5%" pr="5%">
-            <Heading
-              fontSize="7xl"
-              fontWeight="extrabold"
-              mt="2.5vh"
-              mb="2.5vh"
+            <motion.div
+              ref={ref}
+              initial="offscreen"
+              whileInView="onscreen"
+              viewport={{ once: true, amount: 0.8 }}
             >
-              {projectData.title}
-            </Heading>
+              <motion.div variants={headingVariants}>
+                <Heading
+                  fontSize="7xl"
+                  fontWeight="extrabold"
+                  mt="2.5vh"
+                  mb="2.5vh"
+                >
+                  {projectData.title}
+                </Heading>
+              </motion.div>
+            </motion.div>
             <Text color="gray.600" mb="2.5vh">
               {projectData.description}
             </Text>
             <HStack>
-            <Link href={`./project/${projectData.id}`}>
+              <Link href={`./project/${projectData.id}`}>
                 <Button
                   variant="solid"
                   colorScheme={
-                    colorMap[projectData.color as keyof typeof colorMap].buttonColor
+                    colorMap[projectData.color as keyof typeof colorMap]
+                      .buttonColor
                   }
                   borderRadius={0}
                   size="lg"
@@ -118,7 +146,8 @@ const ProjectCard = (data: { project: Project }) => {
                 <Button
                   variant="outline"
                   colorScheme={
-                    colorMap[projectData.color as keyof typeof colorMap].buttonColor
+                    colorMap[projectData.color as keyof typeof colorMap]
+                      .buttonColor
                   }
                   borderRadius={0}
                   size="lg"
@@ -139,7 +168,9 @@ const ProjectCard = (data: { project: Project }) => {
           >
             <Divider
               borderRadius={10}
-              bg={colorMap[projectData.color as keyof typeof colorMap].borderColor}
+              bg={
+                colorMap[projectData.color as keyof typeof colorMap].borderColor
+              }
               width="10px"
               h="100px"
               position="absolute"
@@ -148,7 +179,9 @@ const ProjectCard = (data: { project: Project }) => {
             ></Divider>
             <Divider
               borderRadius={10}
-              bg={colorMap[projectData.color as keyof typeof colorMap].borderColor}
+              bg={
+                colorMap[projectData.color as keyof typeof colorMap].borderColor
+              }
               h="10px"
               w="100px"
               position="absolute"
@@ -157,7 +190,9 @@ const ProjectCard = (data: { project: Project }) => {
             ></Divider>
             <Divider
               borderRadius={10}
-              bg={colorMap[projectData.color as keyof typeof colorMap].borderColor}
+              bg={
+                colorMap[projectData.color as keyof typeof colorMap].borderColor
+              }
               width="10px"
               h="100px"
               position="absolute"
@@ -166,7 +201,9 @@ const ProjectCard = (data: { project: Project }) => {
             ></Divider>
             <Divider
               borderRadius={10}
-              bg={colorMap[projectData.color as keyof typeof colorMap].borderColor}
+              bg={
+                colorMap[projectData.color as keyof typeof colorMap].borderColor
+              }
               width="100px"
               h="10px"
               position="absolute"
