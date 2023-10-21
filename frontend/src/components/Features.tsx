@@ -7,6 +7,7 @@ import {
   Icon,
   Text,
   VStack,
+  useColorModeValue,
 } from "@chakra-ui/react";
 
 import { FaHashtag } from "react-icons/fa6";
@@ -28,7 +29,7 @@ interface FeaturesProps {
 const headingVariants: Variants = {
   offscreen: {
     y: 20,
-    rotate:15,
+    rotate: 15,
   },
   onscreen: {
     y: 0,
@@ -37,7 +38,7 @@ const headingVariants: Variants = {
       type: "spring",
       bounce: 0.4,
       duration: 10,
-      mass: 2
+      mass: 2,
     },
   },
 };
@@ -60,7 +61,7 @@ const Features: React.FC<FeaturesProps> = ({ features }) => {
       position="relative"
     >
       <Flex
-        bg="red.400"
+        bg={useColorModeValue('red.400','#C69749')}
         h="100vh"
         w="15vw"
         position="absolute"
@@ -104,15 +105,20 @@ const Features: React.FC<FeaturesProps> = ({ features }) => {
                 fontWeight="extrabold"
                 mt="2.5vh"
                 mb="2.5vh"
-                color="gray.800"
+                color={useColorModeValue('gray.800','gray.100')}
               >
                 Features
               </Heading>
-
             </motion.div>
           </motion.div>
           {features.map((feature, index) => (
-            <HStack spacing={2} pl="15%" mr="auto" key={index}>
+            <HStack
+              spacing={2}
+              pl="15%"
+              mr="auto"
+              key={index}
+              color={useColorModeValue("gray.600", "gray.400")}
+            >
               <Icon as={FaHashtag}></Icon>
               <TypeAnimation
                 sequence={[1000, feature]}

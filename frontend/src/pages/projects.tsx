@@ -9,6 +9,7 @@ import {
   Icon,
   Text,
   VStack,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { FaEnvelope, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa6";
 import { SiCodeforces, SiLeetcode } from "react-icons/si";
@@ -52,9 +53,10 @@ const projects = () => {
   useEffect(() => {
     fetchPost();
   }, []);
+  // bgImage='./pencil.jpg'
   return (
-    <VStack w="full" minHeight="100vh"  spacing={0}>
-      <Flex w={`calc(100vw - 12px)`} h="85vh" bgImage='./pencil.jpg' bgSize='contain' bgRepeat='no-repeat'>
+    <VStack w="full" minHeight="100vh"  spacing={0} bg={useColorModeValue('white','black')}>
+      <Flex w={`calc(100vw - 12px)`} h="85vh"  bgSize='contain' bgRepeat='no-repeat'>
         <VStack
           w="50%"
           h="full"
@@ -65,10 +67,10 @@ const projects = () => {
           pr="10%"
           spacing={0}
         >
-          <Heading size="3xl" color="gray.700" mb="2.5vh">
+          <Heading size="3xl" mb="2.5vh" color={useColorModeValue('gray.700','yellow.100')}>
             PROJECTS
           </Heading>
-          <Text fontSize="xl" color="gray.600" mb="2.5vh">
+          <Text fontSize="xl" color={useColorModeValue('gray.600','gray.400')} mb="2.5vh">
             Top projects I've developed so far: e-commerce, business websites,
             real time administration apps, etc. Web design, web development,
             logo design.
@@ -77,11 +79,12 @@ const projects = () => {
           <HStack mt="2.5vh">
             <Button
               variant="solid"
-              colorScheme="red"
+              colorScheme={useColorModeValue('red','yellow')}
               borderRadius={0}
               size="lg"
               w="15vw"
               h="7.5vh"
+              
             >
               See Projects
             </Button>

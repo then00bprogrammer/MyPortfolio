@@ -1,20 +1,21 @@
 import React from "react";
-import { Flex, HStack, Icon, Text } from "@chakra-ui/react";
+import { Flex, HStack, Icon, Text, VStack, useColorModeValue } from "@chakra-ui/react";
 import { IoHome, IoPersonSharp } from "react-icons/io5";
 import { AiOutlineFundProjectionScreen } from "react-icons/ai";
 import { LuContact } from "react-icons/lu";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   return (
     <Flex
-      color="black"
       w="full"
       h="15vh"
-      bg="white"
       justifyContent="space-between"
       alignItems="center"
       padding="5vh 5vw"
+      bg={useColorModeValue('white','black')}
+      color={useColorModeValue('black','#C69749')}
     >
       <Link href="/">
         <Text fontSize="4xl" fontWeight="extrabold">
@@ -22,7 +23,6 @@ const Navbar = () => {
         </Text>
       </Link>
       <HStack
-        color="black"
         fontSize="lg"
         width="50%"
         justifyContent="flex-end"

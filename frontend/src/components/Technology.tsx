@@ -9,6 +9,7 @@ import {
   VStack,
   Wrap,
   WrapItem,
+  useColorModeValue,
 } from "@chakra-ui/react";
 
 import {
@@ -80,7 +81,7 @@ const Technology = ({
       position="relative"
     >
       <Flex
-        bg="red.400"
+        bg={useColorModeValue('red.400','#C69749')}
         h="100vh"
         w="15vw"
         position="absolute"
@@ -123,22 +124,21 @@ const Technology = ({
                 fontWeight="extrabold"
                 mt="2.5vh"
                 mb="2.5vh"
-                color="gray.800"
+                color={useColorModeValue('gray.800','gray.100')}
               >
                 Technology
               </Heading>
 
             </motion.div>
           </motion.div>
-          <Text>{description}</Text>
-          <Wrap spacing="2" mt="2.5vh" pr='30%'>
+          <Text color={useColorModeValue('gray.600','gray.400')}>{description}</Text>
+          <Wrap spacing="2" mt="2.5vh" pr='30%' color={useColorModeValue('gray.800','#0F3460')}>
             {techStack.map((tech, index) => (
               <WrapItem key={index}>
                 <Icon
                   as={iconMap[tech as keyof typeof iconMap]}
                   boxSize="16"
                   p={2}
-                  color="black"
                 ></Icon>
               </WrapItem>
             ))}

@@ -1,5 +1,5 @@
 import React from "react";
-import { Divider, HStack } from "@chakra-ui/react";
+import { Divider, HStack, useColorModeValue } from "@chakra-ui/react";
 
 const Spacer = () => {
   return (
@@ -11,8 +11,8 @@ const Spacer = () => {
       justifyContent="space-between"
       color="black"
     >
-      <Divider width="1px" height="100vh" bg="black"></Divider>
-      <Divider width="1px" height="100vh" bg="black"></Divider>
+      <Divider width="1px" height="100vh" bg={useColorModeValue('black','#735F32')}></Divider>
+      <Divider width="1px" height="100vh" bg={useColorModeValue('black','#735F32')}></Divider>
     </HStack>
   );
 };

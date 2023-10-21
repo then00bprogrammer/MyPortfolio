@@ -9,6 +9,7 @@ import {
   Icon,
   Text,
   VStack,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import Features from "@/components/Features";
 import Technology from "@/components/Technology";
@@ -68,7 +69,7 @@ const Project = () => {
   }, []);
   if (data)
     return (
-      <VStack w="full" minHeight="100vh" spacing={0}>
+      <VStack w="full" minHeight="100vh" spacing={0} bg={useColorModeValue('white','black')}>
         <HStack w="80%" m="auto" height="85vh">
           <VStack lineHeight="2" letterSpacing="wider" w="50%" pl="5%" pr="5%">
             <Heading
@@ -76,18 +77,18 @@ const Project = () => {
               fontWeight="extrabold"
               mt="2.5vh"
               mb="2.5vh"
-              color="gray.700"
+              color={useColorModeValue('gray.700','yellow.100')}
             >
               {data?.title}
             </Heading>
-            <Text color="gray.600" mb="2.5vh">
+            <Text color={useColorModeValue('gray.600','gray.400')} mb="2.5vh">
               {data.description}
             </Text>
             <HStack>
               <a href={data.siteLink} target="_blank">
                 <Button
                   variant="solid"
-                  colorScheme="green"
+                  colorScheme={useColorModeValue('green','green')}
                   borderRadius={0}
                   size="lg"
                   w="15vw"
@@ -99,10 +100,9 @@ const Project = () => {
               <a href={data.githubRepoLink} target="_blank">
                 <Button
                   variant="outline"
-                  colorScheme="blackAlpha"
                   borderRadius={0}
                   size="lg"
-                  color="black"
+                  colorScheme={useColorModeValue('blackAlpha','green')}
                 >
                   Source Code
                 </Button>
@@ -112,7 +112,7 @@ const Project = () => {
           <Box width="50%" padding={5} position="relative">
             <Divider
               borderRadius={10}
-              bg="black"
+              bg={useColorModeValue('red','#735F32')}
               width="10px"
               h="100px"
               position="absolute"
@@ -121,7 +121,7 @@ const Project = () => {
             ></Divider>
             <Divider
               borderRadius={10}
-              bg="black"
+              bg={useColorModeValue('red','#735F32')}
               h="10px"
               w="100px"
               position="absolute"
@@ -130,7 +130,7 @@ const Project = () => {
             ></Divider>
             <Divider
               borderRadius={10}
-              bg="black"
+              bg={useColorModeValue('red','#735F32')}
               width="10px"
               h="100px"
               position="absolute"
@@ -139,7 +139,7 @@ const Project = () => {
             ></Divider>
             <Divider
               borderRadius={10}
-              bg="black"
+              bg={useColorModeValue('red','#735F32')}
               width="100px"
               h="10px"
               position="absolute"

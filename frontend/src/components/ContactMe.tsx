@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Button, Flex, Heading, Text, VStack } from "@chakra-ui/react";
+import { Button, Flex, Heading, Text, VStack, useColorModeValue } from "@chakra-ui/react";
 
 const ContactMe = () => {
   return (
@@ -20,7 +20,7 @@ const ContactMe = () => {
         }}
         color="white"
         paddingTop="35vh"
-        backgroundColor="blackAlpha.800"
+        backgroundColor={useColorModeValue('blackAlpha.800','blackAlpha.900')}
         id="contact"
       >
         <Heading size="2xl" mb="2.5vh">

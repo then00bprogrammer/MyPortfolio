@@ -9,6 +9,7 @@ import {
   Text,
   Textarea,
   VStack,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { FormControl, FormLabel } from "@chakra-ui/react";
@@ -76,7 +77,7 @@ const Contact = () => {
   };
 
   return (
-    <VStack w="full" minHeight="100vh">
+    <VStack w="full" height="85vh" bg={useColorModeValue('white','black')}>
       <HStack w="80%" m="auto" height="85vh">
         <VStack lineHeight="2" letterSpacing="wider" w="50%" pl="5%" pr="5%">
           <Heading
@@ -84,7 +85,7 @@ const Contact = () => {
             fontWeight="extrabold"
             mt="2.5vh"
             mb="2.5vh"
-            color="gray.700"
+            color={useColorModeValue('gray.700','gray.100')}
           >
             CONTACT ME
           </Heading>
@@ -96,6 +97,10 @@ const Contact = () => {
               value={formData.email}
               name="email"
               onChange={handleChange}
+              variant='outline'
+              borderColor={useColorModeValue('purple.100','purple.200')}
+              bg={useColorModeValue('purple.50','purple.100')}
+              focusBorderColor={useColorModeValue('purple.300','purple.400')}
             />
             <FormLabel>Subject</FormLabel>
             <Input
@@ -103,19 +108,26 @@ const Contact = () => {
               value={formData.subject}
               name="subject"
               onChange={handleChange}
+              variant='outline'
+              borderColor={useColorModeValue('purple.100','purple.200')}
+              bg={useColorModeValue('purple.50','purple.100')}
+              focusBorderColor={useColorModeValue('purple.300','purple.400')}
             />
             <FormLabel>Message</FormLabel>
             <Textarea
               value={formData.messageText}
               name="messageText"
               onChange={handleChange}
+              variant='outline'
+              borderColor={useColorModeValue('purple.100','purple.200')}
+              bg={useColorModeValue('purple.50','purple.100')}
+              focusBorderColor={useColorModeValue('purple.300','purple.400')}
             />
           </FormControl>
           <Button
-            type="submit"
             onClick={createSanityDocument}
             variant="solid"
-            colorScheme="blue"
+            colorScheme="purple"
             borderRadius={0}
             size="lg"
             w="10vw"
@@ -125,6 +137,7 @@ const Contact = () => {
             Send
           </Button>
         </VStack>
+        <VStack>
         <Box width="50">
           <Player
             autoplay
@@ -133,16 +146,18 @@ const Contact = () => {
             style={{ height: "80%", width: "80%" }}
           />
         </Box>
-      </HStack>
-      <HStack>
-        <Text letterSpacing="wider" color="gray.600">
+      <HStack mt='5vh'>
+        <Text letterSpacing="wider" color={useColorModeValue("gray.600","gray.400")}>
           You can also email me at
         </Text>
         <a href="mailto:nikhilranjan1103@gmail.com">
-          <Text color="blue" _hover={{ textDecoration: "underline" }}>
+          <Text color="purple" _hover={{ textDecoration: "underline" }}>
             nikhilranjan1103@gmail.com
           </Text>
         </a>
+      </HStack>
+
+        </VStack>
       </HStack>
     </VStack>
   );
