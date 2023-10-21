@@ -18,9 +18,9 @@ export default {
         description: 'Subject of the message'
       }, 
       {
-        name: 'message',
+        name: 'messageText',
         type: 'string',
-        title: 'Message',
+        title: 'Message Text',
         description: 'Message'
       }
     ]

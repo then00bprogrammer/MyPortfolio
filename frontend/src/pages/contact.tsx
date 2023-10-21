@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Button,
+  FormErrorMessage,
   HStack,
   Heading,
   Input,
@@ -12,34 +13,65 @@ import {
 import { Player } from "@lottiefiles/react-lottie-player";
 import { FormControl, FormLabel } from "@chakra-ui/react";
 
+type formDataType = {
+  email: string;
+  subject: string;
+  messageText: string;
+};
+
 const Contact = () => {
   const PROJECT_ID = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
   const DATASET = process.env.NEXT_PUBLIC_SANITY_DATASET;
-  const API_TOKEN2 = process.env.NEXT_PUBLIC_SANITY_API;
+  const API_TOKEN = process.env.NEXT_PUBLIC_SANITY_API;
+
+  const [formData, setFormData] = useState<formDataType>({
+    email: "",
+    subject: "",
+    messageText: "",
+  });
+
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
   const createSanityDocument = async () => {
+
     try {
       const response = await fetch(
-        `https://${PROJECT_ID}.api.sanity.io/v2021-10-21/data/query/${DATASET}`,
+        `https://${PROJECT_ID}.api.sanity.io/v1/data/mutate/${DATASET}`,
         {
-          method: "POST", 
+          method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${API_TOKEN2}`,
+            Authorization: `Bearer ${API_TOKEN}`,
           },
-          body: JSON.stringify({ mutations: [{ create: {
-            _type:'message',
-            email:'example@gmail.com',
-            subject:'Subject',
-            messageText:'exaMPLE text'
-          } }] }), 
+          body: JSON.stringify({
+            mutations: [
+              {
+                create: {
+                  _type: "message",
+                  email: formData.email,
+                  subject: formData.subject,
+                  messageText: formData.messageText,
+                },
+              },
+            ],
+          }),
         }
       );
 
-      if (!response.ok) throw new Error("Failed to create document in Sanity"); // Fixed the quotation marks around the error message
+      if (!response.ok) throw new Error("Failed to create document in Sanity");
       const data = await response.json();
       console.log("Document created:", data);
     } catch (error) {
-      console.error("Error creating document:", error); // Fixed the quotation marks around the error message
+      console.error("Error creating document:", error);
     }
   };
 
@@ -58,13 +90,30 @@ const Contact = () => {
           </Heading>
           <FormControl>
             <FormLabel>Email address</FormLabel>
-            <Input type="email" />
+            <Input
+              isRequired
+              type="email"
+              value={formData.email}
+              name="email"
+              onChange={handleChange}
+            />
             <FormLabel>Subject</FormLabel>
-            <Input type="text" />
+            <Input
+              type="text"
+              value={formData.subject}
+              name="subject"
+              onChange={handleChange}
+            />
             <FormLabel>Message</FormLabel>
-            <Textarea></Textarea>
+            <Textarea
+              value={formData.messageText}
+              name="messageText"
+              onChange={handleChange}
+            />
           </FormControl>
           <Button
+            type="submit"
+            onClick={createSanityDocument}
             variant="solid"
             colorScheme="blue"
             borderRadius={0}
@@ -72,7 +121,6 @@ const Contact = () => {
             w="10vw"
             h="7.5vh"
             mt="2.5vh"
-            onClick={createSanityDocument}
           >
             Send
           </Button>
