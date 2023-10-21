@@ -146,12 +146,6 @@ const Project = () => {
               bottom={0}
               right={0}
             ></Divider>
-            {/* <Image
-                width="full"
-                height="60vh"
-                objectFit="cover"
-                src="./intcover.png"
-              ></Image> */}
             <VideoPlayer
               thumbnail={data.projectPhoto}
               videoLink={data.projectVideoLink}

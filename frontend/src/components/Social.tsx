@@ -26,6 +26,7 @@ const Social: React.FC = () => {
     <HStack
       h="5vh"
       w="70%"
+      marginRight='auto'
       justifyContent="center"
       alignItems="center"
       marginTop="5vh"
