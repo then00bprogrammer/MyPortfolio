@@ -1,0 +1,37 @@
+{
+  "name": "portfolio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^2.8.1",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@lottiefiles/react-lottie-player": "^3.5.3",
+    "@sanity/client": "^6.7.0",
+    "@sanity/image-url": "^1.0.2",
+    "@vidstack/player": "^1.6.5",
+    "@vidstack/player-react": "^1.6.5",
+    "framer-motion": "^10.16.4",
+    "lit": "^2.8.0",
+    "next": "13.5.6",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-icons": "^4.11.0",
+    "react-lottie-player": "^1.5.5",
+    "react-pageflip": "^2.0.3",
+    "react-type-animation": "^3.2.0",
+    "swiper": "^10.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5"
+  }
+}
