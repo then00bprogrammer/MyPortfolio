@@ -7,10 +7,12 @@ import {
   HStack,
   Heading,
   Icon,
+  Stack,
   Text,
   VStack,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { useBreakpointValue } from "@chakra-ui/react";
 import Features from "@/components/Features";
 import Technology from "@/components/Technology";
 import VideoPlayer from "@/components/VideoPlayer";
@@ -67,30 +69,87 @@ const Project = () => {
   }, []);
   if (data)
     return (
-      <VStack w="full" minHeight="100vh" spacing={0} bg={useColorModeValue('white','black')}>
-        <HStack w="80%" m="auto" height="85vh">
-          <VStack lineHeight="2" letterSpacing="wider" w="50%" pl="5%" pr="5%">
+      <VStack
+        w="full"
+        minH={['90vh','85vh']}
+        spacing={0}
+        bg={useColorModeValue("white", "black")}
+        marginTop={["10vh", "15vh"]}
+      >
+        <Stack direction={["column", "row"]} w="80%" m="auto" h={['90vh','85vh']}>
+          <VStack
+            lineHeight="2"
+            letterSpacing="wider"
+            w={["100%", "50%"]}
+            pl={["0%", "5%"]}
+            pr={["0%", "5%"]}
+          >
             <Heading
-              fontSize="7xl"
+              fontSize={["4xl", "7xl"]}
               fontWeight="extrabold"
               mt="2.5vh"
               mb="2.5vh"
-              color={useColorModeValue('gray.700','yellow.100')}
+              color={useColorModeValue("gray.700", "yellow.100")}
             >
               {data?.title}
             </Heading>
-            <Text color={useColorModeValue('gray.600','gray.400')} mb="2.5vh">
+            <Box
+              w={['100%','50%']}
+              padding={5}
+              position="relative"
+              display={["flex", "none"]}
+            >
+              <Divider
+                borderRadius={10}
+                bg={useColorModeValue("red", "#735F32")}
+                width="10px"
+                h="100px"
+                position="absolute"
+                top={0}
+                left={0}
+              ></Divider>
+              <Divider
+                borderRadius={10}
+                bg={useColorModeValue("red", "#735F32")}
+                h="10px"
+                w="100px"
+                position="absolute"
+                top={0}
+                left={0}
+              ></Divider>
+              <Divider
+                borderRadius={10}
+                bg={useColorModeValue("red", "#735F32")}
+                width="10px"
+                h="100px"
+                position="absolute"
+                bottom={0}
+                right={0}
+              ></Divider>
+              <Divider
+                borderRadius={10}
+                bg={useColorModeValue("red", "#735F32")}
+                width="100px"
+                h="10px"
+                position="absolute"
+                bottom={0}
+                right={0}
+              ></Divider>
+              <VideoPlayer
+                thumbnail={data.projectPhoto}
+                videoLink={data.projectVideoLink}
+              />
+            </Box>
+            <Text color={useColorModeValue("gray.600", "gray.400")} mb="2.5vh">
               {data.description}
             </Text>
             <HStack>
               <a href={data.siteLink} target="_blank">
                 <Button
                   variant="solid"
-                  colorScheme={useColorModeValue('green','yellow')}
+                  colorScheme={useColorModeValue("green", "yellow")}
                   borderRadius={0}
                   size="lg"
-                  w="15vw"
-                  h="7.5vh"
                 >
                   Visit Site
                 </Button>
@@ -100,17 +159,22 @@ const Project = () => {
                   variant="outline"
                   borderRadius={0}
                   size="lg"
-                  colorScheme={useColorModeValue('blackAlpha','yellow')}
+                  colorScheme={useColorModeValue("blackAlpha", "yellow")}
                 >
                   Source Code
                 </Button>
               </a>
             </HStack>
           </VStack>
-          <Box width="50%" padding={5} position="relative">
+          <Box
+            w={['100%','50%']}
+            padding={5}
+            position="relative"
+            display={["none", "flex"]}
+          >
             <Divider
               borderRadius={10}
-              bg={useColorModeValue('red','#735F32')}
+              bg={useColorModeValue("red", "#735F32")}
               width="10px"
               h="100px"
               position="absolute"
@@ -119,7 +183,7 @@ const Project = () => {
             ></Divider>
             <Divider
               borderRadius={10}
-              bg={useColorModeValue('red','#735F32')}
+              bg={useColorModeValue("red", "#735F32")}
               h="10px"
               w="100px"
               position="absolute"
@@ -128,7 +192,7 @@ const Project = () => {
             ></Divider>
             <Divider
               borderRadius={10}
-              bg={useColorModeValue('red','#735F32')}
+              bg={useColorModeValue("red", "#735F32")}
               width="10px"
               h="100px"
               position="absolute"
@@ -137,7 +201,7 @@ const Project = () => {
             ></Divider>
             <Divider
               borderRadius={10}
-              bg={useColorModeValue('red','#735F32')}
+              bg={useColorModeValue("red", "#735F32")}
               width="100px"
               h="10px"
               position="absolute"
@@ -149,13 +213,13 @@ const Project = () => {
               videoLink={data.projectVideoLink}
             />
           </Box>
-        </HStack>
-        <Social/>
+        </Stack>
+        <Social />
         <Features features={data.features} />
-        <Technology
+        {/* <Technology
           description={data.techStackDescription}
           techStack={data.techStackNames}
-        />
+        /> */}
       </VStack>
     );
   else return null;
