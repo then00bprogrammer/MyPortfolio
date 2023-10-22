@@ -1,34 +1,36 @@
 import {
-    Box,
-    Button,
-    HStack,
-    Icon,
-    Image,
-    Menu,
-    MenuButton,
-    MenuItem,
-    MenuList,
-    Text,
-    useColorModeValue,
-  } from "@chakra-ui/react";
-  import Link from "next/link";
-  import React, { useRef } from "react";
-  import { AiOutlineFundProjectionScreen } from "react-icons/ai";
-  import { IoHome, IoPersonSharp } from "react-icons/io5";
-  import { LuContact } from "react-icons/lu";
-  import { RiMenu3Fill } from "react-icons/ri";
-  
-  const Hamburger = () => (
-    <Icon
-      as={RiMenu3Fill}
-      boxSize="9"
-      color={useColorModeValue("black", "gold.600")}
-    ></Icon>
-  );
-  
-  const PhoneMenu = () => {
-    return (
-      <Box display={['flex','flex','none','none']}>
+  Box,
+  Button,
+  HStack,
+  Icon,
+  Image,
+  Menu,
+  MenuButton,
+  MenuDivider,
+  MenuItem,
+  MenuList,
+  Text,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import Link from "next/link";
+import React, { useRef } from "react";
+import { AiOutlineFundProjectionScreen } from "react-icons/ai";
+import { IoHome, IoPersonSharp } from "react-icons/io5";
+import { LuContact } from "react-icons/lu";
+import { RiMenu3Fill } from "react-icons/ri";
+
+
+const Hamburger = () => (
+  <Icon
+    as={RiMenu3Fill}
+    boxSize="9"
+    color={useColorModeValue("black", "gold.600")}
+  ></Icon>
+);
+
+const PhoneMenu = () => {
+  return (
+    <Box display={["flex", "flex", "none", "none"]}>
       <Menu>
         <MenuButton
           bg="none"
@@ -40,8 +42,8 @@ import {
           rightIcon={<Hamburger />}
           boxSize="2rem"
         ></MenuButton>
-        <MenuList bg={useColorModeValue('gray.200','#232D3F')}>
-          <MenuItem minH="48px" bg={useColorModeValue('gray.200','#232D3F')}>
+        <MenuList bg={useColorModeValue("gray.200", "#0F0E0E")}>
+          <MenuItem minH='30px' bg={useColorModeValue("gray.200", "#0F0E0E")}>
             <Link href="/">
               <HStack spacing={5}>
                 <Icon as={IoHome}></Icon>
@@ -49,7 +51,8 @@ import {
               </HStack>
             </Link>
           </MenuItem>
-          <MenuItem minH="40px" bg={useColorModeValue('gray.200','#232D3F')}>
+          <MenuDivider bg='gold.400'/>
+          <MenuItem minH='30px' bg={useColorModeValue("gray.200", "#0F0E0E")}>
             <Link href="#">
               <HStack spacing={5}>
                 <Icon as={IoPersonSharp}></Icon>
@@ -57,7 +60,11 @@ import {
               </HStack>
             </Link>
           </MenuItem>
-          <MenuItem minH="40px" bg={useColorModeValue('gray.200','#232D3F')}>
+          <MenuDivider bg='gold.400'/>
+          <MenuItem
+            minH='30px'
+            bg={useColorModeValue("gray.200", "#0F0E0E")}
+          >
             <Link href="/projects">
               <HStack spacing={5}>
                 <Icon as={AiOutlineFundProjectionScreen}></Icon>
@@ -65,7 +72,8 @@ import {
               </HStack>
             </Link>
           </MenuItem>
-          <MenuItem minH="40px" bg={useColorModeValue('gray.200','#232D3F')}>
+          <MenuDivider bg='gold.400'/>
+          <MenuItem minH='30px' bg={useColorModeValue("gray.200", "#0F0E0E")}>
             <Link href="/contact">
               <HStack spacing={5}>
                 <Icon as={LuContact}></Icon>
@@ -75,9 +83,8 @@ import {
           </MenuItem>
         </MenuList>
       </Menu>
-      </Box>
-    );
-  };
-  
-  export default PhoneMenu;
-  
+    </Box>
+  );
+};
+
+export default PhoneMenu;
