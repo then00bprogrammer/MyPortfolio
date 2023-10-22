@@ -96,7 +96,7 @@ const ProjectCard = (data: { project: Project }) => {
   if (projectData)
     return (
       <HStack
-        h={['90vh','85vh']}
+        minH={['90vh','85vh']}
         w="full"
         pl="7.5vw"
         pr="7.5vw"
@@ -112,7 +112,7 @@ const ProjectCard = (data: { project: Project }) => {
         <Flex
           bgImage={projectData.sidePhoto}
           bgSize="cover"
-          h={['90vh','85vh']}
+          minH={['90vh','85vh']}
           w="15vw"
           position="absolute"
           left={0}
