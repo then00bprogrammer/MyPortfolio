@@ -54,7 +54,7 @@ const projects = () => {
     fetchPost();
   }, []);
   return (
-    <VStack w="full" minHeight="100vh"  spacing={0} bg={useColorModeValue('white','black')}>
+    <VStack marginTop='15vh' w="full" minHeight="85vh"  spacing={0} bg={useColorModeValue('white','black')}>
       <Flex w={`calc(100vw - 12px)`} h="85vh"  bgSize='contain' bgRepeat='no-repeat' bgImage={useColorModeValue('./pencil.jpg','')}> 
         <VStack
           w="50%"

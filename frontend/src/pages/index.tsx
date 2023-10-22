@@ -5,11 +5,11 @@ import Services from '@/components/Services'
 import Projects from '@/components/ViewProjects'
 import Spacer from '@/components/Spacer'
 import ContactMe from '@/components/ContactMe'
-import { Flex, VStack, useColorModeValue } from '@chakra-ui/react'
+import { VStack, useColorModeValue } from '@chakra-ui/react'
 
 const index = () => {
   return (
-    <VStack bg={useColorModeValue('white','black')}>
+    <VStack bg={useColorModeValue('white','black')} spacing={0}>
       <Banner />
       <Social/>
       <Services/>

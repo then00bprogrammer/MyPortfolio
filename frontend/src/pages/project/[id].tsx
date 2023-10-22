@@ -69,7 +69,7 @@ const Project = () => {
   }, []);
   if (data)
     return (
-      <VStack w="full" minHeight="100vh" spacing={0} bg={useColorModeValue('white','black')}>
+      <VStack marginTop='15vh' w="full" minHeight="85vh" spacing={0} bg={useColorModeValue('white','black')}>
         <HStack w="80%" m="auto" height="85vh">
           <VStack lineHeight="2" letterSpacing="wider" w="50%" pl="5%" pr="5%">
             <Heading

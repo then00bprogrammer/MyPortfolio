@@ -14,12 +14,16 @@ import { LuContact } from "react-icons/lu";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { GiMoonBats, GiSunPriest } from "react-icons/gi";
+import PhoneMenu from "./Phone Menu";
 
 const Navbar = () => {
   const linkColor = useColorModeValue("black", "#C69749");
   const { toggleColorMode } = useColorMode();
   return (
     <Flex
+      position='fixed'
+      zIndex={100}
+      top={0}
       w="full"
       h="15vh"
       justifyContent="space-between"
@@ -40,6 +44,7 @@ const Navbar = () => {
         justifyContent="flex-end"
         spacing={10}
       >
+        <HStack spacing={10} display={['none','none','block','flex']}>
         <Link href="/">
           <motion.div whileHover={{ borderBottom: `2px solid ${linkColor}` }}>
             <HStack>
@@ -72,12 +77,14 @@ const Navbar = () => {
             </HStack>
           </motion.div>
         </Link>
+        </HStack>
         <Icon
         color={useColorModeValue('black','gold.500')}
         boxSize='9'
         as={useColorModeValue(GiMoonBats, GiSunPriest)}
         onClick={toggleColorMode}
       ></Icon>
+      <PhoneMenu/>
       </HStack>
     </Flex>
   );
