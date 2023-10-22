@@ -5,6 +5,7 @@ import {
   Icon,
   Text,
   VStack,
+  useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { IoHome, IoPersonSharp } from "react-icons/io5";
@@ -12,9 +13,11 @@ import { AiOutlineFundProjectionScreen } from "react-icons/ai";
 import { LuContact } from "react-icons/lu";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { GiMoonBats, GiSunPriest } from "react-icons/gi";
 
 const Navbar = () => {
   const linkColor = useColorModeValue("black", "#C69749");
+  const { toggleColorMode } = useColorMode();
   return (
     <Flex
       w="full"
@@ -69,6 +72,12 @@ const Navbar = () => {
             </HStack>
           </motion.div>
         </Link>
+        <Icon
+        color={useColorModeValue('black','gold.500')}
+        boxSize='9'
+        as={useColorModeValue(GiMoonBats, GiSunPriest)}
+        onClick={toggleColorMode}
+      ></Icon>
       </HStack>
     </Flex>
   );

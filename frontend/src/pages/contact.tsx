@@ -13,11 +13,17 @@ import {
 } from "@chakra-ui/react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import { FormControl, FormLabel } from "@chakra-ui/react";
+import ShowAlert from "@/components/ShowAlert";
 
 type formDataType = {
   email: string;
   subject: string;
   messageText: string;
+};
+
+type alertType = {
+  message: string;
+  success: boolean;
 };
 
 const Contact = () => {
@@ -31,6 +37,11 @@ const Contact = () => {
     messageText: "",
   });
 
+  const [isAlertVisible, setIsAlertVisible] = useState<boolean>(false);
+  const [alertState, setAlert] = useState<alertType>({
+    message: "",
+    success: false,
+  });
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -42,8 +53,13 @@ const Contact = () => {
     }));
   };
 
-  const createSanityDocument = async () => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Prevents the default form submission behavior
 
+    createSanityDocument(); // Call your function to handle the form submission
+  };
+
+  const createSanityDocument = async () => {
     try {
       const response = await fetch(
         `https://${PROJECT_ID}.api.sanity.io/v1/data/mutate/${DATASET}`,
@@ -68,16 +84,28 @@ const Contact = () => {
         }
       );
 
+      setAlert({ message: "Your Message was sent", success: true });
+      setIsAlertVisible(true);
       if (!response.ok) throw new Error("Failed to create document in Sanity");
       const data = await response.json();
       console.log("Document created:", data);
     } catch (error) {
+      setAlert({ message: "Internal Server Error", success: false });
+      setIsAlertVisible(true);
       console.error("Error creating document:", error);
     }
   };
 
   return (
-    <VStack w="full" height="85vh" bg={useColorModeValue('white','black')}>
+    <VStack w="full" height="85vh" bg={useColorModeValue("white", "black")}>
+      {isAlertVisible && (
+        <ShowAlert
+          message={alertState?.message}
+          success={alertState?.success}
+          setIsAlertVisible={setIsAlertVisible}
+        />
+      )}
+
       <HStack w="80%" m="auto" height="85vh">
         <VStack lineHeight="2" letterSpacing="wider" w="50%" pl="5%" pr="5%">
           <Heading
@@ -85,49 +113,69 @@ const Contact = () => {
             fontWeight="extrabold"
             mt="2.5vh"
             mb="2.5vh"
-            color={useColorModeValue('gray.700','gray.100')}
+            color={useColorModeValue("gray.700", "gray.100")}
           >
             CONTACT ME
           </Heading>
-          <FormControl>
-            <FormLabel>Email address</FormLabel>
-            <Input
-              isRequired
-              type="email"
-              value={formData.email}
-              name="email"
-              onChange={handleChange}
-              variant='outline'
-              borderColor={useColorModeValue('purple.100','purple.200')}
-              bg={useColorModeValue('purple.50','purple.100')}
-              focusBorderColor={useColorModeValue('purple.300','purple.400')}
-            />
-            <FormLabel>Subject</FormLabel>
-            <Input
-              type="text"
-              value={formData.subject}
-              name="subject"
-              onChange={handleChange}
-              variant='outline'
-              borderColor={useColorModeValue('purple.100','purple.200')}
-              bg={useColorModeValue('purple.50','purple.100')}
-              focusBorderColor={useColorModeValue('purple.300','purple.400')}
-            />
-            <FormLabel>Message</FormLabel>
-            <Textarea
-              value={formData.messageText}
-              name="messageText"
-              onChange={handleChange}
-              variant='outline'
-              borderColor={useColorModeValue('purple.100','purple.200')}
-              bg={useColorModeValue('purple.50','purple.100')}
-              focusBorderColor={useColorModeValue('purple.300','purple.400')}
-            />
-          </FormControl>
+          <form onSubmit={handleSubmit} style={{width:'100%'}}>
+              <FormLabel color={useColorModeValue("gray.800", "gray.400")}>
+                Email address
+              </FormLabel>
+              <Input
+                isRequired
+                type="email"
+                value={formData.email}
+                name="email"
+                onChange={handleChange}
+                variant="outline"
+                color="black"
+                borderColor={useColorModeValue("purple.100", "gold.200")}
+                bg={useColorModeValue("purple.50", "gold.100")}
+                focusBorderColor={useColorModeValue("purple.300", "gold.400")}
+                _hover={{
+                  borderColor: useColorModeValue("purple.200", "gold.300"),
+                }}
+                colorScheme="gold"
+                errorBorderColor="red"
+              />
+              <FormLabel color={useColorModeValue("gray.800", "gray.400")}>
+                Subject
+              </FormLabel>
+              <Input
+                type="text"
+                value={formData.subject}
+                name="subject"
+                onChange={handleChange}
+                variant="outline"
+                color="black"
+                borderColor={useColorModeValue("purple.100", "gold.200")}
+                bg={useColorModeValue("purple.50", "gold.100")}
+                _hover={{
+                  borderColor: useColorModeValue("purple.200", "gold.300"),
+                }}
+                focusBorderColor={useColorModeValue("purple.300", "gold.400")}
+              />
+              <FormLabel color={useColorModeValue("gray.800", "gray.400")}>
+                Message
+              </FormLabel>
+              <Textarea
+                value={formData.messageText}
+                name="messageText"
+                onChange={handleChange}
+                variant="outline"
+                color="black"
+                borderColor={useColorModeValue("purple.100", "gold.200")}
+                bg={useColorModeValue("purple.50", "gold.100")}
+                _hover={{
+                  borderColor: useColorModeValue("purple.200", "gold.300"),
+                }}
+                focusBorderColor={useColorModeValue("purple.300", "gold.400")}
+              />
           <Button
-            onClick={createSanityDocument}
+            // margin='auto'
+            type="submit"
             variant="solid"
-            colorScheme="purple"
+            colorScheme={useColorModeValue("purple", "gold")}
             borderRadius={0}
             size="lg"
             w="10vw"
@@ -136,27 +184,33 @@ const Contact = () => {
           >
             Send
           </Button>
+          </form>
         </VStack>
-        <VStack>
-        <Box width="50">
-          <Player
-            autoplay
-            loop
-            src="/animations/contact.json"
-            style={{ height: "80%", width: "80%" }}
-          />
-        </Box>
-      <HStack mt='5vh'>
-        <Text letterSpacing="wider" color={useColorModeValue("gray.600","gray.400")}>
-          You can also email me at
-        </Text>
-        <a href="mailto:nikhilranjan1103@gmail.com">
-          <Text color="purple" _hover={{ textDecoration: "underline" }}>
-            nikhilranjan1103@gmail.com
-          </Text>
-        </a>
-      </HStack>
-
+        <VStack width="50%" pl="5%" pr="5%">
+          <Box width="100%">
+            <Player
+              autoplay
+              loop
+              src="/animations/contact.json"
+              style={{ width: "100%" }}
+            />
+          </Box>
+          <HStack mt="5vh">
+            <Text
+              letterSpacing="wider"
+              color={useColorModeValue("gray.600", "gray.400")}
+            >
+              You can also email me at
+            </Text>
+            <a href="mailto:nikhilranjan1103@gmail.com">
+              <Text
+                color={useColorModeValue("purple", "gold.600")}
+                _hover={{ textDecoration: "underline" }}
+              >
+                nikhilranjan1103@gmail.com
+              </Text>
+            </a>
+          </HStack>
         </VStack>
       </HStack>
     </VStack>

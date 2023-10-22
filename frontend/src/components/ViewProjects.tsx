@@ -115,7 +115,7 @@ const Projects = () => {
             <Link href="./projects">
               <Button
                 variant="solid"
-                colorScheme={useColorModeValue("red", "yellow")}
+                colorScheme={useColorModeValue("red", "gold")}
                 borderRadius={0}
                 size="lg"
                 w="15vw"
@@ -126,7 +126,7 @@ const Projects = () => {
             </Link>
             <Button
               variant="outline"
-              colorScheme={useColorModeValue("blackAlpha", "yellow")}
+              colorScheme={useColorModeValue("blackAlpha", "gold")}
               borderRadius={0}
               size="lg"
               onClick={() => {

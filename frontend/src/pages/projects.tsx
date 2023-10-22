@@ -53,10 +53,9 @@ const projects = () => {
   useEffect(() => {
     fetchPost();
   }, []);
-  // bgImage='./pencil.jpg'
   return (
     <VStack w="full" minHeight="100vh"  spacing={0} bg={useColorModeValue('white','black')}>
-      <Flex w={`calc(100vw - 12px)`} h="85vh"  bgSize='contain' bgRepeat='no-repeat'>
+      <Flex w={`calc(100vw - 12px)`} h="85vh"  bgSize='contain' bgRepeat='no-repeat' bgImage={useColorModeValue('./pencil.jpg','')}> 
         <VStack
           w="50%"
           h="full"
@@ -79,7 +78,7 @@ const projects = () => {
           <HStack mt="2.5vh">
             <Button
               variant="solid"
-              colorScheme={useColorModeValue('red','yellow')}
+              colorScheme={useColorModeValue('red','gold')}
               borderRadius={0}
               size="lg"
               w="15vw"

@@ -23,7 +23,7 @@ const Banner = (props: Props) => {
         </Box>
         <HStack mt='2.5vh'>
           <Link href='./contact'>
-          <Button variant='solid' colorScheme={useColorModeValue('red','yellow')} borderRadius={0} size='lg' w='15vw' h='7.5vh'> Contact Me </Button>
+          <Button variant='solid' colorScheme={useColorModeValue('red','gold')} borderRadius={0} size='lg' w='15vw' h='7.5vh'> Contact Me </Button>
           </Link>
           <a href='https://drive.google.com/file/d/1SDVnrflvVNHmly7Bdt3C1dnJ7EuPnzY4/view?usp=share_link' target="_blank">
           <Button variant='outline' colorScheme={useColorModeValue('blackAlpha','yellow')} borderRadius={0} size='lg' color={useColorModeValue('black','white')}> My Resume </Button>

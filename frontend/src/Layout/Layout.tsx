@@ -13,7 +13,7 @@ const Layout = ({ children }: React.PropsWithChildren<Props>) => {
       <Head>Nikhil's Portfolio</Head>
       <Navbar />
       {children}
-      <ToogleColorMode/>
+      {/* <ToogleColorMode/> */}
     </>
   )
 }

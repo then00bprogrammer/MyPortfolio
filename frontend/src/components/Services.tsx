@@ -97,7 +97,7 @@ const Services = () => {
             <a href="https://www.fiverr.com/nikhil03_" target="_blank">
               <Button
                 variant="solid"
-                colorScheme={useColorModeValue('red','yellow')}
+                colorScheme={useColorModeValue('red','gold')}
                 borderRadius={0}
                 size="lg"
                 w="15vw"
@@ -108,7 +108,7 @@ const Services = () => {
             </a>
             <Button
               variant="outline"
-              colorScheme={useColorModeValue('blackAlpha','yellow')}
+              colorScheme={useColorModeValue('blackAlpha','gold')}
               borderRadius={0}
               size="lg"
               onClick={()=>{
