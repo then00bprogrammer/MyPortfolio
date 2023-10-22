@@ -100,6 +100,8 @@ const ProjectCard = (data: { project: Project }) => {
         w="full"
         pl="7.5vw"
         pr="7.5vw"
+        pt={['7.5vw','0']}
+        pb={['7.5vw','0']}
         justifyContent="space-between"
         color="black"
         position="relative"
