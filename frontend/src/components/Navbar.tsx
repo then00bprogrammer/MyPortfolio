@@ -29,7 +29,7 @@ const Navbar = () => {
       h={['10vh','15vh']}
       justifyContent="space-between"
       alignItems="center"
-      padding="5vh 5vw"
+      padding="5vh 7.5vw"
       bg={useColorModeValue("white", "black")}
       color={useColorModeValue("black", "#C69749")}
     >
