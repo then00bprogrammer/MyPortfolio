@@ -13,7 +13,7 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import Link from "next/link";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineFundProjectionScreen } from "react-icons/ai";
 import { IoHome, IoPersonSharp } from "react-icons/io5";
 import { LuContact } from "react-icons/lu";
@@ -27,6 +27,7 @@ const PhoneMenu = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
+    console.log("toggling",isOpen)
     setIsOpen(!isOpen);
   };
 
@@ -36,21 +37,23 @@ const PhoneMenu = () => {
     damping: 25,
   };
 
-  const getMenuIcon = () => {
-    if (isOpen) {
-      return <Icon as={RxCross2} boxSize="9" />;
-    } else {
-      return <Icon as={RiMenu3Fill} boxSize="9" />;
+  const handleOutsideClick = ()=>{
+    if(isOpen) {
+      console.log('clicked', isOpen)
+      setIsOpen(false);
     }
-  };
+  }
+  useEffect(() => {
+    document.addEventListener("click", handleOutsideClick);
 
-  const handleMenuToggle = () => {
-    toggleMenu();
-  };
+    return () => {
+      document.removeEventListener("click", handleOutsideClick);
+    };
+  }, []);
 
   return (
     <Box display={["flex", "flex", "none", "none"]}>
-      <Menu>
+      <Menu onClose={toggleMenu} onOpen={toggleMenu}>
         <MenuButton
           bg="none"
           color={useColorModeValue("black", "gold.600")}
@@ -59,7 +62,6 @@ const PhoneMenu = () => {
           _active={{ bg: "none" }}
           as={Button}
           boxSize="2rem"
-          onClick={handleMenuToggle}
         >
           <motion.div
             initial={false}
