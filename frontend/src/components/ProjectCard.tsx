@@ -243,7 +243,6 @@ const ProjectCard = (data: { project: Project }) => {
             <Text
               color={useColorModeValue("gray.600", "gray.400")}
               mb="2.5vh"
-              fontSize={["xs", "sm"]}
             >
               {projectData.description}
             </Text>

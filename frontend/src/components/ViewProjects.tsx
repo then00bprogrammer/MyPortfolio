@@ -196,7 +196,6 @@ const Projects = () => {
           <Text
             mb="2.5vh"
             color={useColorModeValue("gray.600", "gray.400")}
-            fontSize={["xs", "sm"]}
           >
             A glimpse of realizations I've developed so far. Taking care of
             every need of my clients. Bringing performance and SEO on top of the

@@ -201,7 +201,7 @@ const Contact = () => {
               style={{ width: "100%" }}
             />
           </Box>
-          <HStack mt="5vh" fontSize={['xs','sm']}>
+          <HStack mt="5vh">
             <Text
               letterSpacing="wider"
               color={useColorModeValue("gray.600", "gray.400")}

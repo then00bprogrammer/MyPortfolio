@@ -115,7 +115,6 @@ const Services = () => {
           <Text
             color={useColorModeValue("gray.600", "gray.400")}
             mb="2.5vh"
-            fontSize={["xs", "sm"]}
           >
             As a professional freelancer specialized in web design, SEO and web
             development, I create customized digital solutions with a focus on
