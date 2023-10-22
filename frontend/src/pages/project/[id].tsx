@@ -3,16 +3,13 @@ import { useRouter } from "next/router";
 import {
   Box,
   Button,
-  Divider,
   HStack,
   Heading,
-  Icon,
   Stack,
   Text,
   VStack,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { useBreakpointValue } from "@chakra-ui/react";
 import Features from "@/components/Features";
 import Technology from "@/components/Technology";
 import VideoPlayer from "@/components/VideoPlayer";
