@@ -13,22 +13,41 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import Link from "next/link";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { AiOutlineFundProjectionScreen } from "react-icons/ai";
 import { IoHome, IoPersonSharp } from "react-icons/io5";
 import { LuContact } from "react-icons/lu";
 import { RiMenu3Fill } from "react-icons/ri";
+import { ImCross } from "react-icons/im";
+import { RxCross2 } from "react-icons/rx";
+import { motion } from "framer-motion";
 
-
-const Hamburger = () => (
-  <Icon
-    as={RiMenu3Fill}
-    boxSize="9"
-    color={useColorModeValue("black", "gold.600")}
-  ></Icon>
-);
 
 const PhoneMenu = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const transition = {
+    type: "spring",
+    stiffness: 260,
+    damping: 25,
+  };
+
+  const getMenuIcon = () => {
+    if (isOpen) {
+      return <Icon as={RxCross2} boxSize="9" />;
+    } else {
+      return <Icon as={RiMenu3Fill} boxSize="9" />;
+    }
+  };
+
+  const handleMenuToggle = () => {
+    toggleMenu();
+  };
+
   return (
     <Box display={["flex", "flex", "none", "none"]}>
       <Menu>
@@ -39,9 +58,21 @@ const PhoneMenu = () => {
           _selected={{ bg: "none" }}
           _active={{ bg: "none" }}
           as={Button}
-          rightIcon={<Hamburger />}
           boxSize="2rem"
-        ></MenuButton>
+          onClick={handleMenuToggle}
+        >
+          <motion.div
+            initial={false}
+            animate={{ rotate: isOpen ? 360 : 0 }}
+            transition={transition}
+          >
+            <Icon
+              as={isOpen ? ImCross : RiMenu3Fill}
+              boxSize="9"
+              color="currentColor"
+            />
+          </motion.div>
+        </MenuButton>
         <MenuList bg={useColorModeValue("gray.200", "#0F0E0E")}>
           <MenuItem minH='30px' bg={useColorModeValue("gray.200", "#0F0E0E")}>
             <Link href="/">
