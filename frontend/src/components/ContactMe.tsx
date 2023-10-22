@@ -15,7 +15,7 @@ const ContactMe = () => {
     <Flex>
       <Divider
         width="1px"
-        minH="100vh"
+        minH="70vh"
         bg={useColorModeValue("black", "#735F32")}
         display={["none", "flex"]}
         position="absolute"
@@ -24,7 +24,7 @@ const ContactMe = () => {
       ></Divider>
       <Divider
         width="1px"
-        minH="100vh"
+        minH="70vh"
         bg={useColorModeValue("black", "#735F32")}
         display={["none", "flex"]}
         position="absolute"
