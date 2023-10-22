@@ -15,6 +15,7 @@ import {
 import { Player } from "@lottiefiles/react-lottie-player";
 import { FormControl, FormLabel } from "@chakra-ui/react";
 import ShowAlert from "@/components/ShowAlert";
+import Head from "next/head";
 
 type formDataType = {
   email: string;
@@ -98,6 +99,10 @@ const Contact = () => {
   };
 
   return (
+    <>
+    <Head>
+        <title>Nikhil's Portfolio</title>
+      </Head>
     <VStack
       w="full"
       minH={["90vh", "85vh"]}
@@ -220,6 +225,7 @@ const Contact = () => {
         </VStack>
       </Stack>
     </VStack>
+    </>
   );
 };
 

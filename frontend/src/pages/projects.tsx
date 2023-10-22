@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Head from "next/head";
 import {
   Box,
   Button,
@@ -54,6 +55,10 @@ const projects = () => {
     fetchPost();
   }, []);
   return (
+    <>
+    <Head>
+        <title>Nikhil's Portfolio</title>
+      </Head>
     <VStack
       w="full"
       minHeight={["90vh", "85vh"]}
@@ -124,6 +129,7 @@ const projects = () => {
           <ProjectCard project={proj} key={proj.siteLink} />
         ))}
     </VStack>
+    </>
   );
 };
 
