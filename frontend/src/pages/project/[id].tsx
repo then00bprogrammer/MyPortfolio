@@ -13,8 +13,6 @@ import {
 } from "@chakra-ui/react";
 import Features from "@/components/Features";
 import Technology from "@/components/Technology";
-import { FaEnvelope, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa6";
-import { SiCodeforces, SiLeetcode } from "react-icons/si";
 import VideoPlayer from "@/components/VideoPlayer";
 import client from "@/client";
 import Social from "@/components/Social";

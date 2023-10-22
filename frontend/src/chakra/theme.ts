@@ -22,6 +22,7 @@ export const theme = extendTheme({
       },
       body: {
         bg: "white",
+        // position: "absolute"
       },
       "::-webkit-scrollbar-track": {
         borderRadius: "10px",

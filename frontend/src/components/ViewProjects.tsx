@@ -76,6 +76,7 @@ const Projects = () => {
         zIndex={1}
         alignItems="center"
         justifyContent="center"
+        display={['none']}
       >
         <Text
           transform="rotate(180deg)"

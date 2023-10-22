@@ -6,6 +6,7 @@ import {
   HStack,
   Heading,
   Input,
+  Stack,
   Text,
   Textarea,
   VStack,
@@ -97,7 +98,12 @@ const Contact = () => {
   };
 
   return (
-    <VStack w="full" height="85vh" bg={useColorModeValue("white", "black")}>
+    <VStack
+      w="full"
+      height={["90vh", "85vh"]}
+      marginTop={["10vh", "15vh"]}
+      bg={useColorModeValue("white", "black")}
+    >
       {isAlertVisible && (
         <ShowAlert
           message={alertState?.message}
@@ -106,10 +112,10 @@ const Contact = () => {
         />
       )}
 
-      <HStack w="80%" m="auto" height="85vh">
-        <VStack lineHeight="2" letterSpacing="wider" w="50%" pl="5%" pr="5%">
+      <Stack direction={['column','row']} w="80%" m="auto" height={["90vh", "85vh"]}>
+        <VStack lineHeight="2" letterSpacing="wider" w={['100%','50%']} pl={['0%','5%']} pr={['0%','5%']}>
           <Heading
-            fontSize="7xl"
+            fontSize={['4xl','7xl']}
             fontWeight="extrabold"
             mt="2.5vh"
             mb="2.5vh"
@@ -117,76 +123,76 @@ const Contact = () => {
           >
             CONTACT ME
           </Heading>
-          <form onSubmit={handleSubmit} style={{width:'100%'}}>
-              <FormLabel color={useColorModeValue("gray.800", "gray.400")}>
-                Email address
-              </FormLabel>
-              <Input
-                isRequired
-                type="email"
-                value={formData.email}
-                name="email"
-                onChange={handleChange}
-                variant="outline"
-                color="black"
-                borderColor={useColorModeValue("purple.100", "gold.200")}
-                bg={useColorModeValue("purple.50", "gold.100")}
-                focusBorderColor={useColorModeValue("purple.300", "gold.400")}
-                _hover={{
-                  borderColor: useColorModeValue("purple.200", "gold.300"),
-                }}
-                colorScheme="gold"
-                errorBorderColor="red"
-              />
-              <FormLabel color={useColorModeValue("gray.800", "gray.400")}>
-                Subject
-              </FormLabel>
-              <Input
-                type="text"
-                value={formData.subject}
-                name="subject"
-                onChange={handleChange}
-                variant="outline"
-                color="black"
-                borderColor={useColorModeValue("purple.100", "gold.200")}
-                bg={useColorModeValue("purple.50", "gold.100")}
-                _hover={{
-                  borderColor: useColorModeValue("purple.200", "gold.300"),
-                }}
-                focusBorderColor={useColorModeValue("purple.300", "gold.400")}
-              />
-              <FormLabel color={useColorModeValue("gray.800", "gray.400")}>
-                Message
-              </FormLabel>
-              <Textarea
-                value={formData.messageText}
-                name="messageText"
-                onChange={handleChange}
-                variant="outline"
-                color="black"
-                borderColor={useColorModeValue("purple.100", "gold.200")}
-                bg={useColorModeValue("purple.50", "gold.100")}
-                _hover={{
-                  borderColor: useColorModeValue("purple.200", "gold.300"),
-                }}
-                focusBorderColor={useColorModeValue("purple.300", "gold.400")}
-              />
-          <Button
-            // margin='auto'
-            type="submit"
-            variant="solid"
-            colorScheme={useColorModeValue("purple", "gold")}
-            borderRadius={0}
-            size="lg"
-            w="10vw"
-            h="7.5vh"
-            mt="2.5vh"
-          >
-            Send
-          </Button>
+          <form onSubmit={handleSubmit} style={{ width: "100%" }}>
+            <FormLabel color={useColorModeValue("gray.800", "gray.400")}>
+              Email address
+            </FormLabel>
+            <Input
+              isRequired
+              type="email"
+              value={formData.email}
+              name="email"
+              onChange={handleChange}
+              variant="outline"
+              color="black"
+              borderColor={useColorModeValue("purple.100", "gold.200")}
+              bg={useColorModeValue("purple.50", "gold.100")}
+              focusBorderColor={useColorModeValue("purple.300", "gold.400")}
+              _hover={{
+                borderColor: useColorModeValue("purple.200", "gold.300"),
+              }}
+              colorScheme="gold"
+              errorBorderColor="red"
+            />
+            <FormLabel color={useColorModeValue("gray.800", "gray.400")}>
+              Subject
+            </FormLabel>
+            <Input
+              type="text"
+              value={formData.subject}
+              name="subject"
+              onChange={handleChange}
+              variant="outline"
+              color="black"
+              borderColor={useColorModeValue("purple.100", "gold.200")}
+              bg={useColorModeValue("purple.50", "gold.100")}
+              _hover={{
+                borderColor: useColorModeValue("purple.200", "gold.300"),
+              }}
+              focusBorderColor={useColorModeValue("purple.300", "gold.400")}
+            />
+            <FormLabel color={useColorModeValue("gray.800", "gray.400")}>
+              Message
+            </FormLabel>
+            <Textarea
+              value={formData.messageText}
+              name="messageText"
+              onChange={handleChange}
+              variant="outline"
+              color="black"
+              borderColor={useColorModeValue("purple.100", "gold.200")}
+              bg={useColorModeValue("purple.50", "gold.100")}
+              _hover={{
+                borderColor: useColorModeValue("purple.200", "gold.300"),
+              }}
+              focusBorderColor={useColorModeValue("purple.300", "gold.400")}
+            />
+            <Button
+              // margin='auto'
+              type="submit"
+              variant="solid"
+              colorScheme={useColorModeValue("purple", "gold")}
+              borderRadius={0}
+              size="lg"
+              // w="10vw"
+              // h="7.5vh"
+              mt="2.5vh"
+            >
+              Send
+            </Button>
           </form>
         </VStack>
-        <VStack width="50%" pl="5%" pr="5%">
+        <VStack width={['100%','50%']} pl={['0%','5%']} pr={['0%','5%']} >
           <Box width="100%">
             <Player
               autoplay
@@ -195,7 +201,7 @@ const Contact = () => {
               style={{ width: "100%" }}
             />
           </Box>
-          <HStack mt="5vh">
+          <HStack mt="5vh" fontSize={['xs','sm']}>
             <Text
               letterSpacing="wider"
               color={useColorModeValue("gray.600", "gray.400")}
@@ -212,7 +218,7 @@ const Contact = () => {
             </a>
           </HStack>
         </VStack>
-      </HStack>
+      </Stack>
     </VStack>
   );
 };

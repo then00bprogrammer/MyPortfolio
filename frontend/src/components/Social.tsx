@@ -16,7 +16,7 @@ const SocialButton = ({ href, icon, label }:{href:string,icon:any,label:string})
     }}
   >
     <a href={href} target="_blank">
-      <Icon as={icon} cursor="pointer" boxSize="10" />
+      <Icon as={icon} cursor="pointer" boxSize={['8','10']} />
     </a>
   </motion.button>
 );
@@ -25,12 +25,12 @@ const Social: React.FC = () => {
   return (
     <HStack
       h="5vh"
-      w="70%"
+      w={['90%','70%']}
       marginRight='auto'
       justifyContent="center"
       alignItems="center"
       marginTop="5vh"
-      marginBottom="25vh"
+      marginBottom={['10vh','15vh']}
       
     >
       <Divider bg={useColorModeValue('black','#735F32')} orientation="horizontal" height="1px"/>

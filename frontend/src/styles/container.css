@@ -58,7 +58,3 @@ input {
 .home__video__button--play:hover .glow {
   filter: url(#blur-filter);
 }
-
-body {
-  background-color: aquamarine;
-}

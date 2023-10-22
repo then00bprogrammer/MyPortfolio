@@ -25,7 +25,7 @@ const Navbar = () => {
       zIndex={100}
       top={0}
       w="full"
-      h="15vh"
+      h={['10vh','15vh']}
       justifyContent="space-between"
       alignItems="center"
       padding="5vh 5vw"
