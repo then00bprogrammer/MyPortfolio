@@ -39,7 +39,7 @@ const Social: React.FC = () => {
       justifyContent="center"
       alignItems="center"
       marginTop="5vh"
-      marginBottom={["10vh", "15vh"]}
+      marginBottom={["5vh", "15vh"]}
     >
       <Divider
         bg={useColorModeValue("black", "#735F32")}

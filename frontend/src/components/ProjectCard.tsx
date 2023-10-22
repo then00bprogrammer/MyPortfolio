@@ -135,7 +135,7 @@ const ProjectCard = (data: { project: Project }) => {
         </Flex>
         <Divider
           width="1px"
-          height="85vh"
+          height={['85vh','90vh']}
           bg="black"
           display={["none", "flex"]}
         ></Divider>
@@ -144,7 +144,7 @@ const ProjectCard = (data: { project: Project }) => {
             lineHeight="2"
             letterSpacing="wider"
             w={["100%", "50%"]}
-            pl={["0%", "5%"]}
+            pl={["0%", "15%"]}
             pr={["0%", "5%"]}
           >
             <motion.div
@@ -357,7 +357,7 @@ const ProjectCard = (data: { project: Project }) => {
         <Divider
           display={["none", "flex"]}
           width="1px"
-          height="85vh"
+          height={['85vh','90vh']}
           bg={useColorModeValue(
             "black",
             colorMap[projectData.color as keyof typeof colorMap][1].buttonColor

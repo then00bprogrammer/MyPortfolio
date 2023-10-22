@@ -1,10 +1,12 @@
 import React, { useEffect, useRef } from "react";
 import {
+  Box,
   Divider,
   Flex,
   HStack,
   Heading,
   Icon,
+  Stack,
   Text,
   VStack,
   useColorModeValue,
@@ -52,7 +54,7 @@ const Features: React.FC<FeaturesProps> = ({ features }) => {
   }, [isInView]);
   return (
     <HStack
-      h="100vh"
+      minH={["90vh", "85vh"]}
       w="full"
       pl="7.5vw"
       pr="7.5vw"
@@ -61,14 +63,15 @@ const Features: React.FC<FeaturesProps> = ({ features }) => {
       position="relative"
     >
       <Flex
-        bg={useColorModeValue('red.400','#C69749')}
-        h="100vh"
+        bg={useColorModeValue("red.400", "#C69749")}
+        h={["full", "85vh"]}
         w="15vw"
         position="absolute"
         left={0}
         zIndex={1}
         alignItems="center"
         justifyContent="center"
+        display={["none", "flex"]}
       >
         <Text
           transform="rotate(180deg)"
@@ -81,17 +84,27 @@ const Features: React.FC<FeaturesProps> = ({ features }) => {
           Features
         </Text>
       </Flex>
-      <Divider width="1px" height="100vh" bg={useColorModeValue('black','#735F32')}></Divider>
+      <Divider
+        width="1px"
+        h="85vh"
+        bg={useColorModeValue("black", "#735F32")}
+        display={["none", "flex"]}
+      ></Divider>
 
-      <HStack width="85%" textAlign="left">
+      <Stack
+        width={["100%", "85%"]}
+        textAlign="left"
+        direction={["column", "row"]}
+      >
         <VStack
           lineHeight="2"
           letterSpacing="wider"
-          w="50%"
-          pl="5%"
-          pr="5%"
+          w={["100%", "50%"]}
+          pl={["0%", "5%"]}
+          pr={["0%", "5%"]}
           textAlign="left"
           color="gray.600"
+          justifyContent="center"
         >
           <motion.div
             ref={ref}
@@ -101,20 +114,28 @@ const Features: React.FC<FeaturesProps> = ({ features }) => {
           >
             <motion.div variants={headingVariants}>
               <Heading
-                fontSize="7xl"
+                fontSize={['4xl','7xl']}
                 fontWeight="extrabold"
                 mt="2.5vh"
                 mb="2.5vh"
-                color={useColorModeValue('gray.800','gray.100')}
+                color={useColorModeValue("gray.800", "gray.100")}
               >
                 Features
               </Heading>
             </motion.div>
           </motion.div>
+          <Box w={["100%", "50%"]} p={["0", "5%"]} display={["flex", "none"]}>
+            <Player
+              autoplay
+              loop
+              src="/animations/features.json"
+              style={{ height: "100%", width: "100%" }}
+            />
+          </Box>
           {features.map((feature, index) => (
             <HStack
               spacing={2}
-              pl="15%"
+              pl={["0%", "15%"]}
               mr="auto"
               key={index}
               color={useColorModeValue("gray.600", "gray.400")}
@@ -131,21 +152,25 @@ const Features: React.FC<FeaturesProps> = ({ features }) => {
             </HStack>
           ))}
         </VStack>
-        <VStack
-          w="50%"
-          alignItems="flex-start"
-          lineHeight="2"
-          letterSpacing="wider"
+        <Box
+          w={["100%", "50%"]}
+          display={["none", "flex"]}
+          p={["0", "5%"]}
         >
           <Player
             autoplay
             loop
             src="/animations/features.json"
-            style={{ height: "80%", width: "80%" }}
+            style={{ height: "100%", width: "100%" }}
           />
-        </VStack>
-      </HStack>
-      <Divider width="1px" height="100vh" bg={useColorModeValue('black','#735F32')}></Divider>
+        </Box>
+      </Stack>
+      <Divider
+        width="1px"
+        h="85vh"
+        bg={useColorModeValue("black", "#735F32")}
+        display={["none", "flex"]}
+      ></Divider>
     </HStack>
   );
 };

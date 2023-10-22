@@ -18,6 +18,7 @@ import Technology from "@/components/Technology";
 import VideoPlayer from "@/components/VideoPlayer";
 import client from "@/client";
 import Social from "@/components/Social";
+import Frame from "@/components/frame";
 
 type Project = {
   title: string;
@@ -71,12 +72,12 @@ const Project = () => {
     return (
       <VStack
         w="full"
-        minH={['90vh','85vh']}
+        minH={["90vh", "85vh"]}
         spacing={0}
         bg={useColorModeValue("white", "black")}
         marginTop={["10vh", "15vh"]}
       >
-        <Stack direction={["column", "row"]} w="80%" m="auto" h={['90vh','85vh']}>
+        <Stack direction={["column", "row"]} w="80%" h={["90vh", "85vh"]} alignItems='center' justifyContent='center'>
           <VStack
             lineHeight="2"
             letterSpacing="wider"
@@ -93,48 +94,8 @@ const Project = () => {
             >
               {data?.title}
             </Heading>
-            <Box
-              w={['100%','50%']}
-              padding={5}
-              position="relative"
-              display={["flex", "none"]}
-            >
-              <Divider
-                borderRadius={10}
-                bg={useColorModeValue("red", "#735F32")}
-                width="10px"
-                h="100px"
-                position="absolute"
-                top={0}
-                left={0}
-              ></Divider>
-              <Divider
-                borderRadius={10}
-                bg={useColorModeValue("red", "#735F32")}
-                h="10px"
-                w="100px"
-                position="absolute"
-                top={0}
-                left={0}
-              ></Divider>
-              <Divider
-                borderRadius={10}
-                bg={useColorModeValue("red", "#735F32")}
-                width="10px"
-                h="100px"
-                position="absolute"
-                bottom={0}
-                right={0}
-              ></Divider>
-              <Divider
-                borderRadius={10}
-                bg={useColorModeValue("red", "#735F32")}
-                width="100px"
-                h="10px"
-                position="absolute"
-                bottom={0}
-                right={0}
-              ></Divider>
+            <Box padding={5} position="relative" display={["flex", "none"]}>
+              <Frame />
               <VideoPlayer
                 thumbnail={data.projectPhoto}
                 videoLink={data.projectVideoLink}
@@ -167,47 +128,12 @@ const Project = () => {
             </HStack>
           </VStack>
           <Box
-            w={['100%','50%']}
+            w='50%'
             padding={5}
             position="relative"
-            display={["none", "flex"]}
+            display={['none','flex']}
           >
-            <Divider
-              borderRadius={10}
-              bg={useColorModeValue("red", "#735F32")}
-              width="10px"
-              h="100px"
-              position="absolute"
-              top={0}
-              left={0}
-            ></Divider>
-            <Divider
-              borderRadius={10}
-              bg={useColorModeValue("red", "#735F32")}
-              h="10px"
-              w="100px"
-              position="absolute"
-              top={0}
-              left={0}
-            ></Divider>
-            <Divider
-              borderRadius={10}
-              bg={useColorModeValue("red", "#735F32")}
-              width="10px"
-              h="100px"
-              position="absolute"
-              bottom={0}
-              right={0}
-            ></Divider>
-            <Divider
-              borderRadius={10}
-              bg={useColorModeValue("red", "#735F32")}
-              width="100px"
-              h="10px"
-              position="absolute"
-              bottom={0}
-              right={0}
-            ></Divider>
+            <Frame />
             <VideoPlayer
               thumbnail={data.projectPhoto}
               videoLink={data.projectVideoLink}
@@ -216,10 +142,10 @@ const Project = () => {
         </Stack>
         <Social />
         <Features features={data.features} />
-        {/* <Technology
+        <Technology
           description={data.techStackDescription}
           techStack={data.techStackNames}
-        /> */}
+        />
       </VStack>
     );
   else return null;

@@ -1,10 +1,12 @@
-import React, {useRef} from "react";
+import React, { useRef } from "react";
 import {
+  Box,
   Divider,
   Flex,
   HStack,
   Heading,
   Icon,
+  Stack,
   Text,
   VStack,
   Wrap,
@@ -48,7 +50,7 @@ const iconMap = {
 const headingVariants: Variants = {
   offscreen: {
     y: 20,
-    rotate:15,
+    rotate: 15,
   },
   onscreen: {
     y: 0,
@@ -57,7 +59,7 @@ const headingVariants: Variants = {
       type: "spring",
       bounce: 0.4,
       duration: 10,
-      mass: 2
+      mass: 2,
     },
   },
 };
@@ -69,10 +71,11 @@ const Technology = ({
   description: string;
   techStack: string[];
 }) => {
-  const ref=useRef(null);
+  const ref = useRef(null);
   return (
-    <HStack
-      h="100vh"
+    <Stack
+      direction={["column", "row"]}
+      minH={["90vh", "85vh"]}
       w="full"
       pl="7.5vw"
       pr="7.5vw"
@@ -81,14 +84,15 @@ const Technology = ({
       position="relative"
     >
       <Flex
-        bg={useColorModeValue('red.400','#C69749')}
-        h="100vh"
+        bg={useColorModeValue("red.400", "#C69749")}
+        h={["90vh", "full"]}
         w="15vw"
         position="absolute"
         right={0}
         zIndex={1}
         alignItems="center"
         justifyContent="center"
+        display={["none", "flex"]}
       >
         <Text
           transform="rotate(180deg)"
@@ -101,14 +105,25 @@ const Technology = ({
           Technology
         </Text>
       </Flex>
-      <Divider width="1px" height="100vh" bg={useColorModeValue('black','#735F32')}></Divider>
-      <HStack width="85%" textAlign="left">
+      <Divider
+        width="1px"
+        h={["90vh", "85vh"]}
+        bg={useColorModeValue("black", "#735F32")}
+        display={["none", "flex"]}
+      ></Divider>
+      <Stack
+        w={["100%", "85%"]}
+        textAlign="left"
+        direction={["column", "row"]}
+        justifyContent="center"
+        alignItems="center"
+      >
         <VStack
           lineHeight="2"
           letterSpacing="wider"
-          w="50%"
-          pl="5%"
-          pr="5%"
+          w={["100%", "50%"]}
+          pl={["0%", "5%"]}
+          pr={["0%", "5%"]}
           textAlign="left"
           color="gray.600"
         >
@@ -120,19 +135,33 @@ const Technology = ({
           >
             <motion.div variants={headingVariants}>
               <Heading
-                fontSize="7xl"
+                fontSize={["4xl", "7xl"]}
                 fontWeight="extrabold"
                 mt="2.5vh"
                 mb="2.5vh"
-                color={useColorModeValue('gray.800','gray.100')}
+                color={useColorModeValue("gray.800", "gray.100")}
               >
                 Technology
               </Heading>
-
             </motion.div>
           </motion.div>
-          <Text color={useColorModeValue('gray.600','gray.400')}>{description}</Text>
-          <Wrap spacing="2" mt="2.5vh" pr='30%' color={useColorModeValue('gray.800','#0F3460')}>
+          <Box w={["100%", "50%"]} display={['flex','none']} p={['0%','5%']}>
+          <Player
+            autoplay
+            loop
+            src="/animations/Technology.json"
+            style={{ height: "100%", width: "100%" }}
+          />
+        </Box>
+          <Text color={useColorModeValue("gray.600", "gray.400")}>
+            {description}
+          </Text>
+          <Wrap
+            spacing="2"
+            mt="2.5vh"
+            pr={["0%", "30%"]}
+            color={useColorModeValue("gray.800", "#4477CE")}
+          >
             {techStack.map((tech, index) => (
               <WrapItem key={index}>
                 <Icon
@@ -144,22 +173,22 @@ const Technology = ({
             ))}
           </Wrap>
         </VStack>
-        <VStack
-          w="50%"
-          alignItems="flex-start"
-          lineHeight="2"
-          letterSpacing="wider"
-        >
+        <Box w={["100%", "50%"]} p={['0%','5%']} display={['none','flex']}>
           <Player
             autoplay
             loop
             src="/animations/Technology.json"
-            style={{ height: "80%", width: "80%" }}
+            style={{ height: "100%", width: "100%" }}
           />
-        </VStack>
-      </HStack>
-      <Divider width="1px" height="100vh" bg={useColorModeValue('black','#735F32')}></Divider>
-    </HStack>
+        </Box>
+      </Stack>
+      <Divider
+        width="1px"
+        h={["90vh", "85vh"]}
+        bg={useColorModeValue("black", "#735F32")}
+        display={["none", "flex"]}
+      ></Divider>
+    </Stack>
   );
 };
 
