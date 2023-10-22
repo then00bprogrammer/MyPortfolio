@@ -7,7 +7,6 @@ import {
   Heading,
   Icon,
   Image,
-  Stack,
   Text,
   VStack,
   useColorModeValue,
@@ -24,8 +23,7 @@ import { TbBrandCpp } from "react-icons/tb";
 
 const Services = () => {
   return (
-    <Stack
-      direction={['column','column','row','row']}
+    <HStack
       h="100vh"
       w="full"
       pl="7.5vw"
@@ -146,7 +144,7 @@ const Services = () => {
         </VStack>
       </HStack>
       <Divider width="1px" height="100vh" bg={useColorModeValue('black','#735F32')}></Divider>
-    </Stack>
+    </HStack>
   );
 };
 

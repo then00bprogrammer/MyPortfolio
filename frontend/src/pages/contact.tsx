@@ -97,7 +97,7 @@ const Contact = () => {
   };
 
   return (
-    <VStack marginTop='15vh' w="full" height="85vh" bg={useColorModeValue("white", "black")}>
+    <VStack w="full" height="85vh" bg={useColorModeValue("white", "black")}>
       {isAlertVisible && (
         <ShowAlert
           message={alertState?.message}

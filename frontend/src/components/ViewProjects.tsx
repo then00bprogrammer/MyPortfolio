@@ -58,7 +58,7 @@ const Projects = () => {
 
   return (
     <HStack
-      h="85vh"
+      h="100vh"
       w="full"
       pl="7.5vw"
       pr="7.5vw"
@@ -69,7 +69,7 @@ const Projects = () => {
     >
       <Flex
         bg={useColorModeValue("red.400", "#C69749")}
-        h="85vh"
+        h="100vh"
         w="15vw"
         position="absolute"
         left={0}
@@ -90,7 +90,7 @@ const Projects = () => {
       </Flex>
       <Divider
         width="1px"
-        height="85vh"
+        height="100vh"
         bg={useColorModeValue("black", "#735F32")}
       ></Divider>
       <HStack width="85%">
@@ -219,7 +219,7 @@ const Projects = () => {
       </HStack>
       <Divider
         width="1px"
-        height="85vh"
+        height="100vh"
         bg={useColorModeValue("black", "#735F32")}
       ></Divider>
     </HStack>

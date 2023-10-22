@@ -47,32 +47,33 @@ const grayLight = {
   buttonColor: "blackAlpha",
   frameColor: "blackAlpha.200",
   borderColor: "black",
-};
+}
 const grayDark = {
   theme: "#333456",
   buttonColor: "purple",
   frameColor: "blackAlpha.200",
   borderColor: "black",
-};
+}
 
 const orangeLight = {
   theme: "orange.50",
   buttonColor: "orange",
   frameColor: "orange.100",
   borderColor: "orange",
-};
+}
 const orangeDark = {
   theme: "#2F2519",
   buttonColor: "orange",
   frameColor: "#4A3F35",
   borderColor: "#2F2519",
-};
+}
 
 const colorMap = {
-  gray: [grayLight, grayDark],
-  orange: [orangeLight, orangeDark],
+  gray: [grayLight,grayDark],
+  orange: [orangeLight,orangeDark],
   blue: [blueLight, blueDark],
 };
+
 
 type Project = {
   title: string;
@@ -95,23 +96,21 @@ const ProjectCard = (data: { project: Project }) => {
   if (projectData)
     return (
       <HStack
-        h="85vh"
+        h="100vh"
         w="full"
         pl="7.5vw"
         pr="7.5vw"
         justifyContent="space-between"
         color="black"
         position="relative"
-        bg={useColorModeValue(
-          colorMap[projectData.color as keyof typeof colorMap][0].theme,
-          colorMap[projectData.color as keyof typeof colorMap][1].theme
-        )}
+        bg={useColorModeValue(colorMap[projectData.color as keyof typeof colorMap][0].theme,
+          colorMap[projectData.color as keyof typeof colorMap][1].theme) }
         className="projectCard"
       >
         <Flex
           bgImage={projectData.sidePhoto}
           bgSize="cover"
-          h="85vh"
+          h="100vh"
           w="15vw"
           position="absolute"
           left={0}
@@ -131,7 +130,7 @@ const ProjectCard = (data: { project: Project }) => {
             {projectData.title}
           </Text>
         </Flex>
-        <Divider width="1px" height="85vh" bg="black"></Divider>
+        <Divider width="1px" height="100vh" bg="black"></Divider>
         <HStack width="85%">
           <VStack lineHeight="2" letterSpacing="wider" w="50%" pl="5%" pr="5%">
             <motion.div
@@ -146,25 +145,23 @@ const ProjectCard = (data: { project: Project }) => {
                   fontWeight="extrabold"
                   mt="2.5vh"
                   mb="2.5vh"
-                  color={useColorModeValue("gray.700", "gray.100")}
+                  color={useColorModeValue('gray.700','gray.100')}
                 >
                   {projectData.title}
                 </Heading>
               </motion.div>
             </motion.div>
-            <Text color={useColorModeValue("gray.600", "gray.400")} mb="2.5vh">
+            <Text color={useColorModeValue('gray.600','gray.400')} mb="2.5vh">
               {projectData.description}
             </Text>
             <HStack>
               <Link href={`./project/${projectData.id}`}>
                 <Button
                   variant="solid"
-                  colorScheme={useColorModeValue(
-                    colorMap[projectData.color as keyof typeof colorMap][0]
-                      .buttonColor,
-                    colorMap[projectData.color as keyof typeof colorMap][1]
-                      .buttonColor
-                  )}
+                  colorScheme={
+                    useColorModeValue(colorMap[projectData.color as keyof typeof colorMap][0].buttonColor,
+                      colorMap[projectData.color as keyof typeof colorMap][1].buttonColor) 
+                  }
                   borderRadius={0}
                   size="lg"
                   w="15vw"
@@ -176,12 +173,10 @@ const ProjectCard = (data: { project: Project }) => {
               <Link href={projectData.githubRepoLink}>
                 <Button
                   variant="outline"
-                  colorScheme={useColorModeValue(
-                    colorMap[projectData.color as keyof typeof colorMap][0]
-                      .buttonColor,
-                    colorMap[projectData.color as keyof typeof colorMap][1]
-                      .buttonColor
-                  )}
+                  colorScheme={
+                    useColorModeValue(colorMap[projectData.color as keyof typeof colorMap][0].buttonColor,
+                      colorMap[projectData.color as keyof typeof colorMap][1].buttonColor) 
+                  }
                   borderRadius={0}
                   size="lg"
                 >
@@ -194,20 +189,17 @@ const ProjectCard = (data: { project: Project }) => {
             width="50%"
             padding={5}
             position="relative"
-            bg={useColorModeValue(
-              colorMap[projectData.color as keyof typeof colorMap][0]
-                .frameColor,
-              colorMap[projectData.color as keyof typeof colorMap][1].frameColor
-            )}
+            bg={
+              useColorModeValue(colorMap[projectData.color as keyof typeof colorMap][0].frameColor,
+                colorMap[projectData.color as keyof typeof colorMap][1].frameColor) 
+            }
           >
             <Divider
               borderRadius={10}
-              bg={useColorModeValue(
-                colorMap[projectData.color as keyof typeof colorMap][0]
-                  .borderColor,
-                colorMap[projectData.color as keyof typeof colorMap][1]
-                  .borderColor
-              )}
+              bg={
+                useColorModeValue(colorMap[projectData.color as keyof typeof colorMap][0].borderColor,
+                  colorMap[projectData.color as keyof typeof colorMap][1].borderColor) 
+              }
               width="10px"
               h="100px"
               position="absolute"
@@ -216,12 +208,10 @@ const ProjectCard = (data: { project: Project }) => {
             ></Divider>
             <Divider
               borderRadius={10}
-              bg={useColorModeValue(
-                colorMap[projectData.color as keyof typeof colorMap][0]
-                  .borderColor,
-                colorMap[projectData.color as keyof typeof colorMap][1]
-                  .borderColor
-              )}
+              bg={
+                useColorModeValue(colorMap[projectData.color as keyof typeof colorMap][0].borderColor,
+                  colorMap[projectData.color as keyof typeof colorMap][1].borderColor) 
+              }
               h="10px"
               w="100px"
               position="absolute"
@@ -230,12 +220,10 @@ const ProjectCard = (data: { project: Project }) => {
             ></Divider>
             <Divider
               borderRadius={10}
-              bg={useColorModeValue(
-                colorMap[projectData.color as keyof typeof colorMap][0]
-                  .borderColor,
-                colorMap[projectData.color as keyof typeof colorMap][1]
-                  .borderColor
-              )}
+              bg={
+                useColorModeValue(colorMap[projectData.color as keyof typeof colorMap][0].borderColor,
+                  colorMap[projectData.color as keyof typeof colorMap][1].borderColor) 
+              }
               width="10px"
               h="100px"
               position="absolute"
@@ -244,12 +232,10 @@ const ProjectCard = (data: { project: Project }) => {
             ></Divider>
             <Divider
               borderRadius={10}
-              bg={useColorModeValue(
-                colorMap[projectData.color as keyof typeof colorMap][0]
-                  .borderColor,
-                colorMap[projectData.color as keyof typeof colorMap][1]
-                  .borderColor
-              )}
+              bg={
+                useColorModeValue(colorMap[projectData.color as keyof typeof colorMap][0].borderColor,
+                  colorMap[projectData.color as keyof typeof colorMap][1].borderColor) 
+              }
               width="100px"
               h="10px"
               position="absolute"
@@ -263,14 +249,8 @@ const ProjectCard = (data: { project: Project }) => {
             ></Image>
           </Box>
         </HStack>
-        <Divider
-          width="1px"
-          height="85vh"
-          bg={useColorModeValue(
-            "black",
-            colorMap[projectData.color as keyof typeof colorMap][1].buttonColor
-          )}
-        ></Divider>
+        <Divider width="1px" height="100vh" bg={useColorModeValue('black',
+                      colorMap[projectData.color as keyof typeof colorMap][1].buttonColor) }></Divider>
       </HStack>
     );
   else return null;
