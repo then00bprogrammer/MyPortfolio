@@ -197,7 +197,7 @@ const Contact = () => {
             </Button>
           </form>
         </VStack>
-        <VStack width={['100%','50%']} pl={['0%','5%']} pr={['0%','5%']} >
+        <VStack width={['100%','50%']} pl={['0%','5%']} pr={['0%','5%']} justifyContent='center' alignItems='center'>
           <Box width="100%">
             <Player
               autoplay
