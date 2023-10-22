@@ -15,7 +15,7 @@ import Technology from "@/components/Technology";
 import VideoPlayer from "@/components/VideoPlayer";
 import client from "@/client";
 import Social from "@/components/Social";
-import Frame from "@/components/frame";
+import Frame from '@/components/Frame";
 
 type Project = {
   title: string;
