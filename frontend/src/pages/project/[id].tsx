@@ -74,7 +74,7 @@ const Project = () => {
         bg={useColorModeValue("white", "black")}
         marginTop={["10vh", "15vh"]}
       >
-        <Stack direction={["column", "row"]} w="80%" h={["90vh", "85vh"]} alignItems='center' justifyContent='center'>
+        <Stack direction={["column", "row"]} w="80%" minH={["90vh", "85vh"]} alignItems='center' justifyContent='center'>
           <VStack
             lineHeight="2"
             letterSpacing="wider"

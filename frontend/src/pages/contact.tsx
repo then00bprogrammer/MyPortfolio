@@ -100,7 +100,7 @@ const Contact = () => {
   return (
     <VStack
       w="full"
-      height={["90vh", "85vh"]}
+      minH={["90vh", "85vh"]}
       marginTop={["10vh", "15vh"]}
       bg={useColorModeValue("white", "black")}
     >
@@ -112,7 +112,7 @@ const Contact = () => {
         />
       )}
 
-      <Stack direction={['column','row']} w="80%" m="auto" height={["90vh", "85vh"]}>
+      <Stack direction={['column','row']} w="80%" m="auto" minH={["90vh", "85vh"]}>
         <VStack lineHeight="2" letterSpacing="wider" w={['100%','50%']} pl={['0%','5%']} pr={['0%','5%']}>
           <Heading
             fontSize={['4xl','7xl']}
