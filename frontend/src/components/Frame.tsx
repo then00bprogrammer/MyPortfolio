@@ -1,7 +1,6 @@
 import { Divider, useColorModeValue } from "@chakra-ui/react";
 import React from "react";
 
-
 const Frame = () => {
   return (
     <>

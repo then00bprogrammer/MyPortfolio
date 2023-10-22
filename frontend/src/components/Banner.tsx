@@ -1,6 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import { Flex, Box, Heading, VStack, HStack, Button, useColorMode, useColorModeValue } from "@chakra-ui/react";
+import { Flex, Box, Heading, VStack, HStack, Button, useColorModeValue } from "@chakra-ui/react";
 import { Player } from "@lottiefiles/react-lottie-player";
 import Typing from "./Typing";
 

@@ -15,7 +15,7 @@ import Technology from "@/components/Technology";
 import VideoPlayer from "@/components/VideoPlayer";
 import client from "@/client";
 import Social from "@/components/Social";
-import Frame from '@/components/Frame";
+import Frame from "@/components/Frame";
 
 type Project = {
   title: string;
@@ -130,7 +130,7 @@ const Project = () => {
             position="relative"
             display={['none','flex']}
           >
-            <Frame />
+            <Frame/>
             <VideoPlayer
               thumbnail={data.projectPhoto}
               videoLink={data.projectVideoLink}
