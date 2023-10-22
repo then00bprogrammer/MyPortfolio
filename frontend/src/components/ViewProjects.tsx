@@ -9,6 +9,7 @@ import {
   HStack,
   Heading,
   Image,
+  Stack,
   Text,
   VStack,
   useColorMode,
@@ -76,7 +77,7 @@ const Projects = () => {
         zIndex={1}
         alignItems="center"
         justifyContent="center"
-        display={['none']}
+        display={["none"]}
       >
         <Text
           transform="rotate(180deg)"
@@ -93,11 +94,18 @@ const Projects = () => {
         width="1px"
         height="100vh"
         bg={useColorModeValue("black", "#735F32")}
+        display={["none", "flex"]}
       ></Divider>
-      <HStack width="85%">
-        <VStack lineHeight="2" letterSpacing="wider" w="50%" pl="5%" pr="5%">
+      <Stack w={["100%", "85%"]} direction={["column", "row"]}>
+        <VStack
+          lineHeight="2"
+          letterSpacing="wider"
+          w={["100%", "50%"]}
+          pl={["0%", "5%"]}
+          pr={["0%", "5%"]}
+        >
           <Heading
-            fontSize="7xl"
+            fontSize={["4xl", "7xl"]}
             fontWeight="extrabold"
             mt="2.5vh"
             mb="2.5vh"
@@ -105,7 +113,91 @@ const Projects = () => {
           >
             PROJECTS
           </Heading>
-          <Text mb="2.5vh" color={useColorModeValue("gray.600", "gray.400")}>
+          <VStack
+            w={["100%", "50%"]}
+            alignItems="flex-start"
+            lineHeight="2"
+            letterSpacing="wider"
+            position="relative"
+            padding={5}
+            display={["flex", "none"]}
+            marginBottom='2.5vh'
+          >
+            {colorMode === "dark" && (
+              <Divider
+                borderRadius={10}
+                bg={useColorModeValue("red", "#735F32")}
+                width="10px"
+                h="100px"
+                position="absolute"
+                top={0}
+                left={0}
+              ></Divider>
+            )}
+            {colorMode === "dark" && (
+              <Divider
+                borderRadius={10}
+                bg={useColorModeValue("red", "#735F32")}
+                h="10px"
+                w="100px"
+                position="absolute"
+                top={0}
+                left={0}
+              ></Divider>
+            )}
+            {colorMode === "dark" && (
+              <Divider
+                borderRadius={10}
+                bg={useColorModeValue("red", "#735F32")}
+                width="10px"
+                h="100px"
+                position="absolute"
+                bottom={0}
+                right={0}
+              ></Divider>
+            )}
+            {colorMode === "dark" && (
+              <Divider
+                borderRadius={10}
+                bg={useColorModeValue("red", "#735F32")}
+                width="100px"
+                h="10px"
+                position="absolute"
+                bottom={0}
+                right={0}
+              ></Divider>
+            )}
+            <Swiper
+              spaceBetween={30}
+              centeredSlides={true}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
+              pagination={{
+                clickable: true,
+              }}
+              navigation={true}
+              modules={[Autoplay, Pagination, Navigation]}
+              className="mySwiper"
+            >
+              {data &&
+                data.map((slide, id) => (
+                  <SwiperSlide key={id}>
+                    <Image
+                      src={slide.projectPhoto}
+                      onClick={() => router.push(`./project/${slide.id}`)}
+                      _hover={{ filter: "brightness(80%)", cursor: "pointer" }}
+                    ></Image>
+                  </SwiperSlide>
+                ))}
+            </Swiper>
+          </VStack>
+          <Text
+            mb="2.5vh"
+            color={useColorModeValue("gray.600", "gray.400")}
+            fontSize={["xs", "sm"]}
+          >
             A glimpse of realizations I've developed so far. Taking care of
             every need of my clients. Bringing performance and SEO on top of the
             charts. It doesn't matter whether it is about a simple business
@@ -119,8 +211,6 @@ const Projects = () => {
                 colorScheme={useColorModeValue("red", "gold")}
                 borderRadius={0}
                 size="lg"
-                w="15vw"
-                h="7.5vh"
               >
                 View Projects
               </Button>
@@ -140,12 +230,13 @@ const Projects = () => {
           </HStack>
         </VStack>
         <VStack
-          w="50%"
+          w={["100%", "50%"]}
           alignItems="flex-start"
           lineHeight="2"
           letterSpacing="wider"
           position="relative"
           padding={5}
+          display={["none", "flex"]}
         >
           {colorMode === "dark" && (
             <Divider
@@ -217,11 +308,12 @@ const Projects = () => {
               ))}
           </Swiper>
         </VStack>
-      </HStack>
+      </Stack>
       <Divider
         width="1px"
         height="100vh"
         bg={useColorModeValue("black", "#735F32")}
+        display={["none", "flex"]}
       ></Divider>
     </HStack>
   );

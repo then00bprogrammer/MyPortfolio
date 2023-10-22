@@ -9,13 +9,13 @@ import { Flex, Stack, VStack, useColorModeValue } from '@chakra-ui/react'
 
 const index = () => {
   return (
-    <Stack bg={useColorModeValue('white','black')} >
-      <Banner />
+    <Stack bg={useColorModeValue('white','black')} spacing={0}>
+       <Banner />
       <Social/>
       <Services/>
       <Spacer/>
-      <Projects/>
-      <ContactMe/>
+      <Projects/> 
+      <ContactMe/> 
     </Stack>
   )
 }
