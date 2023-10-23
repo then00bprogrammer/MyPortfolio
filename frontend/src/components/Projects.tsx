@@ -24,7 +24,6 @@ import "swiper/css/scrollbar";
 
 import client from "@/client";
 import Frame from "@/components/Frame";
-
 import SolidButton from "./SolidButton";
 
 type ProjectSlide = {
