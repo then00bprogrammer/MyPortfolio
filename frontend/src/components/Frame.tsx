@@ -1,7 +1,7 @@
-import { Divider, useColorModeValue } from "@chakra-ui/react";
 import React from "react";
+import { Divider, useColorModeValue } from "@chakra-ui/react";
 
-const Frame = () => {
+const Frame:React.FC = () => {
   return (
     <>
       <Divider

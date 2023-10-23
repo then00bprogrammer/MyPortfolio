@@ -4,11 +4,11 @@ const Typing = () => {
   return (
     <TypeAnimation
       sequence={[
-        'I\'m a Full Stack Web Developer',
+        'Full Stack Web Developer',
         1000,
-        'I\'m a Freelancer',
+        'Freelancer',
         1000,
-        'I\'m a Competitive Programmer',
+        'Competitive Programmer',
         1000,
       ]}
       wrapper="span"

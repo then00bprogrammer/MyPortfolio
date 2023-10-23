@@ -7,7 +7,6 @@ import { motion } from "framer-motion";
 const SocialButton = ({
   href,
   icon,
-  label,
 }: {
   href: string;
   icon: any;
@@ -34,12 +33,11 @@ const Social: React.FC = () => {
     <HStack
       h="5vh"
       w={["100%", "70%"]}
-      marginRight='auto'
-      
+      marginRight="auto"
       justifyContent="center"
       alignItems="center"
       marginTop="5vh"
-      marginBottom={["5vh", "15vh"]}
+      marginBottom={["5vh", "10vh"]}
     >
       <Divider
         bg={useColorModeValue("black", "#735F32")}

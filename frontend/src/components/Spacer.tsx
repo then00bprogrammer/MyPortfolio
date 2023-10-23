@@ -4,7 +4,7 @@ import { Divider, HStack, useColorModeValue } from "@chakra-ui/react";
 const Spacer = () => {
   return (
     <HStack
-      h={['0','20vh']}
+      h={['0','10vh']}
       w="full"
       pl="7.5vw"
       pr="7.5vw"

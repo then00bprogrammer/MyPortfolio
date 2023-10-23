@@ -22,6 +22,7 @@ import {
   SiNeo4J,
 } from "react-icons/si";
 import { TbBrandCpp } from "react-icons/tb";
+import Frame from "./Frame";
 
 const Services = () => {
   return (
@@ -43,48 +44,13 @@ const Services = () => {
         <VStack
           w={["100%", "70%"]}
           alignItems="flex-start"
-          pl="5%"
-          pr="5%"
+          pl={["0%", "5%"]}
+          pr={["0%", "5%"]}
           lineHeight="2"
           letterSpacing="wider"
         >
           <Box p={5} position="relative">
-            <Divider
-              borderRadius={10}
-              bg={useColorModeValue("red", "#735F32")}
-              width="10px"
-              h="100px"
-              position="absolute"
-              top={0}
-              left={0}
-            ></Divider>
-            <Divider
-              borderRadius={10}
-              bg={useColorModeValue("red", "#735F32")}
-              h="10px"
-              w="100px"
-              position="absolute"
-              top={0}
-              left={0}
-            ></Divider>
-            <Divider
-              borderRadius={10}
-              bg={useColorModeValue("red", "#735F32")}
-              width="10px"
-              h="100px"
-              position="absolute"
-              bottom={0}
-              right={0}
-            ></Divider>
-            <Divider
-              borderRadius={10}
-              bg={useColorModeValue("red", "#735F32")}
-              width="100px"
-              h="10px"
-              position="absolute"
-              bottom={0}
-              right={0}
-            ></Divider>
+            <Frame />
             <Image src="./services.jpg"></Image>
           </Box>
           <Heading
@@ -94,15 +60,14 @@ const Services = () => {
             color={useColorModeValue("gray.800", "gray.100")}
             display={["none", "flex"]}
           >
-            {" "}
             WEB DEVELOPER
           </Heading>
           <Wrap
             ml="auto"
             color={useColorModeValue("black", "#735F32")}
             display={["flex", "none"]}
-            marginTop={['2.5vh','0']}
-            marginBottom={['2.5vh','0']}
+            marginTop={["2.5vh", "0"]}
+            marginBottom={["2.5vh", "0"]}
           >
             <Icon as={SiReact} boxSize={["10", "20"]} p={2}></Icon>
             <Icon as={SiNodedotjs} boxSize={["10", "20"]} p={2}></Icon>
@@ -112,18 +77,14 @@ const Services = () => {
             <Icon as={TbBrandCpp} boxSize={["10", "20"]} p={2}></Icon>
           </Wrap>
 
-          <Text
-            color={useColorModeValue("gray.600", "gray.400")}
-            mb="2.5vh"
-          >
-            As a professional freelancer specialized in web design, SEO and web
-            development, I create customized digital solutions with a focus on
-            your needs. Examples are: regular business websites, application for
-            administrative purposes (e.g. selecting personnel for certain
-            tasks), webshops, food delivery web application, CRM's and more. In
-            other words: anything that needs to appear on screen to increase
-            your business' efficiency and/or attract more users and ultimately
-            generate more revenue.
+          <Text color={useColorModeValue("gray.600", "gray.400")} mb="2.5vh">
+            I specialize in the MERN stack, excelling in MongoDB, Express.js,
+            React.js, and Node.js for robust web apps. Next.js ensures top-notch
+            user experiences. Python Flask is my go-to for APIs and tailored web
+            apps. Neo4j handles intricate data relationships, while Firebase is
+            key for mobile and web development. Sanity streamlines content
+            management. This skill set enables me to tackle diverse web
+            development challenges with innovation and precision
           </Text>
           <HStack>
             <a href="https://www.fiverr.com/nikhil03_" target="_blank">
@@ -138,7 +99,7 @@ const Services = () => {
             </a>
             <Button
               variant="outline"
-              colorScheme={useColorModeValue("blackAlpha", "gold")}
+              colorScheme={useColorModeValue("black", "gold")}
               borderRadius={0}
               size="lg"
               onClick={() => {
@@ -150,12 +111,11 @@ const Services = () => {
             </Button>
           </HStack>
         </VStack>
-        <VStack marginBottom={['2.5vh','0']}>
+        <VStack marginBottom={["2.5vh", "0"]}>
           <Heading
             fontSize={["4xl", "7xl"]}
             fontWeight="extrabold"
             color={useColorModeValue("gray.800", "gray.100")}
-            // display={['none','flex']}
           >
             SERVICES
           </Heading>
@@ -163,7 +123,6 @@ const Services = () => {
             fontSize={["4xl", "7xl"]}
             fontWeight="extrabold"
             color={useColorModeValue("gray.800", "gray.100")}
-            // display={['none','flex']}
           >
             & TECH
           </Heading>

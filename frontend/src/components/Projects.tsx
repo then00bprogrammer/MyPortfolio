@@ -12,25 +12,19 @@ import {
   Stack,
   Text,
   VStack,
-  useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-
-import {
-  Autoplay,
-  Navigation,
-  Pagination,
-  EffectFade,
-  Parallax,
-} from "swiper/modules";
-
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+
 import client from "@/client";
+import Frame from "@/components/Frame";
+import SolidButton from "./SolidButton";
 
 type ProjectSlide = {
   projectPhoto: string;
@@ -38,15 +32,13 @@ type ProjectSlide = {
 };
 
 const Projects = () => {
-  const ref = useRef(null);
   const router = useRouter();
   const [data, setData] = useState<ProjectSlide[]>();
-  const { colorMode } = useColorMode();
   const fetchPost = async () => {
     try {
-      const res = await client.fetch(`*[_type == "post"] | order(priority) {
-        "projectPhoto":projectPhoto.asset->url,
-        "id":_id
+      const res = await client.fetch(`*[_type == 'post'] | order(priority) {
+        'projectPhoto':projectPhoto.asset->url,
+        'id':_id
       }`);
       setData(res);
     } catch (error) {
@@ -69,7 +61,7 @@ const Projects = () => {
       id="projects"
     >
       <Flex
-        bg={useColorModeValue("red.400", "#C69749")}
+        bg={useColorModeValue("red.400", "gold.500")}
         h="100vh"
         w="15vw"
         position="absolute"
@@ -77,7 +69,7 @@ const Projects = () => {
         zIndex={1}
         alignItems="center"
         justifyContent="center"
-        display={["none"]}
+        display={["none", "flex"]}
       >
         <Text
           transform="rotate(180deg)"
@@ -121,52 +113,9 @@ const Projects = () => {
             position="relative"
             padding={5}
             display={["flex", "none"]}
-            marginBottom='2.5vh'
+            marginBottom="2.5vh"
           >
-            {colorMode === "dark" && (
-              <Divider
-                borderRadius={10}
-                bg={useColorModeValue("red", "#735F32")}
-                width="10px"
-                h="100px"
-                position="absolute"
-                top={0}
-                left={0}
-              ></Divider>
-            )}
-            {colorMode === "dark" && (
-              <Divider
-                borderRadius={10}
-                bg={useColorModeValue("red", "#735F32")}
-                h="10px"
-                w="100px"
-                position="absolute"
-                top={0}
-                left={0}
-              ></Divider>
-            )}
-            {colorMode === "dark" && (
-              <Divider
-                borderRadius={10}
-                bg={useColorModeValue("red", "#735F32")}
-                width="10px"
-                h="100px"
-                position="absolute"
-                bottom={0}
-                right={0}
-              ></Divider>
-            )}
-            {colorMode === "dark" && (
-              <Divider
-                borderRadius={10}
-                bg={useColorModeValue("red", "#735F32")}
-                width="100px"
-                h="10px"
-                position="absolute"
-                bottom={0}
-                right={0}
-              ></Divider>
-            )}
+            <Frame />
             <Swiper
               spaceBetween={30}
               centeredSlides={true}
@@ -193,30 +142,18 @@ const Projects = () => {
                 ))}
             </Swiper>
           </VStack>
-          <Text
-            mb="2.5vh"
-            color={useColorModeValue("gray.600", "gray.400")}
-          >
-            A glimpse of realizations I've developed so far. Taking care of
-            every need of my clients. Bringing performance and SEO on top of the
-            charts. It doesn't matter whether it is about a simple business
-            website or a live complex e-commerce webshop. Click the button to
-            see my projects.
+          <Text mb="2.5vh" color={useColorModeValue("gray.600", "gray.400")}>
+            A glimpse of realizations I've developed so far. It doesn't matter
+            whether it is about a simple business website or a live complex
+            e-commerce webshop. Click the button to see my projects.
           </Text>
           <HStack>
             <Link href="./projects">
-              <Button
-                variant="solid"
-                colorScheme={useColorModeValue("red", "gold")}
-                borderRadius={0}
-                size="lg"
-              >
-                View Projects
-              </Button>
+              <SolidButton>View Projects</SolidButton>
             </Link>
             <Button
               variant="outline"
-              colorScheme={useColorModeValue("blackAlpha", "gold")}
+              colorScheme={useColorModeValue("black", "gold")}
               borderRadius={0}
               size="lg"
               onClick={() => {
@@ -237,50 +174,7 @@ const Projects = () => {
           padding={5}
           display={["none", "flex"]}
         >
-          {colorMode === "dark" && (
-            <Divider
-              borderRadius={10}
-              bg={useColorModeValue("red", "#735F32")}
-              width="10px"
-              h="100px"
-              position="absolute"
-              top={0}
-              left={0}
-            ></Divider>
-          )}
-          {colorMode === "dark" && (
-            <Divider
-              borderRadius={10}
-              bg={useColorModeValue("red", "#735F32")}
-              h="10px"
-              w="100px"
-              position="absolute"
-              top={0}
-              left={0}
-            ></Divider>
-          )}
-          {colorMode === "dark" && (
-            <Divider
-              borderRadius={10}
-              bg={useColorModeValue("red", "#735F32")}
-              width="10px"
-              h="100px"
-              position="absolute"
-              bottom={0}
-              right={0}
-            ></Divider>
-          )}
-          {colorMode === "dark" && (
-            <Divider
-              borderRadius={10}
-              bg={useColorModeValue("red", "#735F32")}
-              width="100px"
-              h="10px"
-              position="absolute"
-              bottom={0}
-              right={0}
-            ></Divider>
-          )}
+          <Frame />
           <Swiper
             spaceBetween={30}
             centeredSlides={true}
