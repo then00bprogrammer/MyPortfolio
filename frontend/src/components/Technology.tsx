@@ -145,8 +145,8 @@ const Technology = ({
               autoplay
               loop
               src={useColorModeValue(
-                "/animations/technology.json",
-                "/animations/technology-dark.json"
+                "/animations/Technology.json",
+                "/animations/Technology-dark.json"
               )}
               style={{ height: "100%", width: "100%" }}
             />
@@ -182,8 +182,8 @@ const Technology = ({
             autoplay
             loop
             src={useColorModeValue(
-              "/animations/technology.json",
-              "/animations/technology-dark.json"
+              "/animations/Technology.json",
+              "/animations/Technology-dark.json"
             )}
             style={{ height: "100%", width: "100%" }}
           />
