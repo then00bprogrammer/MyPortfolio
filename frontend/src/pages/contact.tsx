@@ -10,6 +10,7 @@ import {
   Text,
   Textarea,
   VStack,
+  Wrap,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { Player } from "@lottiefiles/react-lottie-player";
@@ -124,7 +125,7 @@ const Contact = () => {
             fontWeight="extrabold"
             mt="2.5vh"
             mb="2.5vh"
-            color={useColorModeValue("gray.700", "gray.100")}
+            color={useColorModeValue("gray.700", "yellow.100")}
           >
             CONTACT ME
           </Heading>
@@ -206,7 +207,7 @@ const Contact = () => {
               style={{ width: "100%" }}
             />
           </Box>
-          <HStack mt="5vh">
+          <Wrap mt="5vh" mb='2.5vh'>
             <Text
               letterSpacing="wider"
               color={useColorModeValue("gray.600", "gray.400")}
@@ -221,7 +222,7 @@ const Contact = () => {
                 nikhilranjan1103@gmail.com
               </Text>
             </a>
-          </HStack>
+          </Wrap>
         </VStack>
       </Stack>
     </VStack>

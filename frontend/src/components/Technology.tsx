@@ -145,8 +145,8 @@ const Technology = ({
               autoplay
               loop
               src={useColorModeValue(
-                "/animations/technology.json",
-                "/animations/technology-dark.json"
+                "/animations/Technology.json",
+                "/animations/Technology-dark.json"
               )}
               style={{ height: "100%", width: "100%" }}
             />
@@ -164,7 +164,7 @@ const Technology = ({
               <WrapItem key={index}>
                 <Icon
                   as={iconMap[tech as keyof typeof iconMap]}
-                  boxSize="16"
+                  boxSize={['10','16']}
                   p={2}
                 ></Icon>
               </WrapItem>

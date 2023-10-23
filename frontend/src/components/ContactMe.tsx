@@ -48,7 +48,7 @@ const ContactMe: React.FC = () => {
             clipPath: 'polygon(0% 40%, 0% 100%, 100% 100%, 100% 0%)',
           }}
           color='white'
-          paddingTop='35vh'
+          paddingTop={useColorModeValue('30vh','35vh')}
           backgroundColor={useColorModeValue(
             'blackAlpha.800',
             'blackAlpha.900'
@@ -57,14 +57,13 @@ const ContactMe: React.FC = () => {
           pl='7.5%'
           pr='7.5%'
         >
-          <Heading size='2xl' mb='2.5vh'>
+          <Heading size='2xl' mb='2.5vh' >
             CONTACT
           </Heading>
           <Text
             lineHeight={2}
             letterSpacing='wider'
             mb='2.5vh'
-            fontSize={['xs', 'sm']}
           >
             Any questions or need a website, logo design or something else?
             Don't hesitate to contact me.
