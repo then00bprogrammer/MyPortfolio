@@ -149,7 +149,7 @@ const Technology = ({
           <Player
             autoplay
             loop
-            src="/animations/Technology.json"
+            src={['/animations/Technology.json','/animations/Technology-dark.json']}
             style={{ height: "100%", width: "100%" }}
           />
         </Box>
