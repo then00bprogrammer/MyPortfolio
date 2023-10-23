@@ -14,6 +14,7 @@ import {
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
+import Frame from "./Frame";
 
 const headingVariants: Variants = {
   offscreen: {
@@ -115,7 +116,7 @@ const ProjectCard = (data: { project: Project }) => {
         <Flex
           bgImage={projectData.sidePhoto}
           bgSize="cover"
-          h='full'
+          h="full"
           w="15vw"
           position="absolute"
           left={0}
@@ -140,20 +141,25 @@ const ProjectCard = (data: { project: Project }) => {
           width="1px"
           height={["90vh", "85vh"]}
           display={["none", "flex"]}
-          position='absolute'
-          right='7.5vw'
+          position="absolute"
+          right="7.5vw"
           bg={useColorModeValue(
             "black",
             colorMap[projectData.color as keyof typeof colorMap][1].buttonColor
           )}
         ></Divider>
-        <Stack width="100%" direction={["column", "row"]} alignItems='center' spacing={0}>
+        <Stack
+          width="100%"
+          direction={["column", "row"]}
+          alignItems="center"
+          spacing={0}
+        >
           <VStack
             lineHeight="2"
             letterSpacing="wider"
             w={["100%", "46.25vw"]}
             ml={["0%", "7.5vw"]}
-            pl={['0%','4.25vw']}
+            pl={["0%", "4.25vw"]}
             pr={["0%", "2.125vw"]}
           >
             <motion.div
@@ -187,62 +193,14 @@ const ProjectCard = (data: { project: Project }) => {
                   .frameColor
               )}
             >
-              <Divider
-                borderRadius={10}
-                bg={useColorModeValue(
+              <Frame
+                frameColor={useColorModeValue(
                   colorMap[projectData.color as keyof typeof colorMap][0]
                     .borderColor,
                   colorMap[projectData.color as keyof typeof colorMap][1]
                     .borderColor
                 )}
-                width="10px"
-                h="100px"
-                position="absolute"
-                top={0}
-                left={0}
-              ></Divider>
-              <Divider
-                borderRadius={10}
-                bg={useColorModeValue(
-                  colorMap[projectData.color as keyof typeof colorMap][0]
-                    .borderColor,
-                  colorMap[projectData.color as keyof typeof colorMap][1]
-                    .borderColor
-                )}
-                h="10px"
-                w="100px"
-                position="absolute"
-                top={0}
-                left={0}
-              ></Divider>
-              <Divider
-                borderRadius={10}
-                bg={useColorModeValue(
-                  colorMap[projectData.color as keyof typeof colorMap][0]
-                    .borderColor,
-                  colorMap[projectData.color as keyof typeof colorMap][1]
-                    .borderColor
-                )}
-                width="10px"
-                h="100px"
-                position="absolute"
-                bottom={0}
-                right={0}
-              ></Divider>
-              <Divider
-                borderRadius={10}
-                bg={useColorModeValue(
-                  colorMap[projectData.color as keyof typeof colorMap][0]
-                    .borderColor,
-                  colorMap[projectData.color as keyof typeof colorMap][1]
-                    .borderColor
-                )}
-                width="100px"
-                h="10px"
-                position="absolute"
-                bottom={0}
-                right={0}
-              ></Divider>
+              />
               <Image
                 width="full"
                 objectFit="contain"
@@ -285,84 +243,34 @@ const ProjectCard = (data: { project: Project }) => {
               </Link>
             </HStack>
           </VStack>
-            <Box
-              display={['none','flex']}
-              padding={5}
-              position="relative"
-              bg={useColorModeValue(
+          <Box
+            display={["none", "flex"]}
+            padding={5}
+            position="relative"
+            bg={useColorModeValue(
+              colorMap[projectData.color as keyof typeof colorMap][0]
+                .frameColor,
+              colorMap[projectData.color as keyof typeof colorMap][1].frameColor
+            )}
+            height="-webkit-fit-content"
+            w="38.75vw"
+            mr="4.25vw"
+            ml="2.125vw"
+          >
+            <Frame
+              frameColor={useColorModeValue(
                 colorMap[projectData.color as keyof typeof colorMap][0]
-                  .frameColor,
+                  .borderColor,
                 colorMap[projectData.color as keyof typeof colorMap][1]
-                  .frameColor
+                  .borderColor
               )}
-              height='-webkit-fit-content'
-              w='38.75vw'
-              mr='4.25vw'
-              ml='2.125vw'
-
-            >
-              <Divider
-                borderRadius={10}
-                bg={useColorModeValue(
-                  colorMap[projectData.color as keyof typeof colorMap][0]
-                    .borderColor,
-                  colorMap[projectData.color as keyof typeof colorMap][1]
-                    .borderColor
-                )}
-                width="10px"
-                h="100px"
-                position="absolute"
-                top={0}
-                left={0}
-              ></Divider>
-              <Divider
-                borderRadius={10}
-                bg={useColorModeValue(
-                  colorMap[projectData.color as keyof typeof colorMap][0]
-                    .borderColor,
-                  colorMap[projectData.color as keyof typeof colorMap][1]
-                    .borderColor
-                )}
-                h="10px"
-                w="100px"
-                position="absolute"
-                top={0}
-                left={0}
-              ></Divider>
-              <Divider
-                borderRadius={10}
-                bg={useColorModeValue(
-                  colorMap[projectData.color as keyof typeof colorMap][0]
-                    .borderColor,
-                  colorMap[projectData.color as keyof typeof colorMap][1]
-                    .borderColor
-                )}
-                width="10px"
-                h="100px"
-                position="absolute"
-                bottom={0}
-                right={0}
-              ></Divider>
-              <Divider
-                borderRadius={10}
-                bg={useColorModeValue(
-                  colorMap[projectData.color as keyof typeof colorMap][0]
-                    .borderColor,
-                  colorMap[projectData.color as keyof typeof colorMap][1]
-                    .borderColor
-                )}
-                width="100px"
-                h="10px"
-                position="absolute"
-                bottom={0}
-                right={0}
-              ></Divider>
-              <Image
-                width="full"
-                objectFit="contain"
-                src={projectData.projectPhoto}
-              ></Image>
-            </Box>
+            />
+            <Image
+              width="full"
+              objectFit="contain"
+              src={projectData.projectPhoto}
+            ></Image>
+          </Box>
         </Stack>
       </HStack>
     );
