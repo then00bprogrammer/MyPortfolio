@@ -32,7 +32,7 @@ const headingVariants: Variants = {
 };
 
 const blueDark = {
-  theme: "#1A1A2E",
+  theme: "rgba( 26, 26, 46, 0.5 )",
   buttonColor: "blue",
   frameColor: "#16213E",
   borderColor: "#0F3460",
@@ -51,7 +51,7 @@ const grayLight = {
   borderColor: "black",
 };
 const grayDark = {
-  theme: "#333456",
+  theme: "rgba( 51, 52, 86, 0.35 )",
   buttonColor: "purple",
   frameColor: "blackAlpha.200",
   borderColor: "black",
@@ -64,7 +64,7 @@ const orangeLight = {
   borderColor: "orange",
 };
 const orangeDark = {
-  theme: "#2F2519",
+  theme: "rgba( 47, 37, 25, 0.35 )",
   buttonColor: "orange",
   frameColor: "#4A3F35",
   borderColor: "#2F2519",
@@ -192,6 +192,7 @@ const ProjectCard = (data: { project: Project }) => {
                 colorMap[projectData.color as keyof typeof colorMap][1]
                   .frameColor
               )}
+              backdropFilter='blur(3.5px)'
             >
               <Frame
                 frameColor={useColorModeValue(
@@ -247,11 +248,11 @@ const ProjectCard = (data: { project: Project }) => {
             display={["none", "flex"]}
             padding={5}
             position="relative"
-            bg={useColorModeValue(
-              colorMap[projectData.color as keyof typeof colorMap][0]
-                .frameColor,
-              colorMap[projectData.color as keyof typeof colorMap][1].frameColor
-            )}
+            // bg={useColorModeValue(
+            //   colorMap[projectData.color as keyof typeof colorMap][0]
+            //     .frameColor,
+            //   colorMap[projectData.color as keyof typeof colorMap][1].frameColor
+            // )}
             height="-webkit-fit-content"
             w="38.75vw"
             mr="4.25vw"

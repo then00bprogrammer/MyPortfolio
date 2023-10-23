@@ -51,7 +51,7 @@ const Projects = () => {
 
   return (
     <HStack
-      h="100vh"
+      h={['90vh','85vh']}
       w="full"
       pl="7.5vw"
       pr="7.5vw"
@@ -62,7 +62,7 @@ const Projects = () => {
     >
       <Flex
         bg={useColorModeValue("red.400", "gold.500")}
-        h="100vh"
+        h={['90vh','85vh']}
         w="15vw"
         position="absolute"
         left={0}
