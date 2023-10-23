@@ -140,13 +140,13 @@ const Technology = ({
               </Heading>
             </motion.div>
           </motion.div>
-          <Box w={["100%", "50%"]} display={["flex", "none"]} p={["0%", "5%"]}>
+          <Box w='100%' display={["flex", "none"]} h='45vh'>
             <Player
               autoplay
               loop
               src={useColorModeValue(
-                "/animations/Technology.json",
-                "/animations/Technology-dark.json"
+                "/animations/technology.json",
+                "/animations/technology-dark.json"
               )}
               style={{ height: "100%", width: "100%" }}
             />
@@ -164,7 +164,7 @@ const Technology = ({
               <WrapItem key={index}>
                 <Icon
                   as={iconMap[tech as keyof typeof iconMap]}
-                  boxSize={['10','16']}
+                  boxSize={['12','16']}
                   p={2}
                 ></Icon>
               </WrapItem>
@@ -172,18 +172,18 @@ const Technology = ({
           </Wrap>
         </VStack>
         <Box
-          w={["100%", "46.25vw"]}
-          mr={["0%", "7.5vw"]}
-          pr={["0%", "4.25vw"]}
-          pl={["0%", "2.125vw"]}
+          w='46.25vw'
+          mr='7.5vw'
+          pr='4.25vw'
+          pl='2.125vw'
           display={["none", "flex"]}
         >
           <Player
             autoplay
             loop
             src={useColorModeValue(
-              "/animations/Technology.json",
-              "/animations/Technology-dark.json"
+              "/animations/technology.json",
+              "/animations/technology-dark.json"
             )}
             style={{ height: "100%", width: "100%" }}
           />
