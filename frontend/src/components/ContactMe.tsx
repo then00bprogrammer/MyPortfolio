@@ -69,7 +69,7 @@ const ContactMe: React.FC = () => {
             Any questions or need a website, logo design or something else?
             Don't hesitate to contact me.
           </Text>
-          <Link href='http://localhost:3000/contact'>
+          <Link href='./contact'>
             <Button
               variant='solid'
               colorScheme='green'

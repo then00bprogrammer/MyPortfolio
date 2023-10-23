@@ -186,12 +186,6 @@ const ProjectCard = (data: { project: Project }) => {
               width={["100%", "50%"]}
               padding={5}
               position="relative"
-              bg={useColorModeValue(
-                colorMap[projectData.color as keyof typeof colorMap][0]
-                  .frameColor,
-                colorMap[projectData.color as keyof typeof colorMap][1]
-                  .frameColor
-              )}
               backdropFilter='blur(3.5px)'
             >
               <Frame
@@ -248,11 +242,6 @@ const ProjectCard = (data: { project: Project }) => {
             display={["none", "flex"]}
             padding={5}
             position="relative"
-            // bg={useColorModeValue(
-            //   colorMap[projectData.color as keyof typeof colorMap][0]
-            //     .frameColor,
-            //   colorMap[projectData.color as keyof typeof colorMap][1].frameColor
-            // )}
             height="-webkit-fit-content"
             w="38.75vw"
             mr="4.25vw"
