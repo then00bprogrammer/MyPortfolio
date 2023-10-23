@@ -85,7 +85,8 @@ const projects = () => {
           spacing={0}
         >
           <Heading
-            size={["4xl", "7xl"]}
+            fontSize={['4xl','7xl']}
+            fontWeight="extrabold"
             mb="2.5vh"
             color={useColorModeValue("gray.700", "yellow.100")}
           >
