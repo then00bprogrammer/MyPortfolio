@@ -84,24 +84,20 @@ const Features: React.FC<FeaturesProps> = ({ features }) => {
           Features
         </Text>
       </Flex>
-      <Divider
-        width="1px"
-        h="85vh"
-        bg={useColorModeValue("black", "#735F32")}
-        display={["none", "flex"]}
-      ></Divider>
 
       <Stack
-        width={["100%", "85%"]}
+        width="100%"
         textAlign="left"
         direction={["column", "row"]}
+        spacing={0}
       >
         <VStack
           lineHeight="2"
           letterSpacing="wider"
-          w={["100%", "50%"]}
-          pl={["0%", "5%"]}
-          pr={["0%", "5%"]}
+          w={["100%", "46.25vw"]}
+          ml={["0%", "7.5vw"]}
+          pl={["0%", "4.25vw"]}
+          pr={["0%", "2.125vw"]}
           textAlign="left"
           color="gray.600"
           justifyContent="center"
@@ -114,7 +110,7 @@ const Features: React.FC<FeaturesProps> = ({ features }) => {
           >
             <motion.div variants={headingVariants}>
               <Heading
-                fontSize={['4xl','7xl']}
+                fontSize={["4xl", "7xl"]}
                 fontWeight="extrabold"
                 mt="2.5vh"
                 mb="2.5vh"
@@ -135,7 +131,6 @@ const Features: React.FC<FeaturesProps> = ({ features }) => {
           {features.map((feature, index) => (
             <HStack
               spacing={2}
-              pl={["0%", "15%"]}
               mr="auto"
               key={index}
               color={useColorModeValue("gray.600", "gray.400")}
@@ -152,11 +147,7 @@ const Features: React.FC<FeaturesProps> = ({ features }) => {
             </HStack>
           ))}
         </VStack>
-        <Box
-          w={["100%", "50%"]}
-          display={["none", "flex"]}
-          p={["0", "5%"]}
-        >
+        <Box display={["none", "flex"]} w="38.75vw" mr="4.25vw" ml="2.125vw">
           <Player
             autoplay
             loop
@@ -167,9 +158,12 @@ const Features: React.FC<FeaturesProps> = ({ features }) => {
       </Stack>
       <Divider
         width="1px"
+        height={["90vh", "85vh"]}
+        display={["none", "flex"]}
+        position="absolute"
+        right="7.5vw"
         h="85vh"
         bg={useColorModeValue("black", "#735F32")}
-        display={["none", "flex"]}
       ></Divider>
     </HStack>
   );

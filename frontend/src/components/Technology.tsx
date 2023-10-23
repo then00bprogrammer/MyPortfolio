@@ -105,25 +105,20 @@ const Technology = ({
           Technology
         </Text>
       </Flex>
-      <Divider
-        width="1px"
-        h={["90vh", "85vh"]}
-        bg={useColorModeValue("black", "#735F32")}
-        display={["none", "flex"]}
-      ></Divider>
       <Stack
-        w={["100%", "85%"]}
+        w={["100%", "100%"]}
         textAlign="left"
         direction={["column", "row"]}
         justifyContent="center"
         alignItems="center"
+        spacing={0}
       >
         <VStack
           lineHeight="2"
           letterSpacing="wider"
-          w={["100%", "50%"]}
-          pl={["0%", "5%"]}
-          pr={["0%", "5%"]}
+          w={["100%", "38.75vw"]}
+          ml={["0", "4.25vw"]}
+          mr={["0", "2.125vw"]}
           textAlign="left"
           color="gray.600"
         >
@@ -145,14 +140,17 @@ const Technology = ({
               </Heading>
             </motion.div>
           </motion.div>
-          <Box w={["100%", "50%"]} display={['flex','none']} p={['0%','5%']}>
-          <Player
-            autoplay
-            loop
-            src={['/animations/Technology.json','/animations/Technology-dark.json']}
-            style={{ height: "100%", width: "100%" }}
-          />
-        </Box>
+          <Box w={["100%", "50%"]} display={["flex", "none"]} p={["0%", "5%"]}>
+            <Player
+              autoplay
+              loop
+              src={useColorModeValue(
+                "/animations/technology.json",
+                "/animations/technology-dark.json"
+              )}
+              style={{ height: "100%", width: "100%" }}
+            />
+          </Box>
           <Text color={useColorModeValue("gray.600", "gray.400")}>
             {description}
           </Text>
@@ -160,7 +158,7 @@ const Technology = ({
             spacing="2"
             mt="2.5vh"
             pr={["0%", "30%"]}
-            color={useColorModeValue("gray.800", "#4477CE")}
+            color={useColorModeValue("gray.800", "gold.600")}
           >
             {techStack.map((tech, index) => (
               <WrapItem key={index}>
@@ -173,20 +171,32 @@ const Technology = ({
             ))}
           </Wrap>
         </VStack>
-        <Box w={["100%", "50%"]} p={['0%','5%']} display={['none','flex']}>
+        <Box
+          w={["100%", "46.25vw"]}
+          mr={["0%", "7.5vw"]}
+          pr={["0%", "4.25vw"]}
+          pl={["0%", "2.125vw"]}
+          display={["none", "flex"]}
+        >
           <Player
             autoplay
             loop
-            src="/animations/Technology.json"
+            src={useColorModeValue(
+              "/animations/Technology.json",
+              "/animations/Technology-dark.json"
+            )}
             style={{ height: "100%", width: "100%" }}
           />
         </Box>
       </Stack>
       <Divider
         width="1px"
-        h={["90vh", "85vh"]}
-        bg={useColorModeValue("black", "#735F32")}
+        height={["90vh", "85vh"]}
         display={["none", "flex"]}
+        position="absolute"
+        left="7.5vw"
+        h="85vh"
+        bg={useColorModeValue("black", "#735F32")}
       ></Divider>
     </Stack>
   );
