@@ -32,46 +32,14 @@ type Project = {
   projectVideoLink: string;
 };
 
-const Project = () => {
+const Project = ({ data }: { data: Project }) => {
   const router = useRouter();
-  const articleId = router.query.id as string;
-  console.log(articleId);
-
-  const [data, setData] = useState<Project | null>(null);
-
-  const fetchPost = async () => {
-    try {
-      const res = await client.fetch(
-        `*[_type == "post" && _id == $articleId]{
-            title,
-            "projectPhoto":projectPhoto.asset->url,
-            projectVideoLink,
-            description,
-            siteLink,
-            githubRepoLink,
-            features,
-            techStackDescription,
-            techStackNames,
-            projectVideoLink
-          }`,
-        { articleId }
-      );
-      console.log(res);
-      setData(res[0]);
-    } catch (error) {
-      console.error("Error fetching post:", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchPost();
-  }, []);
   if (data)
     return (
       <>
-      <Head>
-        <title>Nikhil's Portfolio</title>
-      </Head>
+        <Head>
+          <title>Nikhil's Portfolio</title>
+        </Head>
         <VStack
           w="full"
           minH={["90vh", "85vh"]}
@@ -162,5 +130,38 @@ const Project = () => {
     );
   else return null;
 };
+
+export async function getServerSideProps({ params }: any) {
+  const articleId = params.id;
+  try {
+    const res = await client.fetch(
+      `*[_type == "post" && _id == $articleId]{
+          title,
+          "projectPhoto":projectPhoto.asset->url,
+          projectVideoLink,
+          description,
+          siteLink,
+          githubRepoLink,
+          features,
+          techStackDescription,
+          techStackNames,
+          projectVideoLink
+        }`,
+      { articleId }
+    );
+    return {
+      props: {
+        data: res[0],
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching post:", error);
+    return {
+      props: {
+        data: null,
+      },
+    };
+  }
+}
 
 export default Project;
