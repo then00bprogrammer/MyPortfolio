@@ -31,6 +31,7 @@ import { TbBrandNextjs } from "react-icons/tb";
 import { Player } from "@lottiefiles/react-lottie-player";
 // import { Variants } from "framer-motion";
 import { motion, Variants } from "framer-motion";
+import { DotLottiePlayer } from "@dotlottie/react-player";
 
 const iconMap = {
   React: SiReact,
@@ -141,12 +142,12 @@ const Technology = ({
             </motion.div>
           </motion.div>
           <Box w='100%' display={["flex", "none"]} h='45vh'>
-            <Player
+            <DotLottiePlayer
               autoplay
               loop
               src={useColorModeValue(
-                "/animations/Technology.json",
-                "/animations/Technology-dark.json"
+                "/animations/technology.lottie",
+                "/animations/technology-dark.lottie"
               )}
               style={{ height: "100%", width: "100%" }}
             />
@@ -178,12 +179,12 @@ const Technology = ({
           pl='2.125vw'
           display={["none", "flex"]}
         >
-          <Player
+          <DotLottiePlayer
             autoplay
             loop
             src={useColorModeValue(
-              "/animations/Technology.json",
-              "/animations/Technology-dark.json"
+              "/animations/technology.lottie",
+              "/animations/technology-dark.lottie"
             )}
             style={{ height: "100%", width: "100%" }}
           />

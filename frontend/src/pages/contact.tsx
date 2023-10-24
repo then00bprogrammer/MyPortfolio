@@ -17,6 +17,7 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import { FormControl, FormLabel } from "@chakra-ui/react";
 import ShowAlert from "@/components/ShowAlert";
 import Head from "next/head";
+import { DotLottiePlayer } from "@dotlottie/react-player";
 
 type formDataType = {
   email: string;
@@ -200,10 +201,10 @@ const Contact = () => {
         </VStack>
         <VStack width={['100%','50%']} pl={['0%','5%']} pr={['0%','5%']} justifyContent='center' alignItems='center'>
           <Box width="100%">
-            <Player
+            <DotLottiePlayer
               autoplay
               loop
-              src="/animations/contact.json"
+              src="/animations/contact.lottie"
               style={{ width: "100%" }}
             />
           </Box>

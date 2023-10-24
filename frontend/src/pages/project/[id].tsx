@@ -17,6 +17,8 @@ import client from "@/client";
 import Social from "@/components/Social";
 import Frame from "@/components/Frame";
 import Head from "next/head";
+import SolidButton from "@/components/SolidButton";
+import OutlineButton from "@/components/OutlineButton";
 
 type Project = {
   title: string;
@@ -30,6 +32,10 @@ type Project = {
   features: string[];
   techStackDescription: string;
   projectVideoLink: string;
+};
+
+export const config = {
+  runtime: "experimental-edge",
 };
 
 const Project = ({ data }: { data: Project }) => {
@@ -72,10 +78,10 @@ const Project = ({ data }: { data: Project }) => {
               </Heading>
               <Box padding={5} position="relative" display={["flex", "none"]}>
                 <Frame />
-                <VideoPlayer
+                {/* <VideoPlayer
                   thumbnail={data.projectPhoto}
                   videoLink={data.projectVideoLink}
-                />
+                /> */}
               </Box>
               <Text
                 color={useColorModeValue("gray.600", "gray.400")}
@@ -85,24 +91,10 @@ const Project = ({ data }: { data: Project }) => {
               </Text>
               <HStack>
                 <a href={data.siteLink} target="_blank">
-                  <Button
-                    variant="solid"
-                    colorScheme={useColorModeValue("green", "yellow")}
-                    borderRadius={0}
-                    size="lg"
-                  >
-                    Visit Site
-                  </Button>
+                  <SolidButton>Visit Site</SolidButton>
                 </a>
                 <a href={data.githubRepoLink} target="_blank">
-                  <Button
-                    variant="outline"
-                    borderRadius={0}
-                    size="lg"
-                    colorScheme={useColorModeValue("blackAlpha", "yellow")}
-                  >
-                    Source Code
-                  </Button>
+                  <OutlineButton>Source Code</OutlineButton>
                 </a>
               </HStack>
             </VStack>

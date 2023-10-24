@@ -8,12 +8,12 @@ import {
   HStack,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { Player } from "@lottiefiles/react-lottie-player";
+import { DotLottiePlayer } from "@dotlottie/react-player";
 import Typing from "./Typing";
 import OutlineButton from "./OutlineButton";
 import SolidButton from "./SolidButton";
 
-const Banner:React.FC = () => {
+const Banner: React.FC = () => {
   return (
     <Flex
       w={`calc(100vw - 12px)`}
@@ -60,12 +60,8 @@ const Banner:React.FC = () => {
         </HStack>
       </VStack>
       <Box w={["100%", "50%"]} h={["50%", "100%"]}>
-        <Player
-          autoplay
-          loop
-          src="/animations/coder.json"
-          style={{ height: "80%", width: "80%" }}
-        />
+        <DotLottiePlayer src="/animations/coder.lottie" autoplay loop style={{width:'80%', height:'80%'}}>
+        </DotLottiePlayer>
       </Box>
     </Flex>
   );

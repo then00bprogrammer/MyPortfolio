@@ -23,6 +23,7 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import { TypeAnimation } from "react-type-animation";
 import { useInView } from "framer-motion";
 import { motion, Variants } from "framer-motion";
+import { DotLottiePlayer } from "@dotlottie/react-player";
 
 interface FeaturesProps {
   features: string[];
@@ -121,10 +122,10 @@ const Features: React.FC<FeaturesProps> = ({ features }) => {
             </motion.div>
           </motion.div>
           <Box w={["100%", "50%"]} p={["0", "5%"]} display={["flex", "none"]}>
-            <Player
+            <DotLottiePlayer
               autoplay
               loop
-              src="/animations/features.json"
+              src="/animations/features.lottie"
               style={{ height: "100%", width: "100%" }}
             />
           </Box>
@@ -148,10 +149,10 @@ const Features: React.FC<FeaturesProps> = ({ features }) => {
           ))}
         </VStack>
         <Box display={["none", "flex"]} w="38.75vw" mr="4.25vw" ml="2.125vw">
-          <Player
+          <DotLottiePlayer
             autoplay
             loop
-            src="/animations/features.json"
+            src="/animations/features.lottie"
             style={{ height: "100%", width: "100%" }}
           />
         </Box>

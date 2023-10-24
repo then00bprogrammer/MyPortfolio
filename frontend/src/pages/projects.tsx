@@ -18,6 +18,7 @@ import { Player } from "@lottiefiles/react-lottie-player";
 import client from "@/client";
 import ProjectCard from "@/components/ProjectCard";
 import Social from "@/components/Social";
+import { DotLottiePlayer } from "@dotlottie/react-player";
 
 type Project = {
   title: string;
@@ -115,10 +116,10 @@ const projects = () => {
           justifyContent="center"
         >
           <Box w={["100%", "80%"]} h={["100%", "80%"]}>
-            <Player
+            <DotLottiePlayer
               autoplay
               loop
-              src="/animations/projects.json"
+              src="/animations/projects.lottie"
               style={{ height: "100%", width: "100%" }}
             />
           </Box>
