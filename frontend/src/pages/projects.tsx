@@ -16,6 +16,7 @@ import client from "@/client";
 import ProjectCard from "@/components/ProjectCard";
 import Social from "@/components/Social";
 import { DotLottiePlayer } from "@dotlottie/react-player";
+import SolidButton from "@/components/SolidButton";
 
 type Project = {
   title: string;
@@ -96,14 +97,12 @@ const projects = () => {
           </Text>
           <Box fontSize="xl" color="gray.800" fontWeight="medium"></Box>
           <HStack mt="2.5vh">
-            <Button
-              variant="solid"
-              colorScheme={useColorModeValue("red", "gold")}
-              borderRadius={0}
-              size="lg"
-            >
+            <SolidButton onClick={()=>{
+              const section = document.getElementsByClassName("projectCard")[0];
+              section?.scrollIntoView({ behavior: "smooth", block: "end" });
+            }}>
               See Projects
-            </Button>
+            </SolidButton>
           </HStack>
         </VStack>
         <Flex
