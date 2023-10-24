@@ -38,8 +38,38 @@ export const config = {
   runtime: "experimental-edge",
 };
 
-const Project = ({ data }: { data: Project }) => {
+const Project = () => {
   const router = useRouter();
+  const [data, setData] = useState<Project | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const articleId = router.query.id;
+      try {
+        const res = await client.fetch(
+          `*[_type == "post" && _id == $articleId]{
+              title,
+              "projectPhoto":projectPhoto.asset->url,
+              projectVideoLink,
+              description,
+              siteLink,
+              githubRepoLink,
+              features,
+              techStackDescription,
+              techStackNames,
+              projectVideoLink
+            }`,
+          { articleId }
+        );
+        setData(res[0]);
+      } catch (error) {
+        console.error("Error fetching post:", error);
+      }
+    };
+
+    fetchData();
+  }, [router.query.id]);
+  
   if (data)
     return (
       <>
@@ -122,38 +152,5 @@ const Project = ({ data }: { data: Project }) => {
     );
   else return null;
 };
-
-export async function getServerSideProps({ params }: any) {
-  const articleId = params.id;
-  try {
-    const res = await client.fetch(
-      `*[_type == "post" && _id == $articleId]{
-          title,
-          "projectPhoto":projectPhoto.asset->url,
-          projectVideoLink,
-          description,
-          siteLink,
-          githubRepoLink,
-          features,
-          techStackDescription,
-          techStackNames,
-          projectVideoLink
-        }`,
-      { articleId }
-    );
-    return {
-      props: {
-        data: res[0],
-      },
-    };
-  } catch (error) {
-    console.error("Error fetching post:", error);
-    return {
-      props: {
-        data: null,
-      },
-    };
-  }
-}
 
 export default Project;
