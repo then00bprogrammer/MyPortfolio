@@ -10,7 +10,7 @@ type Props = {
   icon: IconType;
 }
 const NavItem = ({ text, link, icon }: Props) => {
-  const linkColor = useColorModeValue('black', 'gold.500');
+  const linkColor = useColorModeValue('black', '#C69749');
   return (
     <Link href={link}>
       <motion.div whileHover={{ borderBottom: `2px solid ${linkColor}` }}>
