@@ -86,7 +86,7 @@ const projects = () => {
             fontSize={['4xl','7xl']}
             fontWeight="extrabold"
             mb="2.5vh"
-            color={useColorModeValue("gray.700", "yellow.100")}
+            color={useColorModeValue("gray.700", "gold.100")}
           >
             PROJECTS
           </Heading>

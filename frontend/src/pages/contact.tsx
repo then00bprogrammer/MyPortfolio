@@ -57,9 +57,8 @@ const Contact = () => {
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault(); // Prevents the default form submission behavior
-
-    createSanityDocument(); // Call your function to handle the form submission
+    e.preventDefault();
+    createSanityDocument();
   };
 
   const createSanityDocument = async () => {
@@ -125,7 +124,7 @@ const Contact = () => {
             fontWeight="extrabold"
             mt="2.5vh"
             mb="2.5vh"
-            color={useColorModeValue("gray.700", "yellow.100")}
+            color={useColorModeValue("gray.700", "gold.100")}
           >
             CONTACT ME
           </Heading>
@@ -184,14 +183,11 @@ const Contact = () => {
               focusBorderColor={useColorModeValue("purple.300", "gold.400")}
             />
             <Button
-              // margin='auto'
               type="submit"
               variant="solid"
               colorScheme={useColorModeValue("purple", "gold")}
               borderRadius={0}
               size="lg"
-              // w="10vw"
-              // h="7.5vh"
               mt="2.5vh"
             >
               Send

@@ -13,7 +13,7 @@ const ToogleColorMode = () => {
       cursor="pointer"
     >
       <Icon
-        color={useColorModeValue("black", "#C69749")}
+        color={useColorModeValue("black", "gold.500")}
         boxSize="16"
         as={useColorModeValue(GiMoonBats, GiSunPriest)}
         onClick={toggleColorMode}

@@ -2,7 +2,7 @@ import React from "react";
 import { Divider, useColorModeValue } from "@chakra-ui/react";
 
 const Frame = ({ frameColor }: { frameColor?: string }) => {
-  const color = frameColor || (useColorModeValue("red", "#735F32"));
+  const color = frameColor || (useColorModeValue("red", "gold.600"));
 
   return (
     <>

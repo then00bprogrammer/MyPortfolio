@@ -12,9 +12,6 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 
-import { FaHashtag } from "react-icons/fa6";
-
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -24,9 +21,7 @@ import { useInView } from "framer-motion";
 import { motion, Variants } from "framer-motion";
 import { DotLottiePlayer } from "@dotlottie/react-player";
 
-interface FeaturesProps {
-  features: string[];
-}
+import { FaHashtag } from "react-icons/fa6";
 
 const headingVariants: Variants = {
   offscreen: {
@@ -45,7 +40,9 @@ const headingVariants: Variants = {
   },
 };
 
-const Features: React.FC<FeaturesProps> = ({ features }) => {
+const Features: React.FC<{
+  features: string[];
+}> = ({ features }) => {
   const ref = useRef(null);
   const isInView = useInView(ref);
 
@@ -63,7 +60,7 @@ const Features: React.FC<FeaturesProps> = ({ features }) => {
       position="relative"
     >
       <Flex
-        bg={useColorModeValue("red.400", "#C69749")}
+        bg={useColorModeValue("red.400", "gold.500")}
         h={["full", "85vh"]}
         w="15vw"
         position="absolute"

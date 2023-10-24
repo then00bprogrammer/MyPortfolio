@@ -24,8 +24,8 @@ import "swiper/css/scrollbar";
 
 import client from "@/client";
 import Frame from "@/components/Frame";
-
-import SolidButton from "./SolidButton";
+import SolidButton from "@/components/SolidButton";
+import OutlineButton from "./OutlineButton";
 
 type ProjectSlide = {
   projectPhoto: string;
@@ -52,7 +52,7 @@ const Projects = () => {
 
   return (
     <HStack
-      h={['90vh','85vh']}
+      h={["90vh", "85vh"]}
       w="full"
       pl="7.5vw"
       pr="7.5vw"
@@ -63,7 +63,7 @@ const Projects = () => {
     >
       <Flex
         bg={useColorModeValue("red.400", "gold.500")}
-        h={['90vh','85vh']}
+        h={["90vh", "85vh"]}
         w="15vw"
         position="absolute"
         left={0}
@@ -86,7 +86,7 @@ const Projects = () => {
       <Divider
         width="1px"
         height="100vh"
-        bg={useColorModeValue("black", "#735F32")}
+        bg={useColorModeValue("black", "gold.600")}
         display={["none", "flex"]}
       ></Divider>
       <Stack w={["100%", "85%"]} direction={["column", "row"]}>
@@ -102,7 +102,7 @@ const Projects = () => {
             fontWeight="extrabold"
             mt="2.5vh"
             mb="2.5vh"
-            color={useColorModeValue("gray.700", "yellow.100")}
+            color={useColorModeValue("gray.700", "gold.100")}
           >
             PROJECTS
           </Heading>
@@ -152,18 +152,14 @@ const Projects = () => {
             <Link href="./projects">
               <SolidButton>View Projects</SolidButton>
             </Link>
-            <Button
-              variant="outline"
-              colorScheme={useColorModeValue("black", "gold")}
-              borderRadius={0}
-              size="lg"
+            <OutlineButton
               onClick={() => {
                 const section = document.querySelector("#contact");
                 section?.scrollIntoView({ behavior: "smooth", block: "start" });
               }}
             >
               Read More
-            </Button>
+            </OutlineButton>
           </HStack>
         </VStack>
         <VStack
@@ -206,8 +202,9 @@ const Projects = () => {
       <Divider
         width="1px"
         height="100vh"
-        bg={useColorModeValue("black", "#735F32")}
+        bg={useColorModeValue("black", "gold.600")}
         display={["none", "flex"]}
+
       ></Divider>
     </HStack>
   );

@@ -1,13 +1,21 @@
 import { Button, useColorModeValue } from "@chakra-ui/react";
-import React, { ReactNode } from "react";
+import React, { ReactNode, MouseEvent } from "react";
 
-const OutlineButton = ({ children }: { children: ReactNode }) => {
+type OutlineButtonProps = {
+  children: ReactNode;
+  light?: string;
+  dark?: string;
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+}
+
+const OutlineButton = ({ children, light = "black", dark = "gold", onClick }: OutlineButtonProps) => {
   return (
     <Button
       variant="outline"
-      colorScheme={useColorModeValue("black", "gold")}
+      colorScheme={useColorModeValue(light, dark)}
       borderRadius={0}
       size="lg"
+      onClick={onClick}
     >
       {children}
     </Button>

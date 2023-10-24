@@ -11,8 +11,8 @@ const Spacer = () => {
       justifyContent="space-between"
       color="black"
     >
-      <Divider display={['none','flex']} width="1px" height="100vh" bg={useColorModeValue('black','#735F32')}></Divider>
-      <Divider display={['none','flex']} width="1px" height="100vh" bg={useColorModeValue('black','#735F32')}></Divider>
+      <Divider display={['none','flex']} width="1px" height="100vh" bg={useColorModeValue('black','gold.600')}></Divider>
+      <Divider display={['none','flex']} width="1px" height="100vh" bg={useColorModeValue('black','gold.600')}></Divider>
     </HStack>
   );
 };

@@ -40,12 +40,12 @@ const Social: React.FC = () => {
       marginBottom={["5vh", "10vh"]}
     >
       <Divider
-        bg={useColorModeValue("black", "#735F32")}
+        bg={useColorModeValue("black", "gold.600")}
         orientation="horizontal"
         height="1px"
       />
       <HStack
-        color={useColorModeValue("gray.800", "#735F32")}
+        color={useColorModeValue("gray.800", "gold.600")}
         marginLeft="30px"
         marginRight="30px"
         spacing={5}
@@ -78,7 +78,7 @@ const Social: React.FC = () => {
         <SocialButton href="" icon={FaEnvelope} label="Email" />
       </HStack>
       <Divider
-        bg={useColorModeValue("black", "#735F32")}
+        bg={useColorModeValue("black", "gold.600")}
         orientation="horizontal"
         height="1px"
       />

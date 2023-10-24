@@ -30,7 +30,7 @@ const Navbar:React.FC = () => {
       alignItems='center'
       padding='5vh 7.5vw'
       bg={useColorModeValue('white', 'black')}
-      color={useColorModeValue('black', '#C69749')}
+      color={useColorModeValue('black', 'gold.500')}
     >
       <Link href='/'>
         <Text fontSize='4xl' fontWeight='extrabold'>

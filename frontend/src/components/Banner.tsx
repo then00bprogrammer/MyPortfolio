@@ -29,20 +29,20 @@ const Banner: React.FC = () => {
       >
         <Heading
           size={["2xl", "3xl"]}
-          color={useColorModeValue("gray.700", "yellow.100")}
+          color={useColorModeValue("gray.700", "gold.100")}
         >
           Hi there,
         </Heading>
         <Heading
           size={["2xl", "3xl"]}
-          color={useColorModeValue("gray.700", "yellow.100")}
+          color={useColorModeValue("gray.700", "gold.100")}
           mb="2.5vh"
         >
           I'm Nikhil Ranjan
         </Heading>
         <Box
           fontSize={["xs", "xl"]}
-          color={useColorModeValue("gray.800", "yellow.100")}
+          color={useColorModeValue("gray.800", "gold.100")}
           fontWeight="medium"
         >
           <Typing />
@@ -59,10 +59,19 @@ const Banner: React.FC = () => {
           </a>
         </HStack>
       </VStack>
-      <Box w={["100%", "50%"]} h={["50%", "100%"]} justifyContent='center' alignItems='center'>
-        <DotLottiePlayer src="/animations/coder.lottie" autoplay loop style={{width:'80%', height:'80%'}}>
-        </DotLottiePlayer>
-      </Box>
+      <Flex
+        w={["100%", "50%"]}
+        h={["50%", "100%"]}
+        justifyContent="center"
+        alignItems="center"
+      >
+        <DotLottiePlayer
+          src="/animations/coder.lottie"
+          autoplay
+          loop
+          style={{ width: "80%", height: "80%" }}
+        ></DotLottiePlayer>
+      </Flex>
     </Flex>
   );
 };

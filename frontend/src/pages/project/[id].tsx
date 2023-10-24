@@ -72,7 +72,7 @@ const Project = ({ data }: { data: Project }) => {
                 fontWeight="extrabold"
                 mt="2.5vh"
                 mb="2.5vh"
-                color={useColorModeValue("gray.700", "yellow.100")}
+                color={useColorModeValue("gray.700", "gold.100")}
               >
                 {data?.title}
               </Heading>

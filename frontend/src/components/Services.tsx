@@ -37,7 +37,7 @@ const Services = () => {
       <Divider
         width="1px"
         minH="100vh"
-        bg={useColorModeValue("black", "#735F32")}
+        bg={useColorModeValue("black", "gold.600")}
         display={["none", "flex"]}
       ></Divider>
       <Stack width="full" direction={["column-reverse", "row"]}>
@@ -64,7 +64,7 @@ const Services = () => {
           </Heading>
           <Wrap
             ml="auto"
-            color={useColorModeValue("black", "#735F32")}
+            color={useColorModeValue("black", "gold.600")}
             display={["flex", "none"]}
             marginTop={["2.5vh", "0"]}
             marginBottom={["2.5vh", "0"]}
@@ -128,7 +128,7 @@ const Services = () => {
           </Heading>
           <VStack
             paddingLeft="30%"
-            color={useColorModeValue("black", "#735F32")}
+            color={useColorModeValue("black", "gold.600")}
             display={["none", "flex"]}
           >
             <HStack ml="auto">
@@ -149,7 +149,7 @@ const Services = () => {
       <Divider
         width="1px"
         height="100vh"
-        bg={useColorModeValue("black", "#735F32")}
+        bg={useColorModeValue("black", "gold.600")}
         display={["none", "flex"]}
       ></Divider>
     </HStack>

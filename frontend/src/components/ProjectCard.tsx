@@ -15,6 +15,8 @@ import {
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
 import Frame from "./Frame";
+import SolidButton from "./SolidButton";
+import OutlineButton from "./OutlineButton";
 
 const headingVariants: Variants = {
   offscreen: {
@@ -180,13 +182,14 @@ const ProjectCard = (data: { project: Project }) => {
                 </Heading>
               </motion.div>
             </motion.div>
+            {/* For smaller screens */}
             <Box
               display={["flex", "none"]}
               mb="2.5vh"
               width={["100%", "50%"]}
               padding={5}
               position="relative"
-              backdropFilter='blur(3.5px)'
+              backdropFilter="blur(3.5px)"
             >
               <Frame
                 frameColor={useColorModeValue(
@@ -196,6 +199,7 @@ const ProjectCard = (data: { project: Project }) => {
                     .borderColor
                 )}
               />
+              {/* For smaller screens */}
               <Image
                 width="full"
                 objectFit="contain"
@@ -207,37 +211,36 @@ const ProjectCard = (data: { project: Project }) => {
             </Text>
             <HStack>
               <Link href={`./project/${projectData.id}`}>
-                <Button
-                  variant="solid"
-                  colorScheme={useColorModeValue(
+                <SolidButton
+                  light={
                     colorMap[projectData.color as keyof typeof colorMap][0]
-                      .buttonColor,
+                      .buttonColor
+                  }
+                  dark={
                     colorMap[projectData.color as keyof typeof colorMap][1]
                       .buttonColor
-                  )}
-                  borderRadius={0}
-                  size={["md", "lg"]}
+                  }
                 >
                   View Project
-                </Button>
+                </SolidButton>
               </Link>
               <Link href={projectData.githubRepoLink}>
-                <Button
-                  variant="outline"
-                  colorScheme={useColorModeValue(
+              <OutlineButton
+                  light={
                     colorMap[projectData.color as keyof typeof colorMap][0]
-                      .buttonColor,
+                      .buttonColor
+                  }
+                  dark={
                     colorMap[projectData.color as keyof typeof colorMap][1]
                       .buttonColor
-                  )}
-                  borderRadius={0}
-                  size={["md", "lg"]}
+                  }
                 >
                   Source Code
-                </Button>
+                </OutlineButton>
               </Link>
             </HStack>
           </VStack>
+          {/* For Big Screens */}
           <Box
             display={["none", "flex"]}
             padding={5}
@@ -261,6 +264,7 @@ const ProjectCard = (data: { project: Project }) => {
               src={projectData.projectPhoto}
             ></Image>
           </Box>
+          {/* For Big Screens */}
         </Stack>
       </HStack>
     );
