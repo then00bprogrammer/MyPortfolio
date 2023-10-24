@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import {
   Box,
+  Center,
   Divider,
   Flex,
   HStack,
@@ -118,12 +119,14 @@ const Features: React.FC<{
             </motion.div>
           </motion.div>
           <Box w={["100%", "50%"]} p={["0", "5%"]} display={["flex", "none"]}>
+            <Center>
             <DotLottiePlayer
               autoplay
               loop
               src="/animations/features.lottie"
               style={{ height: "100%", width: "100%" }}
             />
+            </Center>
           </Box>
           {features.map((feature, index) => (
             <HStack

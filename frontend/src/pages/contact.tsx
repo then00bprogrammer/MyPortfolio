@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import {
   Box,
   Button,
+  Center,
   FormErrorMessage,
   HStack,
   Heading,
@@ -100,128 +101,147 @@ const Contact = () => {
 
   return (
     <>
-    <Head>
+      <Head>
         <title>Nikhil's Portfolio</title>
       </Head>
-    <VStack
-      w="full"
-      minH={["90vh", "85vh"]}
-      marginTop={["10vh", "15vh"]}
-      bg={useColorModeValue("white", "black")}
-    >
-      {isAlertVisible && (
-        <ShowAlert
-          message={alertState?.message}
-          success={alertState?.success}
-          setIsAlertVisible={setIsAlertVisible}
-        />
-      )}
+      <VStack
+        w="full"
+        minH={["90vh", "85vh"]}
+        marginTop={["10vh", "15vh"]}
+        bg={useColorModeValue("white", "black")}
+      >
+        {isAlertVisible && (
+          <ShowAlert
+            message={alertState?.message}
+            success={alertState?.success}
+            setIsAlertVisible={setIsAlertVisible}
+          />
+        )}
 
-      <Stack direction={['column','row']} w="80%" m="auto" minH={["90vh", "85vh"]}>
-        <VStack lineHeight="2" letterSpacing="wider" w={['100%','50%']} pl={['0%','5%']} pr={['0%','5%']}>
-          <Heading
-            fontSize={['4xl','7xl']}
-            fontWeight="extrabold"
-            mt="2.5vh"
-            mb="2.5vh"
-            color={useColorModeValue("gray.700", "gold.100")}
+        <Stack
+          direction={["column", "row"]}
+          w="80%"
+          m="auto"
+          minH={["90vh", "85vh"]}
+        >
+          <VStack
+            lineHeight="2"
+            letterSpacing="wider"
+            w={["100%", "50%"]}
+            pl={["0%", "5%"]}
+            pr={["0%", "5%"]}
           >
-            CONTACT ME
-          </Heading>
-          <form onSubmit={handleSubmit} style={{ width: "100%" }}>
-            <FormLabel color={useColorModeValue("gray.800", "gray.400")}>
-              Email address
-            </FormLabel>
-            <Input
-              isRequired
-              type="email"
-              value={formData.email}
-              name="email"
-              onChange={handleChange}
-              variant="outline"
-              color="black"
-              borderColor={useColorModeValue("purple.100", "gold.200")}
-              bg={useColorModeValue("purple.50", "gold.100")}
-              focusBorderColor={useColorModeValue("purple.300", "gold.400")}
-              _hover={{
-                borderColor: useColorModeValue("purple.200", "gold.300"),
-              }}
-              colorScheme="gold"
-              errorBorderColor="red"
-            />
-            <FormLabel color={useColorModeValue("gray.800", "gray.400")}>
-              Subject
-            </FormLabel>
-            <Input
-              type="text"
-              value={formData.subject}
-              name="subject"
-              onChange={handleChange}
-              variant="outline"
-              color="black"
-              borderColor={useColorModeValue("purple.100", "gold.200")}
-              bg={useColorModeValue("purple.50", "gold.100")}
-              _hover={{
-                borderColor: useColorModeValue("purple.200", "gold.300"),
-              }}
-              focusBorderColor={useColorModeValue("purple.300", "gold.400")}
-            />
-            <FormLabel color={useColorModeValue("gray.800", "gray.400")}>
-              Message
-            </FormLabel>
-            <Textarea
-              value={formData.messageText}
-              name="messageText"
-              onChange={handleChange}
-              variant="outline"
-              color="black"
-              borderColor={useColorModeValue("purple.100", "gold.200")}
-              bg={useColorModeValue("purple.50", "gold.100")}
-              _hover={{
-                borderColor: useColorModeValue("purple.200", "gold.300"),
-              }}
-              focusBorderColor={useColorModeValue("purple.300", "gold.400")}
-            />
-            <Button
-              type="submit"
-              variant="solid"
-              colorScheme={useColorModeValue("purple", "gold")}
-              borderRadius={0}
-              size="lg"
+            <Heading
+              fontSize={["4xl", "7xl"]}
+              fontWeight="extrabold"
               mt="2.5vh"
+              mb="2.5vh"
+              color={useColorModeValue("gray.700", "gold.100")}
             >
-              Send
-            </Button>
-          </form>
-        </VStack>
-        <VStack width={['100%','50%']} pl={['0%','5%']} pr={['0%','5%']} justifyContent='center' alignItems='center'>
-          <Box width="100%">
-            <DotLottiePlayer
-              autoplay
-              loop
-              src="/animations/contact.lottie"
-              style={{ width: "100%" }}
-            />
-          </Box>
-          <Wrap mt="5vh" mb='2.5vh'>
-            <Text
-              letterSpacing="wider"
-              color={useColorModeValue("gray.600", "gray.400")}
-            >
-              You can also email me at
-            </Text>
-            <a href="mailto:nikhilranjan1103@gmail.com">
-              <Text
-                color={useColorModeValue("purple", "gold.600")}
-                _hover={{ textDecoration: "underline" }}
+              CONTACT ME
+            </Heading>
+            <form onSubmit={handleSubmit} style={{ width: "100%" }}>
+              <FormLabel color={useColorModeValue("gray.800", "gray.400")}>
+                Email address
+              </FormLabel>
+              <Input
+                isRequired
+                type="email"
+                value={formData.email}
+                name="email"
+                onChange={handleChange}
+                variant="outline"
+                color="black"
+                borderColor={useColorModeValue("purple.100", "gold.200")}
+                bg={useColorModeValue("purple.50", "gold.100")}
+                focusBorderColor={useColorModeValue("purple.300", "gold.400")}
+                _hover={{
+                  borderColor: useColorModeValue("purple.200", "gold.300"),
+                }}
+                colorScheme="gold"
+                errorBorderColor="red"
+              />
+              <FormLabel color={useColorModeValue("gray.800", "gray.400")}>
+                Subject
+              </FormLabel>
+              <Input
+                type="text"
+                value={formData.subject}
+                name="subject"
+                onChange={handleChange}
+                variant="outline"
+                color="black"
+                borderColor={useColorModeValue("purple.100", "gold.200")}
+                bg={useColorModeValue("purple.50", "gold.100")}
+                _hover={{
+                  borderColor: useColorModeValue("purple.200", "gold.300"),
+                }}
+                focusBorderColor={useColorModeValue("purple.300", "gold.400")}
+              />
+              <FormLabel color={useColorModeValue("gray.800", "gray.400")}>
+                Message
+              </FormLabel>
+              <Textarea
+                value={formData.messageText}
+                name="messageText"
+                onChange={handleChange}
+                variant="outline"
+                color="black"
+                borderColor={useColorModeValue("purple.100", "gold.200")}
+                bg={useColorModeValue("purple.50", "gold.100")}
+                _hover={{
+                  borderColor: useColorModeValue("purple.200", "gold.300"),
+                }}
+                focusBorderColor={useColorModeValue("purple.300", "gold.400")}
+              />
+              <Button
+                type="submit"
+                variant="solid"
+                colorScheme={useColorModeValue("purple", "gold")}
+                borderRadius={0}
+                size="lg"
+                mt="2.5vh"
               >
-                nikhilranjan1103@gmail.com
+                Send
+              </Button>
+            </form>
+          </VStack>
+          <VStack
+            width={["100%", "50%"]}
+            pl={["0%", "5%"]}
+            pr={["0%", "5%"]}
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Box width="100%">
+              <Center>
+                <DotLottiePlayer
+                  autoplay
+                  loop
+                  src="/animations/contact.lottie"
+                  style={{ width: "100%" }}
+                />
+              </Center>
+            </Box>
+            <Wrap mt="5vh" mb="2.5vh">
+              <Text
+                letterSpacing="wider"
+                color={useColorModeValue("gray.600", "gray.400")}
+              >
+                You can also email me at
               </Text>
-            </a>
-          </Wrap>
-        </VStack>
-      </Stack>
-    </VStack>
+              <a href="mailto:nikhilranjan1103@gmail.com">
+                <Text
+                  color={useColorModeValue("purple", "gold.600")}
+                  _hover={{ textDecoration: "underline" }}
+                >
+                  nikhilranjan1103@gmail.com
+                </Text>
+              </a>
+            </Wrap>
+          </VStack>
+        </Stack>
+      </VStack>
     </>
   );
 };

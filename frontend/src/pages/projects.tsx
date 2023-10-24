@@ -3,6 +3,7 @@ import Head from "next/head";
 import {
   Box,
   Button,
+  Center,
   Divider,
   Flex,
   HStack,
@@ -55,78 +56,83 @@ const projects = () => {
   }, []);
   return (
     <>
-    <Head>
+      <Head>
         <title>Nikhil's Portfolio</title>
       </Head>
-    <VStack
-      w="full"
-      minHeight={["90vh", "85vh"]}
-      marginTop={["10vh", "15vh"]}
-      spacing={0}
-      bg={useColorModeValue("white", "black")}
-    >
-      <Flex
-        w={`calc(100vw - 12px)`}
-        h={["90vh", "85vh"]}
-        bgSize="contain"
-        bgRepeat="no-repeat"
-        bgImage={useColorModeValue("./pencil.jpg", "")}
-        flexDir={["column-reverse", "row"]}
+      <VStack
+        w="full"
+        minHeight={["90vh", "85vh"]}
+        marginTop={["10vh", "15vh"]}
+        spacing={0}
+        bg={useColorModeValue("white", "black")}
       >
-        <VStack
-          w={["100%", "50%"]}
-          h="full"
-          color="black"
-          justifyContent="center"
-          alignItems="center"
-          pl="10%"
-          pr="10%"
-          spacing={0}
-        >
-          <Heading
-            fontSize={['4xl','7xl']}
-            fontWeight="extrabold"
-            mb="2.5vh"
-            color={useColorModeValue("gray.700", "gold.100")}
-          >
-            PROJECTS
-          </Heading>
-          <Text color={useColorModeValue("gray.600", "gray.400")} mb="2.5vh">
-            Top projects I've developed so far: Social Media, utility
-            extensions, helper websites, etc. Web design, web development.
-          </Text>
-          <Box fontSize="xl" color="gray.800" fontWeight="medium"></Box>
-          <HStack mt="2.5vh">
-            <SolidButton onClick={()=>{
-              const section = document.getElementsByClassName("projectCard")[0];
-              section?.scrollIntoView({ behavior: "smooth", block: "end" });
-            }}>
-              See Projects
-            </SolidButton>
-          </HStack>
-        </VStack>
         <Flex
-          w={["100%", "50%"]}
-          h={["50%", "100%"]}
-          alignItems="center"
-          justifyContent="center"
+          w={`calc(100vw - 12px)`}
+          h={["90vh", "85vh"]}
+          bgSize="contain"
+          bgRepeat="no-repeat"
+          bgImage={useColorModeValue("./pencil.jpg", "")}
+          flexDir={["column-reverse", "row"]}
         >
-          <Box w={["100%", "80%"]} h={["100%", "80%"]}>
-            <DotLottiePlayer
-              autoplay
-              loop
-              src="/animations/projects.lottie"
-              style={{ height: "100%", width: "100%" }}
-            />
-          </Box>
+          <VStack
+            w={["100%", "50%"]}
+            h="full"
+            color="black"
+            justifyContent="center"
+            alignItems="center"
+            pl="10%"
+            pr="10%"
+            spacing={0}
+          >
+            <Heading
+              fontSize={["4xl", "7xl"]}
+              fontWeight="extrabold"
+              mb="2.5vh"
+              color={useColorModeValue("gray.700", "gold.100")}
+            >
+              PROJECTS
+            </Heading>
+            <Text color={useColorModeValue("gray.600", "gray.400")} mb="2.5vh">
+              Top projects I've developed so far: Social Media, utility
+              extensions, helper websites, etc. Web design, web development.
+            </Text>
+            <Box fontSize="xl" color="gray.800" fontWeight="medium"></Box>
+            <HStack mt="2.5vh">
+              <SolidButton
+                onClick={() => {
+                  const section =
+                    document.getElementsByClassName("projectCard")[0];
+                  section?.scrollIntoView({ behavior: "smooth", block: "end" });
+                }}
+              >
+                See Projects
+              </SolidButton>
+            </HStack>
+          </VStack>
+          <Flex
+            w={["100%", "50%"]}
+            h={["50%", "100%"]}
+            alignItems="center"
+            justifyContent="center"
+          >
+            <Box w={["100%", "80%"]} h={["100%", "80%"]}>
+              <Center>
+                <DotLottiePlayer
+                  autoplay
+                  loop
+                  src="/animations/projects.lottie"
+                  style={{ height: "100%", width: "100%" }}
+                />
+              </Center>
+            </Box>
+          </Flex>
         </Flex>
-      </Flex>
-      <Social />
-      {data &&
-        data.map((proj, i) => (
-          <ProjectCard project={proj} key={proj.siteLink} />
-        ))}
-    </VStack>
+        <Social />
+        {data &&
+          data.map((proj, i) => (
+            <ProjectCard project={proj} key={proj.siteLink} />
+          ))}
+      </VStack>
     </>
   );
 };

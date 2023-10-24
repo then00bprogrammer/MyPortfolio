@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 import {
   Box,
+  Center,
   Divider,
   Flex,
   HStack,
@@ -140,6 +141,7 @@ const Technology = ({
             </motion.div>
           </motion.div>
           <Box w='100%' display={["flex", "none"]} h='45vh'>
+            <Center>
             <DotLottiePlayer
               autoplay
               loop
@@ -149,6 +151,7 @@ const Technology = ({
               )}
               style={{ height: "100%", width: "100%" }}
             />
+            </Center>
           </Box>
           <Text color={useColorModeValue("gray.600", "gray.400")}>
             {description}
@@ -177,6 +180,7 @@ const Technology = ({
           pl='2.125vw'
           display={["none", "flex"]}
         >
+          <Center>
           <DotLottiePlayer
             autoplay
             loop
@@ -186,6 +190,7 @@ const Technology = ({
             )}
             style={{ height: "100%", width: "100%" }}
           />
+          </Center>
         </Box>
       </Stack>
       <Divider

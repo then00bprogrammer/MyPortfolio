@@ -7,6 +7,7 @@ import {
   VStack,
   HStack,
   useColorModeValue,
+  Center,
 } from "@chakra-ui/react";
 import { DotLottiePlayer } from "@dotlottie/react-player";
 import Typing from "./Typing";
@@ -16,7 +17,7 @@ import SolidButton from "./SolidButton";
 const Banner: React.FC = () => {
   return (
     <Flex
-      w={`calc(100vw - 12px)`}
+      w={['100vw',`calc(100vw - 12px)`]}
       h="85vh"
       flexDirection={["column-reverse", "row"]}
       marginTop="15vh"
@@ -26,6 +27,7 @@ const Banner: React.FC = () => {
         h={["50%", "100%"]}
         justifyContent="center"
         alignItems="center"
+        spacing={0}
       >
         <Heading
           size={["2xl", "3xl"]}
@@ -61,16 +63,19 @@ const Banner: React.FC = () => {
       </VStack>
       <Flex
         w={["100%", "50%"]}
-        h={["50%", "100%"]}
+        minH={["50%", "100%"]}
         justifyContent="center"
         alignItems="center"
+        position="relative"
+        p={['10%','5%']}
       >
-        <DotLottiePlayer
-          src="/animations/coder.lottie"
-          autoplay
-          loop
-          style={{ width: "80%", height: "80%" }}
-        ></DotLottiePlayer>
+        <Center>
+          <DotLottiePlayer
+            src="/animations/coder.lottie"
+            autoplay
+            loop
+          ></DotLottiePlayer>
+        </Center>
       </Flex>
     </Flex>
   );
