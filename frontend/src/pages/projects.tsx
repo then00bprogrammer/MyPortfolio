@@ -12,9 +12,6 @@ import {
   VStack,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { FaEnvelope, FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa6";
-import { SiCodeforces, SiLeetcode } from "react-icons/si";
-import { Player } from "@lottiefiles/react-lottie-player";
 import client from "@/client";
 import ProjectCard from "@/components/ProjectCard";
 import Social from "@/components/Social";

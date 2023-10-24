@@ -28,8 +28,6 @@ import {
   SiScikitlearn,
 } from "react-icons/si";
 import { TbBrandNextjs } from "react-icons/tb";
-import { Player } from "@lottiefiles/react-lottie-player";
-// import { Variants } from "framer-motion";
 import { motion, Variants } from "framer-motion";
 import { DotLottiePlayer } from "@dotlottie/react-player";
 

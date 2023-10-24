@@ -19,7 +19,6 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
-import { Player } from "@lottiefiles/react-lottie-player";
 import { TypeAnimation } from "react-type-animation";
 import { useInView } from "framer-motion";
 import { motion, Variants } from "framer-motion";

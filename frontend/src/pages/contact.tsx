@@ -13,7 +13,6 @@ import {
   Wrap,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { Player } from "@lottiefiles/react-lottie-player";
 import { FormControl, FormLabel } from "@chakra-ui/react";
 import ShowAlert from "@/components/ShowAlert";
 import Head from "next/head";
