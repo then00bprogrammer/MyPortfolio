@@ -1,8 +1,6 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
 
-type Props = {};
-
 const VideoPlayer = ({
   thumbnail,
   videoLink,
@@ -10,7 +8,6 @@ const VideoPlayer = ({
   thumbnail: string;
   videoLink: string;
 }) => {
-  console.log(thumbnail);
   return (
     <Box>
       <video

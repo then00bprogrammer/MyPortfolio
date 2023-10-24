@@ -59,7 +59,7 @@ const Banner: React.FC = () => {
           </a>
         </HStack>
       </VStack>
-      <Box w={["100%", "50%"]} h={["50%", "100%"]}>
+      <Box w={["100%", "50%"]} h={["50%", "100%"]} justifyContent='center' alignItems='center'>
         <DotLottiePlayer src="/animations/coder.lottie" autoplay loop style={{width:'80%', height:'80%'}}>
         </DotLottiePlayer>
       </Box>

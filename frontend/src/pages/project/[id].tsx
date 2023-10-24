@@ -78,10 +78,10 @@ const Project = ({ data }: { data: Project }) => {
               </Heading>
               <Box padding={5} position="relative" display={["flex", "none"]}>
                 <Frame />
-                {/* <VideoPlayer
+                <VideoPlayer
                   thumbnail={data.projectPhoto}
                   videoLink={data.projectVideoLink}
-                /> */}
+                />
               </Box>
               <Text
                 color={useColorModeValue("gray.600", "gray.400")}
