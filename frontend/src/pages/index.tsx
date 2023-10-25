@@ -3,14 +3,13 @@ import Head from "next/head";
 
 import { Stack, useColorModeValue } from "@chakra-ui/react";
 
-import Banner from "@/components/Banner";
-import Services from "@/components/Services";
-import Projects from "@/components/Projects";
-import ContactMe from "@/components/ContactMe";
+import Banner from "@/components/Home/Banner";
+import Services from "@/components/Home/Services";
+import Projects from "@/components/Home/Projects";
+import ContactMe from "@/components/Home/ContactMe";
 
 import Social from "@/utils/Social";
 import Spacer from "@/utils/Spacer";
-
 
 const index = () => {
   return (

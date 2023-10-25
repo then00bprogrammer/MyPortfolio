@@ -4,14 +4,11 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaTwitter } from "react-icons/fa6";
 import { SiLeetcode, SiCodeforces } from "react-icons/si";
 import { motion } from "framer-motion";
 
-const SocialButton = ({
-  href,
-  icon,
-}: {
+const SocialButton: React.FC<{
   href: string;
   icon: any;
   label: string;
-}) => (
+}> = ({ href, icon }) => (
   <motion.button
     whileHover={{
       scale: 1.2,

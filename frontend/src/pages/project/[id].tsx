@@ -1,24 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import {
-  Box,
-  Button,
-  HStack,
-  Heading,
-  Stack,
-  Text,
-  VStack,
-  useColorModeValue,
-} from "@chakra-ui/react";
+import { VStack, useColorModeValue } from "@chakra-ui/react";
 import Features from "@/components/Project/Features";
 import Technology from "@/components/Project/Technology";
-import VideoPlayer from "@/components/Project/VideoPlayer";
 import client from "@/client";
 import Social from "@/utils/Social";
-import Frame from "@/utils/Frame";
 import Head from "next/head";
-import SolidButton from "@/utils/SolidButton";
-import OutlineButton from "@/utils/OutlineButton";
+import Banner from "@/components/Project/Banner";
 
 type Project = {
   title: string;
@@ -69,7 +57,7 @@ const Project = () => {
 
     fetchData();
   }, [router.query.id]);
-  
+
   if (data)
     return (
       <>
@@ -83,64 +71,14 @@ const Project = () => {
           bg={useColorModeValue("white", "black")}
           marginTop={["10vh", "15vh"]}
         >
-          <Stack
-            direction={["column", "row"]}
-            w="80%"
-            minH={["90vh", "85vh"]}
-            alignItems="center"
-            justifyContent="center"
-          >
-            <VStack
-              lineHeight="2"
-              letterSpacing="wider"
-              w={["100%", "50%"]}
-              pl={["0%", "5%"]}
-              pr={["0%", "5%"]}
-            >
-              <Heading
-                fontSize={["4xl", "7xl"]}
-                fontWeight="extrabold"
-                mt="2.5vh"
-                mb="2.5vh"
-                color={useColorModeValue("gray.700", "gold.100")}
-              >
-                {data?.title}
-              </Heading>
-              <Box padding={5} position="relative" display={["flex", "none"]}>
-                <Frame />
-                <VideoPlayer
-                  thumbnail={data.projectPhoto}
-                  videoLink={data.projectVideoLink}
-                />
-              </Box>
-              <Text
-                color={useColorModeValue("gray.600", "gray.400")}
-                mb="2.5vh"
-              >
-                {data.description}
-              </Text>
-              <HStack>
-                <a href={data.siteLink} target="_blank">
-                  <SolidButton>Visit Site</SolidButton>
-                </a>
-                <a href={data.githubRepoLink} target="_blank">
-                  <OutlineButton>Source Code</OutlineButton>
-                </a>
-              </HStack>
-            </VStack>
-            <Box
-              w="50%"
-              padding={5}
-              position="relative"
-              display={["none", "flex"]}
-            >
-              <Frame />
-              <VideoPlayer
-                thumbnail={data.projectPhoto}
-                videoLink={data.projectVideoLink}
-              />
-            </Box>
-          </Stack>
+          <Banner
+            title={data.title}
+            description={data.description}
+            siteLink={data.siteLink}
+            githubRepoLink={data.githubRepoLink}
+            projectPhoto={data.projectPhoto}
+            projectVideoLink={data.projectVideoLink}
+          />
           <Social />
           <Features features={data.features} />
           <Technology

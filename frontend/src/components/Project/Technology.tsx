@@ -4,7 +4,6 @@ import {
   Center,
   Divider,
   Flex,
-  HStack,
   Heading,
   Icon,
   Stack,
@@ -31,6 +30,7 @@ import {
 import { TbBrandNextjs } from "react-icons/tb";
 import { motion, Variants } from "framer-motion";
 import { DotLottiePlayer } from "@dotlottie/react-player";
+import CustomLottiePlayer from "@/utils/CustomLottiePlayer";
 
 const iconMap = {
   React: SiReact,
@@ -141,14 +141,8 @@ const Technology: React.FC<{
           {/* Smaller Devices */}
           <Box w="100%" display={["flex", "none"]} h="45vh">
             <Center>
-              <DotLottiePlayer
-                autoplay
-                loop
-                src={useColorModeValue(
-                  "/animations/technology.lottie",
-                  "/animations/technology-dark.lottie"
-                )}
-                style={{ height: "100%", width: "100%" }}
+              <CustomLottiePlayer
+                src={useColorModeValue("technology", "technology-dark")}
               />
             </Center>
           </Box>
@@ -181,14 +175,8 @@ const Technology: React.FC<{
           display={["none", "flex"]}
         >
           <Center>
-            <DotLottiePlayer
-              autoplay
-              loop
-              src={useColorModeValue(
-                "/animations/technology.lottie",
-                "/animations/technology-dark.lottie"
-              )}
-              style={{ height: "100%", width: "100%" }}
+            <CustomLottiePlayer
+              src={useColorModeValue("technology", "technology-dark")}
             />
           </Center>
         </Box>

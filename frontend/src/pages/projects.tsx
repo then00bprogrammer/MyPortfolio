@@ -1,20 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import {
-  Box,
-  Center,
-  Flex,
-  HStack,
-  Heading,
-  Text,
   VStack,
   useColorModeValue,
 } from "@chakra-ui/react";
 import client from "@/client";
-import ProjectCard from "@/components/ProjectCard";
+import Banner from "@/components/Projects/Banner";
 import Social from "@/utils/Social";
-import { DotLottiePlayer } from "@dotlottie/react-player";
-import SolidButton from "@/utils/SolidButton";
+import ProjectCard from "@/components/Projects/ProjectCard";
 
 type Project = {
   title: string;
@@ -51,6 +44,7 @@ const projects = () => {
   useEffect(() => {
     fetchPost();
   }, []);
+  
   return (
     <>
       <Head>
@@ -63,71 +57,11 @@ const projects = () => {
         spacing={0}
         bg={useColorModeValue("white", "black")}
       >
-        <Flex
-          w={`calc(100vw - 12px)`}
-          h={["90vh", "85vh"]}
-          bgSize="contain"
-          bgRepeat="no-repeat"
-          bgImage={useColorModeValue("./pencil.jpg", "")}
-          flexDir={["column-reverse", "row"]}
-        >
-          <VStack
-            w={["100%", "50%"]}
-            h="full"
-            color="black"
-            justifyContent="center"
-            alignItems="center"
-            pl="10%"
-            pr="10%"
-            spacing={0}
-          >
-            <Heading
-              fontSize={["4xl", "7xl"]}
-              fontWeight="extrabold"
-              mb="2.5vh"
-              color={useColorModeValue("gray.700", "gold.100")}
-            >
-              PROJECTS
-            </Heading>
-            <Text color={useColorModeValue("gray.600", "gray.400")} mb="2.5vh">
-              Top projects I've developed so far: Social Media, utility
-              extensions, helper websites, etc. Web design, web development.
-            </Text>
-            <Box fontSize="xl" color="gray.800" fontWeight="medium"></Box>
-            <HStack mt="2.5vh">
-              <SolidButton
-                onClick={() => {
-                  const section =
-                    document.getElementsByClassName("projectCard")[0];
-                  section?.scrollIntoView({ behavior: "smooth", block: "end" });
-                }}
-              >
-                See Projects
-              </SolidButton>
-            </HStack>
-          </VStack>
-          <Flex
-            w={["100%", "50%"]}
-            h={["50%", "100%"]}
-            alignItems="center"
-            justifyContent="center"
-          >
-            <Box w={["100%", "80%"]} h={["100%", "80%"]}>
-              <Center>
-                <DotLottiePlayer
-                  autoplay
-                  loop
-                  src="/animations/projects.lottie"
-                  style={{ height: "100%", width: "100%" }}
-                />
-              </Center>
-            </Box>
-          </Flex>
-        </Flex>
+        <Banner />
         <Social />
         {data &&
-          data.map((proj, i) => (
-            <ProjectCard project={proj} key={proj.siteLink} />
+          data.map((proj, id) => (
+            <ProjectCard project={proj} key={id} />
           ))}
       </VStack>
     </>

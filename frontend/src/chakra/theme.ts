@@ -1,6 +1,9 @@
-import { extendTheme, type ThemeConfig } from "@chakra-ui/react";
+import {
+  extendTheme,
+  useColorModeValue,
+  type ThemeConfig,
+} from "@chakra-ui/react";
 import { Button } from "./button";
-import { useColorModeValue } from "@chakra-ui/react";
 
 const config: ThemeConfig = {
   initialColorMode: "dark",
@@ -21,7 +24,7 @@ export const theme = extendTheme({
         WebkitTapHighlightColor: "rgba(0, 0, 0, 0)",
       },
       body: {
-        bg: useColorModeValue('white','black'),
+        bg: useColorModeValue("white", "black"),
       },
       "::-webkit-scrollbar-track": {
         borderRadius: "10px",

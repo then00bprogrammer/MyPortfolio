@@ -13,11 +13,12 @@ import { DotLottiePlayer } from "@dotlottie/react-player";
 import Typing from "@/utils/Typing";
 import OutlineButton from "@/utils/OutlineButton";
 import SolidButton from "@/utils/SolidButton";
+import CustomLottiePlayer from "@/utils/CustomLottiePlayer";
 
 const Banner: React.FC = () => {
   return (
     <Flex
-      w={['100vw',`calc(100vw - 12px)`]}
+      w={["100vw", `calc(100vw - 12px)`]}
       h="85vh"
       flexDirection={["column-reverse", "row"]}
       marginTop="15vh"
@@ -67,14 +68,10 @@ const Banner: React.FC = () => {
         justifyContent="center"
         alignItems="center"
         position="relative"
-        p={['10%','5%']}
+        p={["10%", "5%"]}
       >
         <Center>
-          <DotLottiePlayer
-            src="/animations/coder.lottie"
-            autoplay
-            loop
-          ></DotLottiePlayer>
+          <CustomLottiePlayer src="coder" />
         </Center>
       </Flex>
     </Flex>

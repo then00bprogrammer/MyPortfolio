@@ -23,6 +23,7 @@ import { motion, Variants } from "framer-motion";
 import { DotLottiePlayer } from "@dotlottie/react-player";
 
 import { FaHashtag } from "react-icons/fa6";
+import CustomLottiePlayer from "@/utils/CustomLottiePlayer";
 
 const headingVariants: Variants = {
   offscreen: {
@@ -120,12 +121,7 @@ const Features: React.FC<{
           </motion.div>
           <Box w={["100%", "50%"]} p={["0", "5%"]} display={["flex", "none"]}>
             <Center>
-            <DotLottiePlayer
-              autoplay
-              loop
-              src="/animations/features.lottie"
-              style={{ height: "100%", width: "100%" }}
-            />
+              <CustomLottiePlayer src='features'/>
             </Center>
           </Box>
           {features.map((feature, index) => (
@@ -148,12 +144,7 @@ const Features: React.FC<{
           ))}
         </VStack>
         <Box display={["none", "flex"]} w="38.75vw" mr="4.25vw" ml="2.125vw">
-          <DotLottiePlayer
-            autoplay
-            loop
-            src="/animations/features.lottie"
-            style={{ height: "100%", width: "100%" }}
-          />
+          <CustomLottiePlayer src='features'/>
         </Box>
       </Stack>
       <Divider

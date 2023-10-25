@@ -3,8 +3,6 @@ import {
   Box,
   Button,
   Center,
-  FormErrorMessage,
-  HStack,
   Heading,
   Input,
   Stack,
@@ -14,10 +12,10 @@ import {
   Wrap,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { FormControl, FormLabel } from "@chakra-ui/react";
+import { FormLabel } from "@chakra-ui/react";
 import ShowAlert from "@/utils/ShowAlert";
 import Head from "next/head";
-import { DotLottiePlayer } from "@dotlottie/react-player";
+import CustomLottiePlayer from "@/utils/CustomLottiePlayer";
 
 type formDataType = {
   email: string;
@@ -104,6 +102,7 @@ const Contact = () => {
       <Head>
         <title>Nikhil's Portfolio</title>
       </Head>
+
       <VStack
         w="full"
         minH={["90vh", "85vh"]}
@@ -158,7 +157,6 @@ const Contact = () => {
                 _hover={{
                   borderColor: useColorModeValue("purple.200", "gold.300"),
                 }}
-                colorScheme="gold"
                 errorBorderColor="red"
               />
               <FormLabel color={useColorModeValue("gray.800", "gray.400")}>
@@ -215,12 +213,7 @@ const Contact = () => {
           >
             <Box width="100%">
               <Center>
-                <DotLottiePlayer
-                  autoplay
-                  loop
-                  src="/animations/contact.lottie"
-                  style={{ width: "100%" }}
-                />
+                <CustomLottiePlayer src="contact.lottie" />
               </Center>
             </Box>
             <Wrap mt="5vh" mb="2.5vh">

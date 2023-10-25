@@ -3,53 +3,22 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 
 import {
-  Button,
   Divider,
   Flex,
   HStack,
   Heading,
-  Image,
   Stack,
   Text,
   VStack,
   useColorModeValue,
 } from "@chakra-ui/react";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
-
-import client from "@/client";
 import Frame from "@/utils/Frame";
 import SolidButton from "@/utils/SolidButton";
 import OutlineButton from "@/utils/OutlineButton";
+import ProjectSlider from "@/utils/ProjectSlider";
 
-type ProjectSlide = {
-  projectPhoto: string;
-  id: string;
-};
-
-const Projects:React.FC = () => {
-  const router = useRouter();
-  const [data, setData] = useState<ProjectSlide[]>();
-  const fetchPost = async () => {
-    try {
-      const res = await client.fetch(`*[_type == 'post'] | order(priority) {
-        'projectPhoto':projectPhoto.asset->url,
-        'id':_id
-      }`);
-      setData(res);
-    } catch (error) {
-      console.error("Error fetching post:", error);
-    }
-  };
-  useEffect(() => {
-    fetchPost();
-  }, []);
-
+const Projects: React.FC = () => {
   return (
     <HStack
       h={["90vh", "85vh"]}
@@ -63,7 +32,7 @@ const Projects:React.FC = () => {
     >
       <Flex
         bg={useColorModeValue("red.400", "gold.500")}
-        h={["90vh", "85vh"]}
+        minH={["90vh", "85vh"]}
         w="15vw"
         position="absolute"
         left={0}
@@ -117,31 +86,7 @@ const Projects:React.FC = () => {
             marginBottom="2.5vh"
           >
             <Frame />
-            <Swiper
-              spaceBetween={30}
-              centeredSlides={true}
-              autoplay={{
-                delay: 2500,
-                disableOnInteraction: false,
-              }}
-              pagination={{
-                clickable: true,
-              }}
-              navigation={true}
-              modules={[Autoplay, Pagination, Navigation]}
-              className="mySwiper"
-            >
-              {data &&
-                data.map((slide, id) => (
-                  <SwiperSlide key={id}>
-                    <Image
-                      src={slide.projectPhoto}
-                      onClick={() => router.push(`./project/${slide.id}`)}
-                      _hover={{ filter: "brightness(80%)", cursor: "pointer" }}
-                    ></Image>
-                  </SwiperSlide>
-                ))}
-            </Swiper>
+            <ProjectSlider />
           </VStack>
           <Text mb="2.5vh" color={useColorModeValue("gray.600", "gray.400")}>
             A glimpse of realizations I've developed so far. It doesn't matter
@@ -172,31 +117,7 @@ const Projects:React.FC = () => {
           display={["none", "flex"]}
         >
           <Frame />
-          <Swiper
-            spaceBetween={30}
-            centeredSlides={true}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
-            pagination={{
-              clickable: true,
-            }}
-            navigation={true}
-            modules={[Autoplay, Pagination, Navigation]}
-            className="mySwiper"
-          >
-            {data &&
-              data.map((slide, id) => (
-                <SwiperSlide key={id}>
-                  <Image
-                    src={slide.projectPhoto}
-                    onClick={() => router.push(`./project/${slide.id}`)}
-                    _hover={{ filter: "brightness(80%)", cursor: "pointer" }}
-                  ></Image>
-                </SwiperSlide>
-              ))}
-          </Swiper>
+          <ProjectSlider />
         </VStack>
       </Stack>
       <Divider
@@ -204,7 +125,6 @@ const Projects:React.FC = () => {
         height="100vh"
         bg={useColorModeValue("black", "gold.600")}
         display={["none", "flex"]}
-
       ></Divider>
     </HStack>
   );

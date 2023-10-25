@@ -1,20 +1,25 @@
-import { Button, useColorModeValue } from "@chakra-ui/react";
-import React, { ReactNode, MouseEvent } from "react";
+import { Button, useColorModeValue } from '@chakra-ui/react';
+import React, { ReactNode, MouseEvent } from 'react';
 
-type SolidButtonProps = {
+type solidButtonProps = {
   children: ReactNode;
   light?: string;
   dark?: string;
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
-}
+};
 
-const SolidButton = ({ children, light = "red", dark = "gold", onClick }: SolidButtonProps) => {
+const SolidButton: React.FC<solidButtonProps> = ({
+  children,
+  light = 'red',
+  dark = 'gold',
+  onClick,
+}) => {
   return (
     <Button
-      variant="solid"
+      variant='solid'
       colorScheme={useColorModeValue(light, dark)}
       borderRadius={0}
-      size="lg"
+      size='lg'
       onClick={onClick}
     >
       {children}

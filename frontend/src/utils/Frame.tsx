@@ -1,44 +1,44 @@
-import React from "react";
-import { Divider, useColorModeValue } from "@chakra-ui/react";
+import React from 'react';
+import { Divider, useColorModeValue } from '@chakra-ui/react';
 
-const Frame = ({ frameColor }: { frameColor?: string }) => {
-  const color = frameColor || (useColorModeValue("red", "gold.600"));
+const Frame: React.FC<{ frameColor?: string }> = ({ frameColor }) => {
+  const color = frameColor || useColorModeValue('red', 'gold.600');
 
   return (
     <>
       <Divider
         borderRadius={10}
         bg={color}
-        width="10px"
-        h="100px"
-        position="absolute"
+        width='10px'
+        h='100px'
+        position='absolute'
         top={0}
         left={0}
       ></Divider>
       <Divider
         borderRadius={10}
         bg={color}
-        h="10px"
-        w="100px"
-        position="absolute"
+        h='10px'
+        w='100px'
+        position='absolute'
         top={0}
         left={0}
       ></Divider>
       <Divider
         borderRadius={10}
         bg={color}
-        width="10px"
-        h="100px"
-        position="absolute"
+        width='10px'
+        h='100px'
+        position='absolute'
         bottom={0}
         right={0}
       ></Divider>
       <Divider
         borderRadius={10}
         bg={color}
-        width="100px"
-        h="10px"
-        position="absolute"
+        width='100px'
+        h='10px'
+        position='absolute'
         bottom={0}
         right={0}
       ></Divider>
