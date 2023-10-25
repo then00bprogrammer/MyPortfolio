@@ -22,9 +22,10 @@ import {
   SiNeo4J,
 } from "react-icons/si";
 import { TbBrandCpp } from "react-icons/tb";
-import Frame from "./Frame";
 
-const Services = () => {
+import Frame from "@/utils/Frame";
+
+const Services:React.FC = () => {
   return (
     <HStack
       minH="100vh"

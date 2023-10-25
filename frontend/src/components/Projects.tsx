@@ -23,16 +23,16 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
 import client from "@/client";
-import Frame from "@/components/Frame";
-import SolidButton from "@/components/SolidButton";
-import OutlineButton from "./OutlineButton";
+import Frame from "@/utils/Frame";
+import SolidButton from "@/utils/SolidButton";
+import OutlineButton from "@/utils/OutlineButton";
 
 type ProjectSlide = {
   projectPhoto: string;
   id: string;
 };
 
-const Projects = () => {
+const Projects:React.FC = () => {
   const router = useRouter();
   const [data, setData] = useState<ProjectSlide[]>();
   const fetchPost = async () => {

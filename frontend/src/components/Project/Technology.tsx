@@ -64,13 +64,10 @@ const headingVariants: Variants = {
   },
 };
 
-const Technology = ({
-  description,
-  techStack,
-}: {
+const Technology: React.FC<{
   description: string;
   techStack: string[];
-}) => {
+}> = ({ description, techStack }) => {
   const ref = useRef(null);
   return (
     <Stack
@@ -83,6 +80,7 @@ const Technology = ({
       color="black"
       position="relative"
     >
+      {/* Side Banner */}
       <Flex
         bg={useColorModeValue("red.400", "#C69749")}
         h={["90vh", "full"]}
@@ -140,17 +138,18 @@ const Technology = ({
               </Heading>
             </motion.div>
           </motion.div>
-          <Box w='100%' display={["flex", "none"]} h='45vh'>
+          {/* Smaller Devices */}
+          <Box w="100%" display={["flex", "none"]} h="45vh">
             <Center>
-            <DotLottiePlayer
-              autoplay
-              loop
-              src={useColorModeValue(
-                "/animations/technology.lottie",
-                "/animations/technology-dark.lottie"
-              )}
-              style={{ height: "100%", width: "100%" }}
-            />
+              <DotLottiePlayer
+                autoplay
+                loop
+                src={useColorModeValue(
+                  "/animations/technology.lottie",
+                  "/animations/technology-dark.lottie"
+                )}
+                style={{ height: "100%", width: "100%" }}
+              />
             </Center>
           </Box>
           <Text color={useColorModeValue("gray.600", "gray.400")}>
@@ -166,30 +165,31 @@ const Technology = ({
               <WrapItem key={index}>
                 <Icon
                   as={iconMap[tech as keyof typeof iconMap]}
-                  boxSize={['12','16']}
+                  boxSize={["12", "16"]}
                   p={2}
                 ></Icon>
               </WrapItem>
             ))}
           </Wrap>
         </VStack>
+        {/* Larger Devicea */}
         <Box
-          w='46.25vw'
-          mr='7.5vw'
-          pr='4.25vw'
-          pl='2.125vw'
+          w="46.25vw"
+          mr="7.5vw"
+          pr="4.25vw"
+          pl="2.125vw"
           display={["none", "flex"]}
         >
           <Center>
-          <DotLottiePlayer
-            autoplay
-            loop
-            src={useColorModeValue(
-              "/animations/technology.lottie",
-              "/animations/technology-dark.lottie"
-            )}
-            style={{ height: "100%", width: "100%" }}
-          />
+            <DotLottiePlayer
+              autoplay
+              loop
+              src={useColorModeValue(
+                "/animations/technology.lottie",
+                "/animations/technology-dark.lottie"
+              )}
+              style={{ height: "100%", width: "100%" }}
+            />
           </Center>
         </Box>
       </Stack>

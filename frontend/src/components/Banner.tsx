@@ -10,9 +10,9 @@ import {
   Center,
 } from "@chakra-ui/react";
 import { DotLottiePlayer } from "@dotlottie/react-player";
-import Typing from "./Typing";
-import OutlineButton from "./OutlineButton";
-import SolidButton from "./SolidButton";
+import Typing from "@/utils/Typing";
+import OutlineButton from "@/utils/OutlineButton";
+import SolidButton from "@/utils/SolidButton";
 
 const Banner: React.FC = () => {
   return (

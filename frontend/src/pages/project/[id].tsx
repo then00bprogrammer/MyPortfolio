@@ -10,15 +10,15 @@ import {
   VStack,
   useColorModeValue,
 } from "@chakra-ui/react";
-import Features from "@/components/Features";
-import Technology from "@/components/Technology";
-import VideoPlayer from "@/components/VideoPlayer";
+import Features from "@/components/Project/Features";
+import Technology from "@/components/Project/Technology";
+import VideoPlayer from "@/components/Project/VideoPlayer";
 import client from "@/client";
-import Social from "@/components/Social";
-import Frame from "@/components/Frame";
+import Social from "@/utils/Social";
+import Frame from "@/utils/Frame";
 import Head from "next/head";
-import SolidButton from "@/components/SolidButton";
-import OutlineButton from "@/components/OutlineButton";
+import SolidButton from "@/utils/SolidButton";
+import OutlineButton from "@/utils/OutlineButton";
 
 type Project = {
   title: string;

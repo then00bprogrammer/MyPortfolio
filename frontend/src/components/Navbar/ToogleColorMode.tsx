@@ -2,7 +2,7 @@ import React from "react";
 import { Box, Icon, useColorMode, useColorModeValue } from "@chakra-ui/react";
 import { GiMoonBats, GiSunPriest } from "react-icons/gi";
 
-const ToogleColorMode = () => {
+const ToogleColorMode:React.FC = () => {
   const { toggleColorMode } = useColorMode();
   return (
     <Box

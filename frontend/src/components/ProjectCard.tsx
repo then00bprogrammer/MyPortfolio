@@ -1,7 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+
 import {
   Box,
-  Button,
   Divider,
   Flex,
   HStack,
@@ -12,11 +13,13 @@ import {
   VStack,
   useColorModeValue,
 } from "@chakra-ui/react";
-import Link from "next/link";
+
 import { motion, Variants } from "framer-motion";
-import Frame from "./Frame";
-import SolidButton from "./SolidButton";
-import OutlineButton from "./OutlineButton";
+
+import Frame from "@/utils/Frame";
+import SolidButton from "@/utils/SolidButton";
+import OutlineButton from "@/utils/OutlineButton";
+import colorMap from "@/utils/colorMap";
 
 const headingVariants: Variants = {
   offscreen: {
@@ -33,51 +36,6 @@ const headingVariants: Variants = {
   },
 };
 
-const blueDark = {
-  theme: "rgba( 26, 26, 46, 0.5 )",
-  buttonColor: "blue",
-  frameColor: "#16213E",
-  borderColor: "#0F3460",
-};
-const blueLight = {
-  theme: "blue.50",
-  buttonColor: "blue",
-  frameColor: "blue.100",
-  borderColor: "blue",
-};
-
-const grayLight = {
-  theme: "gray.100",
-  buttonColor: "blackAlpha",
-  frameColor: "blackAlpha.200",
-  borderColor: "black",
-};
-const grayDark = {
-  theme: "rgba( 51, 52, 86, 0.35 )",
-  buttonColor: "purple",
-  frameColor: "blackAlpha.200",
-  borderColor: "black",
-};
-
-const orangeLight = {
-  theme: "orange.50",
-  buttonColor: "orange",
-  frameColor: "orange.100",
-  borderColor: "orange",
-};
-const orangeDark = {
-  theme: "rgba( 47, 37, 25, 0.35 )",
-  buttonColor: "orange",
-  frameColor: "#4A3F35",
-  borderColor: "#2F2519",
-};
-
-const colorMap = {
-  gray: [grayLight, grayDark],
-  orange: [orangeLight, orangeDark],
-  blue: [blueLight, blueDark],
-};
-
 type Project = {
   title: string;
   description: string;
@@ -89,7 +47,7 @@ type Project = {
   id: string;
 };
 
-const ProjectCard = (data: { project: Project }) => {
+const ProjectCard: React.FC<{ project: Project }> = (data) => {
   const ref = useRef(null);
   const [projectData, setprojectData] = useState<Project | null>();
   useEffect(() => {
@@ -199,7 +157,6 @@ const ProjectCard = (data: { project: Project }) => {
                     .borderColor
                 )}
               />
-              {/* For smaller screens */}
               <Image
                 width="full"
                 objectFit="contain"
@@ -225,7 +182,7 @@ const ProjectCard = (data: { project: Project }) => {
                 </SolidButton>
               </Link>
               <Link href={projectData.githubRepoLink}>
-              <OutlineButton
+                <OutlineButton
                   light={
                     colorMap[projectData.color as keyof typeof colorMap][0]
                       .buttonColor
@@ -264,7 +221,6 @@ const ProjectCard = (data: { project: Project }) => {
               src={projectData.projectPhoto}
             ></Image>
           </Box>
-          {/* For Big Screens */}
         </Stack>
       </HStack>
     );

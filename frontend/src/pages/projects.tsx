@@ -2,22 +2,19 @@ import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import {
   Box,
-  Button,
   Center,
-  Divider,
   Flex,
   HStack,
   Heading,
-  Icon,
   Text,
   VStack,
   useColorModeValue,
 } from "@chakra-ui/react";
 import client from "@/client";
 import ProjectCard from "@/components/ProjectCard";
-import Social from "@/components/Social";
+import Social from "@/utils/Social";
 import { DotLottiePlayer } from "@dotlottie/react-player";
-import SolidButton from "@/components/SolidButton";
+import SolidButton from "@/utils/SolidButton";
 
 type Project = {
   title: string;

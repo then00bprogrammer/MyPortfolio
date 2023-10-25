@@ -21,8 +21,7 @@ export const theme = extendTheme({
         WebkitTapHighlightColor: "rgba(0, 0, 0, 0)",
       },
       body: {
-        bg: "white",
-        // position: "absolute"
+        bg: useColorModeValue('white','black'),
       },
       "::-webkit-scrollbar-track": {
         borderRadius: "10px",

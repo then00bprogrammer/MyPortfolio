@@ -9,7 +9,7 @@ type Props = {
   icon: IconType;
 }
 
-const PhoneMenuItem = ({ text, link, icon }: Props) => {
+const PhoneMenuItem:React.FC<Props> = ({ text, link, icon }) => {
   return (
     <MenuItem minH="30px" bg={useColorModeValue("gray.200", "#0F0E0E")}>
       <Link href={link}>

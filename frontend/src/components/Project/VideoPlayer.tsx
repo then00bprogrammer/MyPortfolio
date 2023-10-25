@@ -1,13 +1,10 @@
 import React from "react";
 import { Box } from "@chakra-ui/react";
 
-const VideoPlayer = ({
-  thumbnail,
-  videoLink,
-}: {
+const VideoPlayer: React.FC<{
   thumbnail: string;
   videoLink: string;
-}) => {
+}> = ({ thumbnail, videoLink }) => {
   return (
     <Box>
       <video

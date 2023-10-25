@@ -163,7 +163,7 @@ const Features: React.FC<{
         position="absolute"
         right="7.5vw"
         h="85vh"
-        bg={useColorModeValue("black", "#735F32")}
+        bg={useColorModeValue("black", "gold.600")}
       ></Divider>
     </HStack>
   );
