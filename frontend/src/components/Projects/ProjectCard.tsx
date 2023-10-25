@@ -20,6 +20,7 @@ import Frame from "@/utils/Frame";
 import SolidButton from "@/utils/SolidButton";
 import OutlineButton from "@/utils/OutlineButton";
 import colorMap from "@/utils/colorMap";
+import SideBanner from "@/utils/SideBanner";
 
 const headingVariants: Variants = {
   offscreen: {
@@ -73,30 +74,13 @@ const ProjectCard: React.FC<{ project: Project }> = (data) => {
         className="projectCard"
         spacing={0}
       >
-        <Flex
-          bgImage={projectData.sidePhoto}
-          bgSize="cover"
-          h="full"
-          w="15vw"
-          position="absolute"
-          left={0}
-          zIndex={1}
-          alignItems="center"
-          justifyContent="center"
-          filter="blur(1px)"
-          display={["none", "flex"]}
-        >
-          <Text
-            transform="rotate(180deg)"
-            style={{ writingMode: "vertical-rl" }}
-            fontSize="6xl"
-            fontWeight="bold"
-            color="white"
-            margin="auto"
-          >
-            {projectData.title}
-          </Text>
-        </Flex>
+        <SideBanner
+          title={projectData.title}
+          isBlurred={true}
+          isLeftAligned={true}
+          bgColor='none'
+          sidePhoto={projectData.sidePhoto}
+        />
         <Divider
           width="1px"
           height={["90vh", "85vh"]}

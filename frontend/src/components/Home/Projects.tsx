@@ -17,6 +17,7 @@ import Frame from "@/utils/Frame";
 import SolidButton from "@/utils/SolidButton";
 import OutlineButton from "@/utils/OutlineButton";
 import ProjectSlider from "@/utils/ProjectSlider";
+import SideBanner from "@/utils/SideBanner";
 
 const Projects: React.FC = () => {
   return (
@@ -30,28 +31,12 @@ const Projects: React.FC = () => {
       position="relative"
       id="projects"
     >
-      <Flex
-        bg={useColorModeValue("red.400", "gold.500")}
-        minH={["90vh", "85vh"]}
-        w="15vw"
-        position="absolute"
-        left={0}
-        zIndex={1}
-        alignItems="center"
-        justifyContent="center"
-        display={["none", "flex"]}
-      >
-        <Text
-          transform="rotate(180deg)"
-          style={{ writingMode: "vertical-rl" }}
-          fontSize="6xl"
-          fontWeight="bold"
-          color="white"
-          margin="auto"
-        >
-          PROJECTS
-        </Text>
-      </Flex>
+      <SideBanner
+        title="PROJECTS"
+        isBlurred={false}
+        isLeftAligned={true}
+        bgColor={useColorModeValue("red.400", "gold.500")}
+      />
       <Divider
         width="1px"
         height="100vh"

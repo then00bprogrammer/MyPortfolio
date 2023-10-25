@@ -31,6 +31,7 @@ import { TbBrandNextjs } from "react-icons/tb";
 import { motion, Variants } from "framer-motion";
 import { DotLottiePlayer } from "@dotlottie/react-player";
 import CustomLottiePlayer from "@/utils/CustomLottiePlayer";
+import SideBanner from "@/utils/SideBanner";
 
 const iconMap = {
   React: SiReact,
@@ -80,29 +81,12 @@ const Technology: React.FC<{
       color="black"
       position="relative"
     >
-      {/* Side Banner */}
-      <Flex
-        bg={useColorModeValue("red.400", "#C69749")}
-        h={["90vh", "full"]}
-        w="15vw"
-        position="absolute"
-        right={0}
-        zIndex={1}
-        alignItems="center"
-        justifyContent="center"
-        display={["none", "flex"]}
-      >
-        <Text
-          transform="rotate(180deg)"
-          style={{ writingMode: "vertical-rl" }}
-          fontSize="6xl"
-          fontWeight="bold"
-          color="white"
-          margin="auto"
-        >
-          Technology
-        </Text>
-      </Flex>
+      <SideBanner
+        title="Technology"
+        isBlurred={false}
+        isLeftAligned={false}
+        bgColor={useColorModeValue("red.400", "gold.500")}
+      />
       <Stack
         w={["100%", "100%"]}
         textAlign="left"

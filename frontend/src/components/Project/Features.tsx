@@ -20,10 +20,10 @@ import "swiper/css/scrollbar";
 import { TypeAnimation } from "react-type-animation";
 import { useInView } from "framer-motion";
 import { motion, Variants } from "framer-motion";
-import { DotLottiePlayer } from "@dotlottie/react-player";
 
 import { FaHashtag } from "react-icons/fa6";
 import CustomLottiePlayer from "@/utils/CustomLottiePlayer";
+import SideBanner from "@/utils/SideBanner";
 
 const headingVariants: Variants = {
   offscreen: {
@@ -48,9 +48,6 @@ const Features: React.FC<{
   const ref = useRef(null);
   const isInView = useInView(ref);
 
-  useEffect(() => {
-    console.log("Element is in view: ", isInView);
-  }, [isInView]);
   return (
     <HStack
       minH={["90vh", "85vh"]}
@@ -61,28 +58,12 @@ const Features: React.FC<{
       color="black"
       position="relative"
     >
-      <Flex
-        bg={useColorModeValue("red.400", "gold.500")}
-        h={["full", "85vh"]}
-        w="15vw"
-        position="absolute"
-        left={0}
-        zIndex={1}
-        alignItems="center"
-        justifyContent="center"
-        display={["none", "flex"]}
-      >
-        <Text
-          transform="rotate(180deg)"
-          style={{ writingMode: "vertical-rl" }}
-          fontSize="6xl"
-          fontWeight="bold"
-          color="white"
-          margin="auto"
-        >
-          Features
-        </Text>
-      </Flex>
+      <SideBanner
+        title="Features"
+        isBlurred={false}
+        isLeftAligned={true}
+        bgColor={useColorModeValue("red.400", "gold.500")}
+      />
 
       <Stack
         width="100%"
@@ -121,7 +102,7 @@ const Features: React.FC<{
           </motion.div>
           <Box w={["100%", "50%"]} p={["0", "5%"]} display={["flex", "none"]}>
             <Center>
-              <CustomLottiePlayer src='features'/>
+              <CustomLottiePlayer src="features" />
             </Center>
           </Box>
           {features.map((feature, index) => (
@@ -144,7 +125,7 @@ const Features: React.FC<{
           ))}
         </VStack>
         <Box display={["none", "flex"]} w="38.75vw" mr="4.25vw" ml="2.125vw">
-          <CustomLottiePlayer src='features'/>
+          <CustomLottiePlayer src="features" />
         </Box>
       </Stack>
       <Divider
