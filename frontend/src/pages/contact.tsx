@@ -213,7 +213,7 @@ const Contact = () => {
           >
             <Box width="100%">
               <Center>
-                <CustomLottiePlayer src="contact.lottie" />
+                <CustomLottiePlayer src="contact" />
               </Center>
             </Box>
             <Wrap mt="5vh" mb="2.5vh">
