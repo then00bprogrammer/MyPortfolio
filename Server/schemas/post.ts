@@ -71,6 +71,12 @@ export default {
       type: 'text',
       title: 'Tech Stack Description',
       description: 'Description of the project\'s tech stack',
+      validation: (Rule:any) => Rule.custom((text:string) => {
+        if (text && text.length > 300) {
+          return 'Tech Stack Description must not exceed 300 characters';
+        }
+        return true;
+      }),
     },
     {
       name: 'techStackNames',

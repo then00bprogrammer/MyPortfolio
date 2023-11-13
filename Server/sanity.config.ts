@@ -5,7 +5,7 @@ import {schemaTypes} from './schemas'
 
 export default defineConfig({
   name: 'default',
-  title: 'port-backend',
+  title: 'My Portfolio',
 
   projectId: 'cqhzons8',
   dataset: 'production',

@@ -150,7 +150,7 @@ const Technology: React.FC<{
             ))}
           </Wrap>
         </VStack>
-        {/* Larger Devicea */}
+        {/* Larger Devices */}
         <Box
           w="46.25vw"
           mr="7.5vw"
