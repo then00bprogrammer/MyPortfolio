@@ -13,24 +13,6 @@ import SolidButton from "@/utils/SolidButton";
 const ContactMe: React.FC = () => {
   return (
     <Flex>
-      <Divider
-        width="1px"
-        minH="70vh"
-        bg={useColorModeValue("black", "gold.500")}
-        display={["none", "flex"]}
-        position="absolute"
-        left="7.5vw"
-        zIndex={1}
-      ></Divider>
-      <Divider
-        width="1px"
-        minH="70vh"
-        bg={useColorModeValue("black", "gold.500")}
-        display={["none", "flex"]}
-        position="absolute"
-        right="7.5vw"
-        zIndex={1}
-      ></Divider>
       <Flex
         position="relative"
         width={["100vw", `calc(100vw - 12px)`]}

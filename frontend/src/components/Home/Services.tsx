@@ -35,18 +35,12 @@ const Services:React.FC = () => {
       justifyContent="space-between"
       color="black"
     >
-      <Divider
-        width="1px"
-        minH="100vh"
-        bg={useColorModeValue("black", "gold.600")}
-        display={["none", "flex"]}
-      ></Divider>
       <Stack width="full" direction={["column-reverse", "row"]}>
         <VStack
           w={["100%", "70%"]}
           alignItems="flex-start"
-          pl={["0%", "5%"]}
-          pr={["0%", "5%"]}
+          pl={["0%", "4.25vw"]}
+          pr={["0%", "2.125vw"]}
           lineHeight="2"
           letterSpacing="wider"
         >
@@ -85,7 +79,7 @@ const Services:React.FC = () => {
             apps. Neo4j handles intricate data relationships, while Firebase is
             key for mobile and web development. Sanity streamlines content
             management. This skill set enables me to tackle diverse web
-            development challenges with innovation and precision
+            development challenges with innovation and 
           </Text>
           <HStack>
             <a href="https://www.fiverr.com/nikhil03_" target="_blank">
@@ -112,18 +106,18 @@ const Services:React.FC = () => {
             </Button>
           </HStack>
         </VStack>
-        <VStack marginBottom={["2.5vh", "0"]}>
+        <VStack marginBottom={["2.5vh", "0"]} pr='4.25vw' pl='2.125vw'>
           <Heading
             fontSize={["4xl", "7xl"]}
             fontWeight="extrabold"
-            color={useColorModeValue("gray.800", "gray.100")}
+            color={useColorModeValue("gray.700", "gold.100")}
           >
             SERVICES
           </Heading>
           <Heading
             fontSize={["4xl", "7xl"]}
             fontWeight="extrabold"
-            color={useColorModeValue("gray.800", "gray.100")}
+            color={useColorModeValue("gray.700", "gold.100")}
           >
             & TECH
           </Heading>
@@ -147,12 +141,6 @@ const Services:React.FC = () => {
           </VStack>
         </VStack>
       </Stack>
-      <Divider
-        width="1px"
-        height="100vh"
-        bg={useColorModeValue("black", "gold.600")}
-        display={["none", "flex"]}
-      ></Divider>
     </HStack>
   );
 };

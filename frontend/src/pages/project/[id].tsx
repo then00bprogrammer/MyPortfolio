@@ -7,6 +7,7 @@ import client from "@/client";
 import Social from "@/utils/Social";
 import Head from "next/head";
 import Banner from "@/components/Project/Banner";
+import ShowAlert from "@/utils/ShowAlert";
 
 type Project = {
   title: string;
@@ -18,8 +19,9 @@ type Project = {
   color: string;
   techStackNames: string[];
   features: string[];
-  techStackDescription: string;
+  techStackDescription: any[];
   projectVideoLink: string;
+  alertMessage?: string;
 };
 
 export const config = {
@@ -29,6 +31,7 @@ export const config = {
 const Project = () => {
   const router = useRouter();
   const [data, setData] = useState<Project | null>(null);
+  const [isAlertVisible, setIsAlertVisible] = useState<boolean>(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,11 +48,13 @@ const Project = () => {
               features,
               techStackDescription,
               techStackNames,
-              projectVideoLink
+              projectVideoLink,
+              alertMessage
             }`,
           { articleId }
         );
         setData(res[0]);
+        setIsAlertVisible(res[0].alertMessage?true:false);
       } catch (error) {
         console.error("Error fetching post:", error);
       }
@@ -71,6 +76,14 @@ const Project = () => {
           bg={useColorModeValue("white", "black")}
           marginTop={["10vh", "15vh"]}
         >
+          {data.alertMessage && isAlertVisible && (
+            <ShowAlert
+              alertTitle="Important"
+              message={data.alertMessage}
+              alertStatus="info"
+              setIsAlertVisible={setIsAlertVisible}
+            />
+          )}
           <Banner
             title={data.title}
             description={data.description}

@@ -30,6 +30,7 @@ const Projects: React.FC = () => {
       color="black"
       position="relative"
       id="projects"
+      spacing={0}
     >
       <SideBanner
         title="PROJECTS"
@@ -37,20 +38,16 @@ const Projects: React.FC = () => {
         isLeftAligned={true}
         bgColor={useColorModeValue("red.400", "gold.500")}
       />
-      <Divider
-        width="1px"
-        height="100vh"
-        bg={useColorModeValue("black", "gold.600")}
-        display={["none", "flex"]}
-      ></Divider>
-      <Stack w={["100%", "85%"]} direction={["column", "row"]}>
+      <Stack w='100%' direction={["column", "row"]} spacing={0}>
         <VStack
           lineHeight="2"
           letterSpacing="wider"
-          w={["100%", "50%"]}
-          pl={["0%", "5%"]}
-          pr={["0%", "5%"]}
-        >
+          w={["100%", "46.25vw"]}
+          ml={["0%", "7.5vw"]}
+          pl={["0%", "4.25vw"]}
+          pr={["0%", "2.125vw"]}
+          alignItems={['center','flex-start']}
+          >
           <Heading
             fontSize={["4xl", "7xl"]}
             fontWeight="extrabold"
@@ -78,7 +75,7 @@ const Projects: React.FC = () => {
             whether it is about a simple business website or a live complex
             e-commerce webshop. Click the button to see my projects.
           </Text>
-          <HStack>
+          <HStack mr='auto'>
             <Link href="./projects">
               <SolidButton>View Projects</SolidButton>
             </Link>
@@ -93,7 +90,9 @@ const Projects: React.FC = () => {
           </HStack>
         </VStack>
         <VStack
-          w={["100%", "50%"]}
+          w={["100%", "31.875vw"]}
+          mr={["0", "4.25vw"]}
+          ml={["0", "2.125vw"]}
           alignItems="flex-start"
           lineHeight="2"
           letterSpacing="wider"
@@ -105,12 +104,6 @@ const Projects: React.FC = () => {
           <ProjectSlider />
         </VStack>
       </Stack>
-      <Divider
-        width="1px"
-        height="100vh"
-        bg={useColorModeValue("black", "gold.600")}
-        display={["none", "flex"]}
-      ></Divider>
     </HStack>
   );
 };

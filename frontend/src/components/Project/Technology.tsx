@@ -6,6 +6,7 @@ import {
   Flex,
   Heading,
   Icon,
+  Link,
   Stack,
   Text,
   VStack,
@@ -32,6 +33,9 @@ import { motion, Variants } from "framer-motion";
 import { DotLottiePlayer } from "@dotlottie/react-player";
 import CustomLottiePlayer from "@/utils/CustomLottiePlayer";
 import SideBanner from "@/utils/SideBanner";
+import { BlockSchemaType } from "@sanity/types";
+import { PortableText } from "@portabletext/react";
+import { PortableTextComponents } from "@portabletext/react";
 
 const iconMap = {
   React: SiReact,
@@ -65,10 +69,28 @@ const headingVariants: Variants = {
   },
 };
 
+const customComponent: PortableTextComponents = {
+  marks: {
+    link: ({ value, children }) => {
+      return (
+        <Link
+          href={value?.href}
+          target='_blank'
+          color={useColorModeValue('teal','gold.600')}
+          _hover={{textDecoration:'underline'}}
+        >
+          {children}
+        </Link>
+      );
+    },
+  },
+};
+
 const Technology: React.FC<{
-  description: string;
+  description: any[];
   techStack: string[];
 }> = ({ description, techStack }) => {
+  console.log(description);
   const ref = useRef(null);
   return (
     <Stack
@@ -131,8 +153,9 @@ const Technology: React.FC<{
             </Center>
           </Box>
           <Text color={useColorModeValue("gray.600", "gray.400")}>
-            {description}
+            <PortableText components={customComponent} value={description} />
           </Text>
+
           <Wrap
             spacing="2"
             mt="2.5vh"

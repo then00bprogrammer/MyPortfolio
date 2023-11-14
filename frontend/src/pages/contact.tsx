@@ -111,8 +111,9 @@ const Contact = () => {
       >
         {isAlertVisible && (
           <ShowAlert
+            alertTitle={alertState?.success?'Success':'error'}
             message={alertState?.message}
-            success={alertState?.success}
+            alertStatus={alertState?.success?'success':'error'}
             setIsAlertVisible={setIsAlertVisible}
           />
         )}

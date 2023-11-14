@@ -66,7 +66,7 @@ const Features: React.FC<{
       />
 
       <Stack
-        width="100%"
+        w='100%'
         textAlign="left"
         direction={["column", "row"]}
         spacing={0}

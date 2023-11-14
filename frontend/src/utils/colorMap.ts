@@ -3,12 +3,14 @@ const blueDark = {
     buttonColor: 'blue',
     frameColor: '#16213E',
     borderColor: '#0F3460',
+    playButtonColor: '#0F3460',
   };
   const blueLight = {
     theme: 'blue.50',
     buttonColor: 'blue',
     frameColor: 'blue.100',
     borderColor: 'blue',
+    playButtonColor: 'blue.50',
   };
   
   const grayLight = {
@@ -16,12 +18,14 @@ const blueDark = {
     buttonColor: 'blackAlpha',
     frameColor: 'blackAlpha.200',
     borderColor: 'black',
+    playButtonColor: 'gray.100',
   };
   const grayDark = {
     theme: 'rgba( 51, 52, 86, 0.35 )',
     buttonColor: 'purple',
     frameColor: 'blackAlpha.200',
     borderColor: 'black',
+    playButtonColor: 'gray.700',
   };
   
   const orangeLight = {
@@ -29,12 +33,14 @@ const blueDark = {
     buttonColor: 'orange',
     frameColor: 'orange.100',
     borderColor: 'orange',
+    playButtonColor: 'orange.50',
   };
   const orangeDark = {
     theme: 'rgba( 47, 37, 25, 0.35 )',
     buttonColor: 'orange',
     frameColor: '#4A3F35',
     borderColor: '#2F2519',
+    playButtonColor: 'orange.200',
   };
   
   const colorMap = {

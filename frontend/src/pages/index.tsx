@@ -1,7 +1,7 @@
 import React from "react";
 import Head from "next/head";
 
-import { Stack, useColorModeValue } from "@chakra-ui/react";
+import { Divider, Stack, VStack, useColorModeValue, Spacer, Flex } from "@chakra-ui/react";
 
 import Banner from "@/components/Home/Banner";
 import Services from "@/components/Home/Services";
@@ -9,7 +9,6 @@ import Projects from "@/components/Home/Projects";
 import ContactMe from "@/components/Home/ContactMe";
 
 import Social from "@/utils/Social";
-import Spacer from "@/utils/Spacer";
 
 const index = () => {
   return (
@@ -21,10 +20,28 @@ const index = () => {
       <Stack bg={useColorModeValue("white", "black")} spacing={0}>
         <Banner />
         <Social />
-        <Services />
-        <Spacer />
-        <Projects />
-        <ContactMe />
+        <VStack position='relative'>
+          <Divider
+            width="1px"
+            height='full'
+            display={["none", "flex"]}
+            position="absolute"
+            left="7.5vw"
+            bg={useColorModeValue("black", "gold.600")}
+          ></Divider>
+          <Services />
+          <Flex h={['0','10vh']}/>
+          <Projects />
+          <ContactMe />
+          <Divider
+            width="1px"
+            height='full'
+            display={["none", "flex"]}
+            position="absolute"
+            right="7.5vw"
+            bg={useColorModeValue("black", "gold.600")}
+          ></Divider>
+        </VStack>
       </Stack>
     </>
   );

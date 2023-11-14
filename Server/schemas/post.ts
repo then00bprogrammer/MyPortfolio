@@ -6,6 +6,12 @@ export default {
   title: 'Post',
   fields: [
     {
+      name: 'alertMessage',
+      type: 'string',
+      title: 'Alert Message',
+      description: 'Optional alert message to display',
+    },
+    {
       name: 'projectVideoLink',
       type: 'url',
       title: 'Project Video Link',
@@ -68,11 +74,27 @@ export default {
     },
     {
       name: 'techStackDescription',
-      type: 'text',
+      type: 'array',
       title: 'Tech Stack Description',
       description: 'Description of the project\'s tech stack',
-      validation: (Rule:any) => Rule.custom((text:string) => {
-        if (text && text.length > 300) {
+      of: [
+        {
+          type: 'block',
+          styles: [{ title: 'Normal', value: 'normal' }],
+          marks: {
+            decorators: [
+              { title: 'Bold', value: 'strong' },
+              { title: 'Italic', value: 'em' },
+            ],
+          },
+        },
+      ],
+      validation: (Rule:any) => Rule.custom((blocks:any) => {
+        const textLength = blocks
+          .map((block:any) => block.children.map((child:any) => child.text).join(''))
+          .join('').length;
+
+        if (textLength > 500) {
           return 'Tech Stack Description must not exceed 300 characters';
         }
         return true;

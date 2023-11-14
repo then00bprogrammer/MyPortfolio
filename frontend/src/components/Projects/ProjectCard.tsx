@@ -7,6 +7,7 @@ import {
   Flex,
   HStack,
   Heading,
+  Icon,
   Image,
   Stack,
   Text,
@@ -15,12 +16,18 @@ import {
 } from "@chakra-ui/react";
 
 import { motion, Variants } from "framer-motion";
+import {
+  FaCirclePlay,
+  FaForwardStep,
+  FaUpRightFromSquare,
+} from "react-icons/fa6";
 
 import Frame from "@/utils/Frame";
 import SolidButton from "@/utils/SolidButton";
 import OutlineButton from "@/utils/OutlineButton";
 import colorMap from "@/utils/colorMap";
 import SideBanner from "@/utils/SideBanner";
+import { useRouter } from "next/router";
 
 const headingVariants: Variants = {
   offscreen: {
@@ -49,6 +56,7 @@ type Project = {
 };
 
 const ProjectCard: React.FC<{ project: Project }> = (data) => {
+  const router = useRouter();
   const ref = useRef(null);
   const [projectData, setprojectData] = useState<Project | null>();
   useEffect(() => {
@@ -78,7 +86,7 @@ const ProjectCard: React.FC<{ project: Project }> = (data) => {
           title={projectData.title}
           isBlurred={true}
           isLeftAligned={true}
-          bgColor='none'
+          bgColor="none"
           sidePhoto={projectData.sidePhoto}
         />
         <Divider
@@ -132,6 +140,8 @@ const ProjectCard: React.FC<{ project: Project }> = (data) => {
               padding={5}
               position="relative"
               backdropFilter="blur(3.5px)"
+              cursor="pointer"
+              onClick={() => router.push(`./project/${projectData.id}`)}
             >
               <Frame
                 frameColor={useColorModeValue(
@@ -145,6 +155,7 @@ const ProjectCard: React.FC<{ project: Project }> = (data) => {
                 width="full"
                 objectFit="contain"
                 src={projectData.projectPhoto}
+                _hover={{ brightness: "80%" }}
               ></Image>
             </Box>
             <Text color={useColorModeValue("gray.600", "gray.400")} mb="2.5vh">
@@ -183,6 +194,7 @@ const ProjectCard: React.FC<{ project: Project }> = (data) => {
           </VStack>
           {/* For Big Screens */}
           <Box
+            as={motion.div}
             display={["none", "flex"]}
             padding={5}
             position="relative"
@@ -190,6 +202,8 @@ const ProjectCard: React.FC<{ project: Project }> = (data) => {
             w="38.75vw"
             mr="4.25vw"
             ml="2.125vw"
+            cursor="pointer"
+            onClick={() => router.push(`./project/${projectData.id}`)}
           >
             <Frame
               frameColor={useColorModeValue(
@@ -199,11 +213,41 @@ const ProjectCard: React.FC<{ project: Project }> = (data) => {
                   .borderColor
               )}
             />
+            <motion.div
+              className="play-button"
+              initial={{ opacity: 0 }}
+              whileHover={{ opacity: 1 }}
+              transition={{ duration: 0.6 }}
+            >
+              <Flex
+                w="100%"
+                h="100%"
+                top="0"
+                left="0"
+                position="absolute"
+                alignItems="center"
+                justifyContent="center"
+              >
+                <Icon
+                  as={FaUpRightFromSquare}
+                  size="xl"
+                  w="30%"
+                  h="30%"
+                  color={useColorModeValue(
+                    colorMap[projectData.color as keyof typeof colorMap][0]
+                      .playButtonColor,
+                    colorMap[projectData.color as keyof typeof colorMap][1]
+                      .playButtonColor
+                  )}
+                />
+              </Flex>
+            </motion.div>
             <Image
               width="full"
               objectFit="contain"
               src={projectData.projectPhoto}
-            ></Image>
+              cursor="pointer"
+            />
           </Box>
         </Stack>
       </HStack>
