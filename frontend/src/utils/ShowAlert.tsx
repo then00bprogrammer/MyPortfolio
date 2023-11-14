@@ -40,6 +40,7 @@ const ShowAlert: React.FC<alertProps> = ({
         alignItems="center"
         justifyContent="center"
         zIndex={101}
+        bottom={[alertStatus==='info'?'0':'auto','auto']}
       >
         <Stack flexDir={["column", "row"]}>
           <HStack>
