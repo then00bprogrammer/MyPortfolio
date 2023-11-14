@@ -30,10 +30,8 @@ import {
 } from "react-icons/si";
 import { TbBrandNextjs } from "react-icons/tb";
 import { motion, Variants } from "framer-motion";
-import { DotLottiePlayer } from "@dotlottie/react-player";
 import CustomLottiePlayer from "@/utils/CustomLottiePlayer";
 import SideBanner from "@/utils/SideBanner";
-import { BlockSchemaType } from "@sanity/types";
 import { PortableText } from "@portabletext/react";
 import { PortableTextComponents } from "@portabletext/react";
 
