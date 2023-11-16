@@ -8,6 +8,8 @@ import {
   HStack,
   Stack,
   useDisclosure,
+  useBreakpointValue,
+  useColorModeValue,
 } from "@chakra-ui/react";
 
 type alertProps = {
@@ -29,6 +31,15 @@ const ShowAlert: React.FC<alertProps> = ({
     onOpen,
   } = useDisclosure({ defaultIsOpen: true });
 
+  const isSmall = useBreakpointValue([true, true, false, false]);
+
+  const bgColor = isSmall
+    ? useColorModeValue(
+        undefined,
+        alertStatus === "info" ? "blue.800" : "green.600"
+      )
+    : undefined;
+
   return (
     isVisible && (
       <Alert
@@ -40,7 +51,8 @@ const ShowAlert: React.FC<alertProps> = ({
         alignItems="center"
         justifyContent="center"
         zIndex={101}
-        bottom={[alertStatus==='info'?'0':'auto','auto']}
+        bottom={["0", "auto"]}
+        bgColor={bgColor}
       >
         <Stack flexDir={["column", "row"]}>
           <HStack>
