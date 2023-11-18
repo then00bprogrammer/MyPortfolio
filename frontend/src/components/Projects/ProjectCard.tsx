@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 
 import {
+  AspectRatio,
   Box,
   Divider,
   Flex,
@@ -151,12 +152,15 @@ const ProjectCard: React.FC<{ project: Project }> = (data) => {
                     .borderColor
                 )}
               />
-              <Image
-                width="full"
-                objectFit="contain"
-                src={projectData.projectPhoto}
-                _hover={{ brightness: "80%" }}
-              ></Image>
+              <AspectRatio ratio={16 / 9} w="full">
+                <Image
+                  objectFit="contain"
+                  objectPosition="center"
+                  src={projectData.projectPhoto}
+                  cursor="pointer"
+                  _hover={{ brightness: "80%" }}
+                />
+              </AspectRatio>
             </Box>
             <Text color={useColorModeValue("gray.600", "gray.400")} mb="2.5vh">
               {projectData.description}
@@ -242,12 +246,14 @@ const ProjectCard: React.FC<{ project: Project }> = (data) => {
                 />
               </Flex>
             </motion.div>
-            <Image
-              width="full"
-              objectFit="contain"
-              src={projectData.projectPhoto}
-              cursor="pointer"
-            />
+            <AspectRatio ratio={16 / 9} w="full">
+              <Image
+                objectFit="contain"
+                objectPosition="center"
+                src={projectData.projectPhoto}
+                cursor="pointer"
+              />
+            </AspectRatio>
           </Box>
         </Stack>
       </HStack>

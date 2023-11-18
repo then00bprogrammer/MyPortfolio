@@ -38,7 +38,12 @@ const Projects: React.FC = () => {
         isLeftAligned={true}
         bgColor={useColorModeValue("red.400", "gold.500")}
       />
-      <Stack w='100%' direction={["column", "row"]} spacing={0}>
+      <Stack
+        w="100%"
+        direction={["column", "row"]}
+        spacing={0}
+        alignItems="center"
+      >
         <VStack
           lineHeight="2"
           letterSpacing="wider"
@@ -46,12 +51,11 @@ const Projects: React.FC = () => {
           ml={["0%", "7.5vw"]}
           pl={["0%", "4.25vw"]}
           pr={["0%", "2.125vw"]}
-          alignItems={['center','flex-start']}
-          >
+          alignItems={["center", "flex-start"]}
+        >
           <Heading
             fontSize={["4xl", "7xl"]}
             fontWeight="extrabold"
-            mt="2.5vh"
             mb="2.5vh"
             color={useColorModeValue("gray.700", "gold.100")}
           >
@@ -75,7 +79,7 @@ const Projects: React.FC = () => {
             whether it is about a simple business website or a live complex
             e-commerce webshop. Click the button to see my projects.
           </Text>
-          <HStack mr='auto'>
+          <HStack mr="auto">
             <Link href="./projects">
               <SolidButton>View Projects</SolidButton>
             </Link>
@@ -99,6 +103,7 @@ const Projects: React.FC = () => {
           position="relative"
           padding={5}
           display={["none", "flex"]}
+          h="fit-content"
         >
           <Frame />
           <ProjectSlider />

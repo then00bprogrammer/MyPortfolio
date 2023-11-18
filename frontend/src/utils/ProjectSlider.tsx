@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import React, { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
-import { Image } from '@chakra-ui/react';
-import client from '@/client';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import { AspectRatio, Image } from "@chakra-ui/react";
+import client from "@/client";
 
 type ProjectSlide = {
   projectPhoto: string;
@@ -26,7 +26,7 @@ const ProjectSlider: React.FC = () => {
       }`);
       setData(res);
     } catch (error) {
-      console.error('Error fetching post:', error);
+      console.error("Error fetching post:", error);
     }
   };
   useEffect(() => {
@@ -45,16 +45,19 @@ const ProjectSlider: React.FC = () => {
       }}
       navigation={true}
       modules={[Autoplay, Pagination, Navigation]}
-      className='mySwiper'
+      className="mySwiper"
+
     >
       {data &&
         data.map((slide, id) => (
           <SwiperSlide key={id}>
-            <Image
-              src={slide.projectPhoto}
-              onClick={() => router.push(`./project/${slide.id}`)}
-              _hover={{ filter: 'brightness(80%)', cursor: 'pointer' }}
-            ></Image>
+            <AspectRatio ratio={16/9}>
+              <Image
+                src={slide.projectPhoto}
+                onClick={() => router.push(`./project/${slide.id}`)}
+                _hover={{ filter: "brightness(80%)", cursor: "pointer" }}
+              ></Image>
+            </AspectRatio>
           </SwiperSlide>
         ))}
     </Swiper>

@@ -30,7 +30,7 @@ const ContactMe: React.FC = () => {
             clipPath: "polygon(0% 40%, 0% 100%, 100% 100%, 100% 0%)",
           }}
           color="white"
-          paddingTop={useColorModeValue("27.5vh", "35vh")}
+          paddingTop={["27.5vh", "35vh"]}
           backgroundColor={useColorModeValue(
             "blackAlpha.800",
             "blackAlpha.900"
