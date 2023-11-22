@@ -8,6 +8,7 @@ import Social from "@/utils/Social";
 import Head from "next/head";
 import Banner from "@/components/Project/Banner";
 import ShowAlert from "@/utils/ShowAlert";
+import Loading from "@/utils/Loading";
 
 type Project = {
   title: string;
@@ -32,6 +33,7 @@ const Project = () => {
   const router = useRouter();
   const [data, setData] = useState<Project | null>(null);
   const [isAlertVisible, setIsAlertVisible] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -54,7 +56,8 @@ const Project = () => {
           { articleId }
         );
         setData(res[0]);
-        setIsAlertVisible(res[0].alertMessage?true:false);
+        setIsAlertVisible(res[0].alertMessage ? true : false);
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching post:", error);
       }
@@ -63,45 +66,49 @@ const Project = () => {
     fetchData();
   }, [router.query.id]);
 
-  if (data)
+  if (!isLoading &&data)
     return (
       <>
         <Head>
           <title>Nikhil's Portfolio</title>
         </Head>
-        <VStack
-          w="full"
-          minH={["90vh", "85vh"]}
-          spacing={0}
-          bg={useColorModeValue("white", "black")}
-          marginTop={["10vh", "15vh"]}
-        >
-          {data.alertMessage && isAlertVisible && (
-            <ShowAlert
-              alertTitle="Important"
-              message={data.alertMessage}
-              alertStatus="info"
-              setIsAlertVisible={setIsAlertVisible}
+        {isLoading ? (
+          <Loading />
+        ) : (
+          <VStack
+            w="full"
+            minH={["90vh", "85vh"]}
+            spacing={0}
+            bg={useColorModeValue("white", "black")}
+            marginTop={["10vh", "15vh"]}
+          >
+            {data.alertMessage && isAlertVisible && (
+              <ShowAlert
+                alertTitle="Important"
+                message={data.alertMessage}
+                alertStatus="info"
+                setIsAlertVisible={setIsAlertVisible}
+              />
+            )}
+            <Banner
+              title={data.title}
+              description={data.description}
+              siteLink={data.siteLink}
+              githubRepoLink={data.githubRepoLink}
+              projectPhoto={data.projectPhoto}
+              projectVideoLink={data.projectVideoLink}
             />
-          )}
-          <Banner
-            title={data.title}
-            description={data.description}
-            siteLink={data.siteLink}
-            githubRepoLink={data.githubRepoLink}
-            projectPhoto={data.projectPhoto}
-            projectVideoLink={data.projectVideoLink}
-          />
-          <Social />
-          <Features features={data.features} />
-          <Technology
-            description={data.techStackDescription}
-            techStack={data.techStackNames}
-          />
-        </VStack>
+            <Social />
+            <Features features={data.features} />
+            <Technology
+              description={data.techStackDescription}
+              techStack={data.techStackNames}
+            />
+          </VStack>
+        )}
       </>
     );
-  else return null;
+  else return <Loading />;
 };
 
 export default Project;
