@@ -17,7 +17,7 @@ const ContactMe: React.FC = () => {
         position="relative"
         width={["100vw", `calc(100vw - 12px)`]}
         style={{
-          height: "70vh",
+          height: "70svh",
           clipPath: "polygon(0% 40%, 0% 100%, 100% 100%, 100% 0%)",
         }}
         zIndex={2}
@@ -26,11 +26,11 @@ const ContactMe: React.FC = () => {
         <VStack
           width={["100vw", `calc(100vw - 12px)`]}
           style={{
-            height: "70vh",
+            height: "70svh",
             clipPath: "polygon(0% 40%, 0% 100%, 100% 100%, 100% 0%)",
           }}
           color="white"
-          paddingTop={["27.5vh", "35vh"]}
+          paddingTop={["27.5svh", "35svh"]}
           backgroundColor={useColorModeValue(
             "blackAlpha.800",
             "blackAlpha.900"
@@ -39,10 +39,10 @@ const ContactMe: React.FC = () => {
           pl="7.5%"
           pr="7.5%"
         >
-          <Heading size="2xl" mb="2.5vh">
+          <Heading size="2xl" mb="2.5svh">
             CONTACT
           </Heading>
-          <Text lineHeight={2} letterSpacing="wider" mb="2.5vh">
+          <Text lineHeight={2} letterSpacing="wider" mb="2.5svh">
             Any questions or need a website, logo design or something else?
             Don't hesitate to contact me.
           </Text>

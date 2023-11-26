@@ -105,8 +105,8 @@ const Contact = () => {
 
       <VStack
         w="full"
-        minH={["90vh", "85vh"]}
-        marginTop={["10vh", "15vh"]}
+        minH={["90svh", "85svh"]}
+        marginTop={["10svh", "15svh"]}
         bg={useColorModeValue("white", "black")}
       >
         {isAlertVisible && (
@@ -122,7 +122,7 @@ const Contact = () => {
           direction={["column", "row"]}
           w="80%"
           m="auto"
-          minH={["90vh", "85vh"]}
+          minH={["90svh", "85svh"]}
         >
           <VStack
             lineHeight="2"
@@ -134,8 +134,8 @@ const Contact = () => {
             <Heading
               fontSize={["4xl", "7xl"]}
               fontWeight="extrabold"
-              mt="2.5vh"
-              mb="2.5vh"
+              mt="2.5svh"
+              mb="2.5svh"
               color={useColorModeValue("gray.700", "gold.100")}
             >
               CONTACT ME
@@ -199,7 +199,7 @@ const Contact = () => {
                 colorScheme={useColorModeValue("purple", "gold")}
                 borderRadius={0}
                 size="lg"
-                mt="2.5vh"
+                mt="2.5svh"
               >
                 Send
               </Button>
@@ -217,7 +217,7 @@ const Contact = () => {
                 <CustomLottiePlayer src="contact" />
               </Center>
             </Box>
-            <Wrap mt="5vh" mb="2.5vh">
+            <Wrap mt="5svh" mb="2.5svh">
               <Text
                 letterSpacing="wider"
                 color={useColorModeValue("gray.600", "gray.400")}

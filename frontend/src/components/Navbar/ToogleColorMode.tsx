@@ -8,7 +8,7 @@ const ToogleColorMode:React.FC = () => {
     <Box
       position="fixed"
       right="5vw"
-      bottom="7.5vh"
+      bottom="7.5svh"
       zIndex="2"
       cursor="pointer"
     >

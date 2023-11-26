@@ -16,7 +16,7 @@ const Banner: React.FC = () => {
   return (
     <Flex
       w={`calc(100vw - 12px)`}
-      h={["90vh", "85vh"]}
+      h={["90svh", "85svh"]}
       bgSize="contain"
       bgRepeat="no-repeat"
       bgImage={useColorModeValue("./pencil.jpg", "")}
@@ -35,16 +35,16 @@ const Banner: React.FC = () => {
         <Heading
           fontSize={["4xl", "7xl"]}
           fontWeight="extrabold"
-          mb="2.5vh"
+          mb="2.5svh"
           color={useColorModeValue("gray.700", "gold.100")}
         >
           PROJECTS
         </Heading>
-        <Text color={useColorModeValue("gray.600", "gray.400")} mb="2.5vh">
+        <Text color={useColorModeValue("gray.600", "gray.400")} mb="2.5svh">
           Top projects I've developed so far: Social Media, utility extensions,
           helper websites, etc. Web design, web development.
         </Text>
-        <HStack mt="2.5vh">
+        <HStack mt="2.5svh">
           <SolidButton
             onClick={() => {
               const section = document.getElementsByClassName("projectCard")[0];

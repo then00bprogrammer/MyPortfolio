@@ -52,8 +52,8 @@ const projects = () => {
       </Head>
       <VStack
         w="full"
-        minHeight={["90vh", "85vh"]}
-        marginTop={["10vh", "15vh"]}
+        minHeight={["90svh", "85svh"]}
+        marginTop={["10svh", "15svh"]}
         spacing={0}
         bg={useColorModeValue("white", "black")}
       >

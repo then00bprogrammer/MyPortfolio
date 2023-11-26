@@ -25,10 +25,10 @@ const Navbar:React.FC = () => {
       zIndex={100}
       top={0}
       w='full'
-      h={['10vh', '15vh']}
+      h={['10svh', '15svh']}
       justifyContent='space-between'
       alignItems='center'
-      padding='5vh 7.5vw'
+      padding='5svh 7.5vw'
       bg={useColorModeValue('white', 'black')}
       color={useColorModeValue('black', 'gold.500')}
     >

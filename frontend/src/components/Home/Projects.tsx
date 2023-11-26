@@ -22,7 +22,7 @@ import SideBanner from "@/utils/SideBanner";
 const Projects: React.FC = () => {
   return (
     <HStack
-      h={["90vh", "85vh"]}
+      h={["90svh", "85svh"]}
       w="full"
       pl="7.5vw"
       pr="7.5vw"
@@ -56,7 +56,7 @@ const Projects: React.FC = () => {
           <Heading
             fontSize={["4xl", "7xl"]}
             fontWeight="extrabold"
-            mb="2.5vh"
+            mb="2.5svh"
             color={useColorModeValue("gray.700", "gold.100")}
           >
             PROJECTS
@@ -69,12 +69,12 @@ const Projects: React.FC = () => {
             position="relative"
             padding={5}
             display={["flex", "none"]}
-            marginBottom="2.5vh"
+            marginBottom="2.5svh"
           >
             <Frame />
             <ProjectSlider />
           </VStack>
-          <Text mb="2.5vh" color={useColorModeValue("gray.600", "gray.400")}>
+          <Text mb="2.5svh" color={useColorModeValue("gray.600", "gray.400")}>
             A glimpse of realizations I've developed so far. It doesn't matter
             whether it is about a simple business website or a live complex
             e-commerce webshop. Click the button to see my projects.

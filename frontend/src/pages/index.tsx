@@ -30,7 +30,7 @@ const index = () => {
             bg={useColorModeValue("black", "gold.600")}
           ></Divider>
           <Services />
-          <Flex h={['0','10vh']}/>
+          <Flex h={['0','10svh']}/>
           <Projects />
           <ContactMe />
           <Divider

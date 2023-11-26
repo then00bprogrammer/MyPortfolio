@@ -67,7 +67,7 @@ const ProjectCard: React.FC<{ project: Project }> = (data) => {
   if (projectData)
     return (
       <HStack
-        minH={["90vh", "85vh"]}
+        minH={["90svh", "85svh"]}
         w="full"
         pl="7.5vw"
         pr="7.5vw"
@@ -92,7 +92,7 @@ const ProjectCard: React.FC<{ project: Project }> = (data) => {
         />
         <Divider
           width="1px"
-          height={["90vh", "85vh"]}
+          height={["90svh", "85svh"]}
           display={["none", "flex"]}
           position="absolute"
           right="7.5vw"
@@ -125,8 +125,8 @@ const ProjectCard: React.FC<{ project: Project }> = (data) => {
                 <Heading
                   fontSize={["4xl", "5xl"]}
                   fontWeight="extrabold"
-                  mt="2.5vh"
-                  mb="2.5vh"
+                  mt="2.5svh"
+                  mb="2.5svh"
                   color={useColorModeValue("gray.700", "gray.100")}
                 >
                   {projectData.title}
@@ -136,7 +136,7 @@ const ProjectCard: React.FC<{ project: Project }> = (data) => {
             {/* For smaller screens */}
             <Box
               display={["flex", "none"]}
-              mb="2.5vh"
+              mb="2.5svh"
               width={["100%", "50%"]}
               padding={5}
               position="relative"
@@ -162,7 +162,7 @@ const ProjectCard: React.FC<{ project: Project }> = (data) => {
                 />
               </AspectRatio>
             </Box>
-            <Text color={useColorModeValue("gray.600", "gray.400")} mb="2.5vh">
+            <Text color={useColorModeValue("gray.600", "gray.400")} mb="2.5svh">
               {projectData.description}
             </Text>
             <HStack>

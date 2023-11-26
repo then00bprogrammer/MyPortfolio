@@ -32,7 +32,7 @@ const Banner: React.FC<{
     <Stack
       direction={["column", "row"]}
       w="80%"
-      minH={["90vh", "85vh"]}
+      minH={["90svh", "85svh"]}
       alignItems="center"
       justifyContent="center"
     >
@@ -46,8 +46,8 @@ const Banner: React.FC<{
         <Heading
           fontSize={["4xl", "7xl"]}
           fontWeight="extrabold"
-          mt="2.5vh"
-          mb="2.5vh"
+          mt="2.5svh"
+          mb="2.5svh"
           color={useColorModeValue("gray.700", "gold.100")}
         >
           {title}
@@ -56,7 +56,7 @@ const Banner: React.FC<{
           <Frame />
           <VideoPlayer thumbnail={projectPhoto} videoLink={projectVideoLink} />
         </Box>
-        <Text color={useColorModeValue("gray.600", "gray.400")} mb="2.5vh">
+        <Text color={useColorModeValue("gray.600", "gray.400")} mb="2.5svh">
           {description}
         </Text>
         <HStack>

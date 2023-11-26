@@ -93,7 +93,7 @@ const Technology: React.FC<{
   return (
     <Stack
       direction={["column", "row"]}
-      minH={["90vh", "85vh"]}
+      minH={["90svh", "85svh"]}
       w="full"
       pl="7.5vw"
       pr="7.5vw"
@@ -134,8 +134,8 @@ const Technology: React.FC<{
               <Heading
                 fontSize={["4xl", "7xl"]}
                 fontWeight="extrabold"
-                mt="2.5vh"
-                mb="2.5vh"
+                mt="2.5svh"
+                mb="2.5svh"
                 color={useColorModeValue("gray.800", "gray.100")}
               >
                 Technology
@@ -143,7 +143,7 @@ const Technology: React.FC<{
             </motion.div>
           </motion.div>
           {/* Smaller Devices */}
-          <Box w="100%" display={["flex", "none"]} h="45vh">
+          <Box w="100%" display={["flex", "none"]} h="45svh">
             <Center>
               <CustomLottiePlayer
                 src={useColorModeValue("technology", "technology-dark")}
@@ -156,7 +156,7 @@ const Technology: React.FC<{
 
           <Wrap
             spacing="2"
-            mt="2.5vh"
+            mt="2.5svh"
             pr={["0%", "30%"]}
             color={useColorModeValue("gray.800", "gold.600")}
           >
@@ -188,11 +188,11 @@ const Technology: React.FC<{
       </Stack>
       <Divider
         width="1px"
-        height={["90vh", "85vh"]}
+        height={["90svh", "85svh"]}
         display={["none", "flex"]}
         position="absolute"
         left="7.5vw"
-        h="85vh"
+        h="85svh"
         bg={useColorModeValue("black", "#735F32")}
       ></Divider>
     </Stack>

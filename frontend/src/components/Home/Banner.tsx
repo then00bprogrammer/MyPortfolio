@@ -19,9 +19,9 @@ const Banner: React.FC = () => {
   return (
     <Flex
       w={["100vw", `calc(100vw - 12px)`]}
-      h="85vh"
+      h="85svh"
       flexDirection={["column-reverse", "row"]}
-      marginTop="15vh"
+      marginTop="15svh"
     >
       <VStack
         w={["100%", "50%"]}
@@ -39,7 +39,7 @@ const Banner: React.FC = () => {
         <Heading
           size={["2xl", "3xl"]}
           color={useColorModeValue("gray.700", "gold.100")}
-          mb="2.5vh"
+          mb="2.5svh"
         >
           I'm Nikhil Ranjan
         </Heading>
@@ -50,7 +50,7 @@ const Banner: React.FC = () => {
         >
           <Typing />
         </Box>
-        <HStack mt="2.5vh">
+        <HStack mt="2.5svh">
           <Link href="./contact">
             <SolidButton>Contact Me</SolidButton>
           </Link>

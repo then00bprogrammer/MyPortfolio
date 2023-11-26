@@ -77,10 +77,10 @@ const Project = () => {
         ) : (
           <VStack
             w="full"
-            minH={["90vh", "85vh"]}
+            minH={["90svh", "85svh"]}
             spacing={0}
             bg={useColorModeValue("white", "black")}
-            marginTop={["10vh", "15vh"]}
+            marginTop={["10svh", "15svh"]}
           >
             {data.alertMessage && isAlertVisible && (
               <ShowAlert

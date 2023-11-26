@@ -50,7 +50,7 @@ const Features: React.FC<{
 
   return (
     <HStack
-      minH={["90vh", "85vh"]}
+      minH={["90svh", "85svh"]}
       w="full"
       pl="7.5vw"
       pr="7.5vw"
@@ -92,8 +92,8 @@ const Features: React.FC<{
               <Heading
                 fontSize={["4xl", "7xl"]}
                 fontWeight="extrabold"
-                mt="2.5vh"
-                mb="2.5vh"
+                mt="2.5svh"
+                mb="2.5svh"
                 color={useColorModeValue("gray.800", "gray.100")}
               >
                 Features
@@ -130,11 +130,11 @@ const Features: React.FC<{
       </Stack>
       <Divider
         width="1px"
-        height={["90vh", "85vh"]}
+        height={["90svh", "85svh"]}
         display={["none", "flex"]}
         position="absolute"
         right="7.5vw"
-        h="85vh"
+        h="85svh"
         bg={useColorModeValue("black", "gold.600")}
       ></Divider>
     </HStack>

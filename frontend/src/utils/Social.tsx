@@ -28,13 +28,13 @@ const SocialButton: React.FC<{
 const Social: React.FC = () => {
   return (
     <HStack
-      h="5vh"
+      h="5svh"
       w={["100%", "70%"]}
       marginRight="auto"
       justifyContent="center"
       alignItems="center"
-      marginTop="5vh"
-      marginBottom={["5vh", "10vh"]}
+      marginTop="5svh"
+      marginBottom={["5svh", "10svh"]}
     >
       <Divider
         bg={useColorModeValue("black", "gold.600")}

@@ -28,7 +28,7 @@ import Frame from "@/utils/Frame";
 const Services:React.FC = () => {
   return (
     <HStack
-      minH="100vh"
+      minH="100svh"
       w="full"
       pl="7.5vw"
       pr="7.5vw"
@@ -49,8 +49,8 @@ const Services:React.FC = () => {
             <Image src="./services.jpg"></Image>
           </Box>
           <Heading
-            mt="2.5vh"
-            mb="2.5vh"
+            mt="2.5svh"
+            mb="2.5svh"
             fontWeight="medium"
             color={useColorModeValue("gray.800", "gray.100")}
             display={["none", "flex"]}
@@ -61,8 +61,8 @@ const Services:React.FC = () => {
             ml="auto"
             color={useColorModeValue("black", "gold.600")}
             display={["flex", "none"]}
-            marginTop={["2.5vh", "0"]}
-            marginBottom={["2.5vh", "0"]}
+            marginTop={["2.5svh", "0"]}
+            marginBottom={["2.5svh", "0"]}
           >
             <Icon as={SiReact} boxSize={["10", "20"]} p={2}></Icon>
             <Icon as={SiNodedotjs} boxSize={["10", "20"]} p={2}></Icon>
@@ -72,7 +72,7 @@ const Services:React.FC = () => {
             <Icon as={TbBrandCpp} boxSize={["10", "20"]} p={2}></Icon>
           </Wrap>
 
-          <Text color={useColorModeValue("gray.600", "gray.400")} mb="2.5vh">
+          <Text color={useColorModeValue("gray.600", "gray.400")} mb="2.5svh">
             I specialize in the MERN stack, excelling in MongoDB, Express.js,
             React.js, and Node.js for robust web apps. Next.js ensures top-notch
             user experiences. Python Flask is my go-to for APIs and tailored web
@@ -106,7 +106,7 @@ const Services:React.FC = () => {
             </Button>
           </HStack>
         </VStack>
-        <VStack marginBottom={["2.5vh", "0"]} pr='4.25vw' pl='2.125vw'>
+        <VStack marginBottom={["2.5svh", "0"]} pr='4.25vw' pl='2.125vw'>
           <Heading
             fontSize={["4xl", "7xl"]}
             fontWeight="extrabold"
