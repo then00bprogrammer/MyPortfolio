@@ -72,7 +72,7 @@ const Social: React.FC = () => {
           icon={FaTwitter}
           label="Twitter"
         />
-        <SocialButton href="" icon={FaEnvelope} label="Email" />
+        <SocialButton href="mailto:nikhilranjan1103@gmail.com" icon={FaEnvelope} label="Email" />
       </HStack>
       <Divider
         bg={useColorModeValue("black", "gold.600")}

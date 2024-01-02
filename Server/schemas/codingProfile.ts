@@ -10,11 +10,7 @@ export default {
         type: 'array',
         title: 'About Description',
         description: 'About',
-        of: [
-          {
-            type: 'block',
-          },
-        ],
+        of: [{type: 'block',},],
       }
     ],
   };
