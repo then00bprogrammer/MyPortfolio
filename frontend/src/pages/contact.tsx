@@ -153,7 +153,7 @@ const Contact = () => {
                 variant="outline"
                 color="black"
                 borderColor={useColorModeValue("purple.100", "gold.200")}
-                bg={useColorModeValue("purple.50", "gold.100")}
+                bg={useColorModeValue("purple.50", "gold.50")}
                 focusBorderColor={useColorModeValue("purple.300", "gold.400")}
                 _hover={{
                   borderColor: useColorModeValue("purple.200", "gold.300"),
@@ -171,7 +171,7 @@ const Contact = () => {
                 variant="outline"
                 color="black"
                 borderColor={useColorModeValue("purple.100", "gold.200")}
-                bg={useColorModeValue("purple.50", "gold.100")}
+                bg={useColorModeValue("purple.50", "gold.50")}
                 _hover={{
                   borderColor: useColorModeValue("purple.200", "gold.300"),
                 }}
@@ -187,7 +187,7 @@ const Contact = () => {
                 variant="outline"
                 color="black"
                 borderColor={useColorModeValue("purple.100", "gold.200")}
-                bg={useColorModeValue("purple.50", "gold.100")}
+                bg={useColorModeValue("purple.50", "gold.50")}
                 _hover={{
                   borderColor: useColorModeValue("purple.200", "gold.300"),
                 }}

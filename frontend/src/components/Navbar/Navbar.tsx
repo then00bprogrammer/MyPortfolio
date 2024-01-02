@@ -46,12 +46,12 @@ const Navbar:React.FC = () => {
       >
         <HStack spacing={10} display={['none', 'none', 'block', 'flex']}>
           <NavItem text='Home' link='/' icon={IoHome} />
-          <NavItem text='Services' link='#' icon={IoPersonSharp} />
           <NavItem
             text='Projects'
             link='/projects'
             icon={AiOutlineFundProjectionScreen}
           />
+          <NavItem text='About' link='/about' icon={IoPersonSharp} />
           <NavItem text='Contact' link='/contact' icon={LuContact} />
         </HStack>
         <Icon
