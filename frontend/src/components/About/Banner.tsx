@@ -65,10 +65,12 @@ const Banner: React.FC = () => {
   return (
     <Flex
       w={`calc(100vw - 12px)`}
-      h={["90svh", "85svh"]}
+      minH={["90svh", "85svh"]}
       flexDir={["column-reverse", "row"]}
       pl="7.5vw"
       pr="7.5vw"
+      alignItems="center"
+      pb="2.5vh"
     >
       <VStack
         w={["100%", "50%"]}
@@ -86,8 +88,17 @@ const Banner: React.FC = () => {
         >
           ABOUT ME
         </Heading>
-        <Text fontSize="xl" color={useColorModeValue("gray.600", "gray.400")}>
-          <Heading mb="2.5svh" color={useColorModeValue("gray.700", "gold.100")}>I'm a pre-final year student at IIITL.</Heading>
+        <Text
+          fontSize={["md", "xl"]}
+          color={useColorModeValue("gray.600", "gray.400")}
+        >
+          <Heading
+            mb="2.5svh"
+            fontSize={["2xl", "4xl"]}
+            color={useColorModeValue("gray.700", "gold.100")}
+          >
+            I'm a pre-final year student at IIITL.
+          </Heading>
           <PortableText value={data} components={customComponent} />
         </Text>
         <HStack mt="5svh">
