@@ -11,8 +11,10 @@ import {
 } from "@chakra-ui/react";
 import CustomLottiePlayer from "@/utils/CustomLottiePlayer";
 import SolidButton from "@/utils/SolidButton";
+import { useTheme } from "@/ThemeContext";
 
 const Banner: React.FC = () => {
+  const { headingColor } = useTheme();
   return (
     <Flex
       w={`calc(100vw - 12px)`}
@@ -36,7 +38,7 @@ const Banner: React.FC = () => {
           fontSize={["4xl", "7xl"]}
           fontWeight="extrabold"
           mb="2.5svh"
-          color={useColorModeValue("gray.700", "gold.100")}
+          color={useColorModeValue("gray.700", headingColor)}
         >
           PROJECTS
         </Heading>
