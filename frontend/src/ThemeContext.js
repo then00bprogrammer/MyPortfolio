@@ -22,7 +22,7 @@ export const ThemeProvider = ({ children }) => {
     frameColor: isThemeOn ? '#fecdd3' : 'gold.600',
     sidebarColor: isThemeOn ? '#f87171' : 'gold.500',
     iconColor: isThemeOn ? '#166534' : 'gold.600',
-    footerBgImage: isThemeOn ? './christmas.avif' : 'https://img.freepik.com/free-vector/contact-us-icons-sketch_98292-4689.jpg',
+    footerBgImage: isThemeOn ? 'https://github.com/then00bprogrammer/MyPortfolio/assets/96624909/3d345c7d-1019-4fcf-a97f-1b34f4e32bd6' : 'https://img.freepik.com/free-vector/contact-us-icons-sketch_98292-4689.jpg',
     formInputBorder: isThemeOn ? '#fca5a5' : 'gold.200',
     formInputHoverBorder: isThemeOn ? '#f87171' : 'gold.200',
     formInputFocusBorder: isThemeOn ? '#ef4444' : 'gold.200',

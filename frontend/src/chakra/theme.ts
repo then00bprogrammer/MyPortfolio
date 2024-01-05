@@ -7,7 +7,7 @@ import { Button } from "./button";
 import { useTheme } from "@/ThemeContext";
 
 const config: ThemeConfig = {
-  initialColorMode: "dark",
+  initialColorMode: "light",
   useSystemColorMode: false,
 };
 
