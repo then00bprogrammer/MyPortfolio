@@ -6,7 +6,7 @@ const ThemeContext = createContext();
 export const useTheme = () => useContext(ThemeContext);
 
 export const ThemeProvider = ({ children }) => {
-  const [isThemeOn, setIsThemeOn] = useState(true);
+  const [isThemeOn, setIsThemeOn] = useState(false);
 
   const toggleTheme = () => {
     setIsThemeOn(prevState => !prevState);
