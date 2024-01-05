@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import {
+  Box,
   VStack,
   useColorModeValue,
 } from "@chakra-ui/react";
@@ -8,6 +9,9 @@ import client from "@/client";
 import Banner from "@/components/Projects/Banner";
 import Social from "@/utils/Social";
 import ProjectCard from "@/components/Projects/ProjectCard";
+import { useTheme } from "@/ThemeContext";
+import Snowfall from "react-snowfall";
+import ChangeTheme from "@/components/ChangeTheme";
 
 type Project = {
   title: string;
@@ -21,6 +25,7 @@ type Project = {
 };
 
 const projects = () => {
+  const { isThemeOn } = useTheme();
   const [data, setData] = useState<Project[]>([]);
 
   const fetchPost = async () => {
@@ -57,6 +62,10 @@ const projects = () => {
         spacing={0}
         bg={useColorModeValue("white", "black")}
       >
+        <Box position="fixed" zIndex={9999} right={`calc(7.5vw - 2em)`} bottom="2.5vw" display={['none',useColorModeValue('none','block')]}>
+          <ChangeTheme />
+        </Box>
+        { isThemeOn && <Snowfall snowflakeCount={600}/>}
         <Banner />
         <Social />
         {data &&

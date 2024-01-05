@@ -1,5 +1,6 @@
 import { Button, useColorModeValue } from '@chakra-ui/react';
 import React, { ReactNode, MouseEvent } from 'react';
+import { useTheme } from '@/ThemeContext';
 
 type outlineButtonProps = {
   children: ReactNode;
@@ -11,7 +12,7 @@ type outlineButtonProps = {
 const OutlineButton: React.FC<outlineButtonProps> = ({
   children,
   light = 'black',
-  dark = 'gold',
+  dark = useTheme().buttonColor,
   onClick,
 }) => {
   return (

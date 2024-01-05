@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
-import { VStack, useColorModeValue } from "@chakra-ui/react";
+import { Box, VStack, useColorModeValue } from "@chakra-ui/react";
 import Features from "@/components/Project/Features";
 import Technology from "@/components/Project/Technology";
 import client from "@/client";
@@ -9,6 +9,9 @@ import Head from "next/head";
 import Banner from "@/components/Project/Banner";
 import ShowAlert from "@/utils/ShowAlert";
 import Loading from "@/utils/Loading";
+import { useTheme } from "@/ThemeContext";
+import Snowfall from "react-snowfall";
+import ChangeTheme from "@/components/ChangeTheme";
 
 type Project = {
   title: string;
@@ -30,6 +33,7 @@ export const config = {
 };
 
 const Project = () => {
+  const { isThemeOn } = useTheme();
   const router = useRouter();
   const [data, setData] = useState<Project | null>(null);
   const [isAlertVisible, setIsAlertVisible] = useState<boolean>(false);
@@ -66,7 +70,7 @@ const Project = () => {
     fetchData();
   }, [router.query.id]);
 
-  if (!isLoading &&data)
+  if (!isLoading && data)
     return (
       <>
         <Head>
@@ -82,6 +86,16 @@ const Project = () => {
             bg={useColorModeValue("white", "black")}
             marginTop={["10svh", "15svh"]}
           >
+            <Box
+              position="fixed"
+              zIndex={9999}
+              right={`calc(7.5vw - 2em)`}
+              bottom="2.5vw"
+              display={['none',useColorModeValue('none','block')]}
+            >
+              <ChangeTheme />
+            </Box>
+            {isThemeOn && <Snowfall />}
             {data.alertMessage && isAlertVisible && (
               <ShowAlert
                 alertTitle="Important"

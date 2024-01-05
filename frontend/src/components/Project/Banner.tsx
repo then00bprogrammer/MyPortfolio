@@ -12,6 +12,7 @@ import React from "react";
 import VideoPlayer from "@/utils/VideoPlayer";
 import SolidButton from "@/utils/SolidButton";
 import OutlineButton from "@/utils/OutlineButton";
+import { useTheme } from "@/ThemeContext";
 
 const Banner: React.FC<{
   title: string;
@@ -28,6 +29,7 @@ const Banner: React.FC<{
   projectPhoto,
   projectVideoLink,
 }) => {
+  const { headingColor } = useTheme();
   return (
     <Stack
       direction={["column", "row"]}
@@ -48,7 +50,7 @@ const Banner: React.FC<{
           fontWeight="extrabold"
           mt="2.5svh"
           mb="2.5svh"
-          color={useColorModeValue("gray.700", "gold.100")}
+          color={useColorModeValue("gray.700", headingColor)}
         >
           {title}
         </Heading>

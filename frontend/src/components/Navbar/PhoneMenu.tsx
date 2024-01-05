@@ -65,6 +65,8 @@ const PhoneMenu:React.FC = () => {
           <PhoneDivider/>
           <PhoneMenuItem text='Projects' link='/projects' icon={AiOutlineFundProjectionScreen}/>
           <PhoneDivider/>
+          <PhoneMenuItem text='About' link='/about' icon={IoPersonSharp}/>
+          <PhoneDivider/>
           <PhoneMenuItem text='Contact' link='/contact' icon={LuContact}/>
         </MenuList>
       </Menu>

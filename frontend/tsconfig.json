@@ -17,6 +17,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/MyAlbum.jsx", "src/components/Demobook.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/MyAlbum.jsx", "src/components/Demobook.jsx", "src/ThemeContext.js"],
   "exclude": ["node_modules"]
 }

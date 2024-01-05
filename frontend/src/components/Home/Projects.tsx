@@ -18,8 +18,19 @@ import SolidButton from "@/utils/SolidButton";
 import OutlineButton from "@/utils/OutlineButton";
 import ProjectSlider from "@/utils/ProjectSlider";
 import SideBanner from "@/utils/SideBanner";
+import { useTheme } from "@/ThemeContext";
 
 const Projects: React.FC = () => {
+  const {
+    isThemeOn,
+    toggleTheme,
+    buttonColor,
+    headingColor,
+    sidelineColor,
+    frameColor,
+    sidebarColor,
+    footerBgImage,
+  } = useTheme();
   return (
     <HStack
       h={["90svh", "85svh"]}
@@ -36,7 +47,7 @@ const Projects: React.FC = () => {
         title="PROJECTS"
         isBlurred={false}
         isLeftAligned={true}
-        bgColor={useColorModeValue("red.400", "gold.500")}
+        bgColor={useColorModeValue("red.400", sidebarColor)}
       />
       <Stack
         w="100%"
@@ -57,7 +68,7 @@ const Projects: React.FC = () => {
             fontSize={["4xl", "7xl"]}
             fontWeight="extrabold"
             mb="2.5svh"
-            color={useColorModeValue("gray.700", "gold.100")}
+            color={useColorModeValue("gray.700", headingColor)}
           >
             PROJECTS
           </Heading>

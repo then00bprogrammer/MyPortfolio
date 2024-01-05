@@ -34,6 +34,7 @@ import CustomLottiePlayer from "@/utils/CustomLottiePlayer";
 import SideBanner from "@/utils/SideBanner";
 import { PortableText } from "@portabletext/react";
 import { PortableTextComponents } from "@portabletext/react";
+import { useTheme } from "@/ThemeContext";
 
 const iconMap = {
   React: SiReact,
@@ -73,9 +74,9 @@ const customComponent: PortableTextComponents = {
       return (
         <Link
           href={value?.href}
-          target='_blank'
-          color={useColorModeValue('teal','gold.600')}
-          _hover={{textDecoration:'underline'}}
+          target="_blank"
+          color={useColorModeValue("teal", useTheme().focusTextColor)}
+          _hover={{ textDecoration: "underline" }}
         >
           {children}
         </Link>
@@ -88,6 +89,7 @@ const Technology: React.FC<{
   description: any[];
   techStack: string[];
 }> = ({ description, techStack }) => {
+  const { sidebarColor, iconColor, sidelineColor, techLottie } = useTheme();
   console.log(description);
   const ref = useRef(null);
   return (
@@ -105,7 +107,7 @@ const Technology: React.FC<{
         title="Technology"
         isBlurred={false}
         isLeftAligned={false}
-        bgColor={useColorModeValue("red.400", "gold.500")}
+        bgColor={useColorModeValue("red.400", sidebarColor)}
       />
       <Stack
         w={["100%", "100%"]}
@@ -158,7 +160,7 @@ const Technology: React.FC<{
             spacing="2"
             mt="2.5svh"
             pr={["0%", "30%"]}
-            color={useColorModeValue("gray.800", "gold.600")}
+            color={useColorModeValue("gray.800", iconColor)}
           >
             {techStack.map((tech, index) => (
               <WrapItem key={index}>
@@ -181,7 +183,7 @@ const Technology: React.FC<{
         >
           <Center>
             <CustomLottiePlayer
-              src={useColorModeValue("technology", "technology-dark")}
+              src={useColorModeValue("technology", techLottie)}
             />
           </Center>
         </Box>
@@ -193,7 +195,7 @@ const Technology: React.FC<{
         position="absolute"
         left="7.5vw"
         h="85svh"
-        bg={useColorModeValue("black", "#735F32")}
+        bg={useColorModeValue("black", sidelineColor)}
       ></Divider>
     </Stack>
   );

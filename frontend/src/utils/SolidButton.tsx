@@ -1,3 +1,4 @@
+import { useTheme } from '@/ThemeContext';
 import { Button, useColorModeValue } from '@chakra-ui/react';
 import React, { ReactNode, MouseEvent } from 'react';
 
@@ -11,7 +12,7 @@ type solidButtonProps = {
 const SolidButton: React.FC<solidButtonProps> = ({
   children,
   light = 'red',
-  dark = 'gold',
+  dark = useTheme().buttonColor,
   onClick,
 }) => {
   return (

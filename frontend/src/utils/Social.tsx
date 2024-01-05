@@ -3,6 +3,7 @@ import { Divider, HStack, Icon, useColorModeValue } from "@chakra-ui/react";
 import { FaGithub, FaLinkedin, FaEnvelope, FaTwitter } from "react-icons/fa6";
 import { SiLeetcode, SiCodeforces } from "react-icons/si";
 import { motion } from "framer-motion";
+import { useTheme } from "@/ThemeContext";
 
 const SocialButton: React.FC<{
   href: string;
@@ -26,6 +27,7 @@ const SocialButton: React.FC<{
 );
 
 const Social: React.FC = () => {
+  const { sidelineColor, iconColor } = useTheme();
   return (
     <HStack
       h="5svh"
@@ -37,12 +39,12 @@ const Social: React.FC = () => {
       marginBottom={["5svh", "10svh"]}
     >
       <Divider
-        bg={useColorModeValue("black", "gold.600")}
+        bg={useColorModeValue("black", sidelineColor)}
         orientation="horizontal"
         height="1px"
       />
       <HStack
-        color={useColorModeValue("gray.800", "gold.600")}
+        color={useColorModeValue("gray.800", iconColor)}
         marginLeft="30px"
         marginRight="30px"
         spacing={5}
@@ -75,7 +77,7 @@ const Social: React.FC = () => {
         <SocialButton href="mailto:nikhilranjan1103@gmail.com" icon={FaEnvelope} label="Email" />
       </HStack>
       <Divider
-        bg={useColorModeValue("black", "gold.600")}
+        bg={useColorModeValue("black", sidelineColor)}
         orientation="horizontal"
         height="1px"
       />

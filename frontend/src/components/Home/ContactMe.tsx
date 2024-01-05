@@ -9,8 +9,10 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 import SolidButton from "@/utils/SolidButton";
+import { useTheme } from "@/ThemeContext";
 
 const ContactMe: React.FC = () => {
+  const { footerBgImage, isThemeOn } = useTheme();
   return (
     <Flex>
       <Flex
@@ -21,7 +23,9 @@ const ContactMe: React.FC = () => {
           clipPath: "polygon(0% 40%, 0% 100%, 100% 100%, 100% 0%)",
         }}
         zIndex={2}
-        bgImage="https://img.freepik.com/free-vector/contact-us-icons-sketch_98292-4689.jpg"
+        bgImage={footerBgImage}
+        bgRepeat={isThemeOn?'no-repeat':'repeat'}
+        bgPosition={isThemeOn?'center':''}
       >
         <VStack
           width={["100vw", `calc(100vw - 12px)`]}
@@ -33,7 +37,7 @@ const ContactMe: React.FC = () => {
           paddingTop={["27.5svh", "35svh"]}
           backgroundColor={useColorModeValue(
             "blackAlpha.800",
-            "blackAlpha.900"
+            isThemeOn?'blackAlpha.600':'blackAlpha.900'
           )}
           id="contact"
           pl="7.5%"

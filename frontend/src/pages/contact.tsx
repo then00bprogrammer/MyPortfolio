@@ -16,6 +16,9 @@ import { FormLabel } from "@chakra-ui/react";
 import ShowAlert from "@/utils/ShowAlert";
 import Head from "next/head";
 import CustomLottiePlayer from "@/utils/CustomLottiePlayer";
+import { useTheme } from "@/ThemeContext";
+import Snowfall from "react-snowfall";
+import ChangeTheme from "@/components/ChangeTheme";
 
 type formDataType = {
   email: string;
@@ -29,6 +32,8 @@ type alertType = {
 };
 
 const Contact = () => {
+  const { isThemeOn, headingColor, buttonColor, formInputColor, formInputBorder, formInputHoverBorder, formInputFocusBorder, focusTextColor } = useTheme();
+
   const PROJECT_ID = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
   const DATASET = process.env.NEXT_PUBLIC_SANITY_DATASET;
   const API_TOKEN = process.env.NEXT_PUBLIC_SANITY_API;
@@ -109,6 +114,10 @@ const Contact = () => {
         marginTop={["10svh", "15svh"]}
         bg={useColorModeValue("white", "black")}
       >
+        <Box position="fixed" zIndex={9999} right={`calc(7.5vw - 2em)`} bottom="2.5vw" display={['none',useColorModeValue('none','block')]}>
+          <ChangeTheme />
+        </Box>
+        { isThemeOn && <Snowfall/>}
         {isAlertVisible && (
           <ShowAlert
             alertTitle={alertState?.success?'Success':'error'}
@@ -136,7 +145,7 @@ const Contact = () => {
               fontWeight="extrabold"
               mt="2.5svh"
               mb="2.5svh"
-              color={useColorModeValue("gray.700", "gold.100")}
+              color={useColorModeValue("gray.700", headingColor)}
             >
               CONTACT ME
             </Heading>
@@ -152,11 +161,11 @@ const Contact = () => {
                 onChange={handleChange}
                 variant="outline"
                 color="black"
-                borderColor={useColorModeValue("purple.100", "gold.200")}
-                bg={useColorModeValue("purple.50", "gold.50")}
-                focusBorderColor={useColorModeValue("purple.300", "gold.400")}
+                borderColor={useColorModeValue("purple.100", formInputBorder)}
+                bg={useColorModeValue("purple.50", formInputColor)}
+                focusBorderColor={useColorModeValue("purple.300", formInputFocusBorder)}
                 _hover={{
-                  borderColor: useColorModeValue("purple.200", "gold.300"),
+                  borderColor: useColorModeValue("purple.200", formInputHoverBorder),
                 }}
                 errorBorderColor="red"
               />
@@ -170,12 +179,12 @@ const Contact = () => {
                 onChange={handleChange}
                 variant="outline"
                 color="black"
-                borderColor={useColorModeValue("purple.100", "gold.200")}
-                bg={useColorModeValue("purple.50", "gold.50")}
+                borderColor={useColorModeValue("purple.100", formInputBorder)}
+                bg={useColorModeValue("purple.50", formInputColor)}
                 _hover={{
-                  borderColor: useColorModeValue("purple.200", "gold.300"),
+                  borderColor: useColorModeValue("purple.200", formInputHoverBorder),
                 }}
-                focusBorderColor={useColorModeValue("purple.300", "gold.400")}
+                focusBorderColor={useColorModeValue("purple.300", formInputFocusBorder)}
               />
               <FormLabel color={useColorModeValue("gray.800", "gray.400")}>
                 Message
@@ -186,17 +195,17 @@ const Contact = () => {
                 onChange={handleChange}
                 variant="outline"
                 color="black"
-                borderColor={useColorModeValue("purple.100", "gold.200")}
-                bg={useColorModeValue("purple.50", "gold.50")}
+                borderColor={useColorModeValue("purple.100", formInputBorder)}
+                bg={useColorModeValue("purple.50", formInputColor)}
                 _hover={{
-                  borderColor: useColorModeValue("purple.200", "gold.300"),
+                  borderColor: useColorModeValue("purple.200", formInputHoverBorder),
                 }}
-                focusBorderColor={useColorModeValue("purple.300", "gold.400")}
+                focusBorderColor={useColorModeValue("purple.300", formInputFocusBorder)}
               />
               <Button
                 type="submit"
                 variant="solid"
-                colorScheme={useColorModeValue("purple", "gold")}
+                colorScheme={useColorModeValue("purple", buttonColor)}
                 borderRadius={0}
                 size="lg"
                 mt="2.5svh"
@@ -226,7 +235,7 @@ const Contact = () => {
               </Text>
               <a href="mailto:nikhilranjan1103@gmail.com">
                 <Text
-                  color={useColorModeValue("purple", "gold.600")}
+                  color={useColorModeValue("purple", focusTextColor)}
                   _hover={{ textDecoration: "underline" }}
                 >
                   nikhilranjan1103@gmail.com

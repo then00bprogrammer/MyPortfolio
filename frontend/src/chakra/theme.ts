@@ -4,6 +4,7 @@ import {
   type ThemeConfig,
 } from "@chakra-ui/react";
 import { Button } from "./button";
+import { useTheme } from "@/ThemeContext";
 
 const config: ThemeConfig = {
   initialColorMode: "dark",
@@ -28,7 +29,7 @@ export const theme = extendTheme({
       },
       "::-webkit-scrollbar-track": {
         borderRadius: "10px",
-        backgroundColor: useColorModeValue("gray.200", "gold.200"),
+        backgroundColor: useColorModeValue("gray.200", useTheme().scrollbarTrackColor),
         boxShadow: "inset 0 0 6px rgba(0,0,0,0.3)",
       },
       "::-webkit-scrollbar": {
@@ -37,7 +38,7 @@ export const theme = extendTheme({
       },
       "::-webkit-scrollbar-thumb": {
         borderRadius: "10px",
-        backgroundColor: useColorModeValue("gray.600", "gold.600"),
+        backgroundColor: useColorModeValue("gray.600", useTheme().scrollbarThumbColor),
         boxShadow: "inset 0 0 6px rgba(0,0,0,.3)",
       },
     }),

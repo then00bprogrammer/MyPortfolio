@@ -24,8 +24,20 @@ import {
 import { TbBrandCpp } from "react-icons/tb";
 
 import Frame from "@/utils/Frame";
+import { useTheme } from "@/ThemeContext";
 
 const Services:React.FC = () => {
+  const {
+    isThemeOn,
+    toggleTheme,
+    buttonColor,
+    headingColor,
+    iconColor,
+    sidelineColor,
+    frameColor,
+    sidebarColor,
+    footerBgImage,
+  } = useTheme();
   return (
     <HStack
       minH="100svh"
@@ -59,7 +71,7 @@ const Services:React.FC = () => {
           </Heading>
           <Wrap
             ml="auto"
-            color={useColorModeValue("black", "gold.600")}
+            color={useColorModeValue("black", iconColor)}
             display={["flex", "none"]}
             marginTop={["2.5svh", "0"]}
             marginBottom={["2.5svh", "0"]}
@@ -79,13 +91,13 @@ const Services:React.FC = () => {
             apps. Neo4j handles intricate data relationships, while Firebase is
             key for mobile and web development. Sanity streamlines content
             management. This skill set enables me to tackle diverse web
-            development challenges with innovation and 
+            development challenges with innovation.
           </Text>
           <HStack>
             <a href="https://www.fiverr.com/nikhil03_" target="_blank">
               <Button
                 variant="solid"
-                colorScheme={useColorModeValue("red", "gold")}
+                colorScheme={useColorModeValue("red", buttonColor)}
                 borderRadius={0}
                 size="lg"
               >
@@ -94,7 +106,7 @@ const Services:React.FC = () => {
             </a>
             <Button
               variant="outline"
-              colorScheme={useColorModeValue("black", "gold")}
+              colorScheme={useColorModeValue("black", buttonColor)}
               borderRadius={0}
               size="lg"
               onClick={() => {
@@ -110,20 +122,20 @@ const Services:React.FC = () => {
           <Heading
             fontSize={["4xl", "7xl"]}
             fontWeight="extrabold"
-            color={useColorModeValue("gray.700", "gold.100")}
+            color={useColorModeValue("gray.700", headingColor)}
           >
             SERVICES
           </Heading>
           <Heading
             fontSize={["4xl", "7xl"]}
             fontWeight="extrabold"
-            color={useColorModeValue("gray.700", "gold.100")}
+            color={useColorModeValue("gray.700", headingColor)}
           >
             & TECH
           </Heading>
           <VStack
             paddingLeft="30%"
-            color={useColorModeValue("black", "gold.600")}
+            color={useColorModeValue("black", iconColor)}
             display={["none", "flex"]}
           >
             <HStack ml="auto">

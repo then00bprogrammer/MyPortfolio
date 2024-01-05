@@ -14,8 +14,14 @@ import Typing from "@/utils/Typing";
 import OutlineButton from "@/utils/OutlineButton";
 import SolidButton from "@/utils/SolidButton";
 import CustomLottiePlayer from "@/utils/CustomLottiePlayer";
+import { useTheme } from "@/ThemeContext";
 
 const Banner: React.FC = () => {
+
+  const {
+    headingColor,
+  } = useTheme();
+
   return (
     <Flex
       w={["100vw", `calc(100vw - 12px)`]}
@@ -32,20 +38,20 @@ const Banner: React.FC = () => {
       >
         <Heading
           size={["2xl", "3xl"]}
-          color={useColorModeValue("gray.700", "gold.100")}
+          color={useColorModeValue("gray.700", headingColor)}
         >
           Hi there,
         </Heading>
         <Heading
           size={["2xl", "3xl"]}
-          color={useColorModeValue("gray.700", "gold.100")}
+          color={useColorModeValue("gray.700", headingColor)}
           mb="2.5svh"
         >
           I'm Nikhil Ranjan
         </Heading>
         <Box
           fontSize={["xs", "xl"]}
-          color={useColorModeValue("gray.800", "gold.100")}
+          color={useColorModeValue("gray.800", headingColor)}
           fontWeight="medium"
         >
           <Typing />

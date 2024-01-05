@@ -16,6 +16,7 @@ import { PortableText } from "@portabletext/react";
 import client from "@/client";
 import { PortableTextComponents } from "@portabletext/react";
 import OutlineButton from "@/utils/OutlineButton";
+import { useTheme } from "@/ThemeContext";
 
 const customComponent: PortableTextComponents = {
   marks: {
@@ -24,7 +25,7 @@ const customComponent: PortableTextComponents = {
         <Link
           href={value?.href}
           target="_blank"
-          color={useColorModeValue("teal", "gold.600")}
+          color={useColorModeValue("teal", useTheme().focusTextColor)}
           _hover={{ textDecoration: "underline" }}
         >
           {children}
@@ -43,6 +44,7 @@ const customComponent: PortableTextComponents = {
 };
 
 const Banner: React.FC = () => {
+  const { headingColor } = useTheme();
   const [data, setData] = useState<any[]>([]);
   useEffect(() => {
     const fetchData = async () => {
@@ -84,7 +86,7 @@ const Banner: React.FC = () => {
           fontSize={["4xl", "7xl"]}
           fontWeight="extrabold"
           mb="2.5svh"
-          color={useColorModeValue("gray.700", "gold.100")}
+          color={useColorModeValue("gray.700", headingColor)}
         >
           ABOUT ME
         </Heading>
@@ -95,7 +97,7 @@ const Banner: React.FC = () => {
           <Heading
             mb="2.5svh"
             fontSize={["2xl", "4xl"]}
-            color={useColorModeValue("gray.700", "gold.100")}
+            color={useColorModeValue("gray.700", headingColor)}
           >
             I'm a pre-final year student at IIITL.
           </Heading>

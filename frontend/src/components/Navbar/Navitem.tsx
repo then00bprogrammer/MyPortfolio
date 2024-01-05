@@ -3,6 +3,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { HStack, Icon, Text, useColorModeValue } from "@chakra-ui/react";
 import { IconType } from "react-icons";
+import { useTheme } from "@/ThemeContext";
 
 type Props = {
   text: string;
@@ -11,7 +12,8 @@ type Props = {
 };
 
 const NavItem: React.FC<Props> = ({ text, link, icon }) => {
-  const linkColor = useColorModeValue("black", "#C69749");
+  const { isThemeOn, navbarUnderlineColor } = useTheme();
+  const linkColor = useColorModeValue("black", isThemeOn ? '#f87171' : '#C69749');
   return (
     <Link href={link}>
       <motion.div whileHover={{ borderBottom: `2px solid ${linkColor}` }}>

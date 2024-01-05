@@ -24,6 +24,7 @@ import { motion, Variants } from "framer-motion";
 import { FaHashtag } from "react-icons/fa6";
 import CustomLottiePlayer from "@/utils/CustomLottiePlayer";
 import SideBanner from "@/utils/SideBanner";
+import { useTheme } from "@/ThemeContext";
 
 const headingVariants: Variants = {
   offscreen: {
@@ -45,6 +46,7 @@ const headingVariants: Variants = {
 const Features: React.FC<{
   features: string[];
 }> = ({ features }) => {
+  const { sidebarColor, sidelineColor } = useTheme();
   const ref = useRef(null);
   const isInView = useInView(ref);
 
@@ -62,7 +64,7 @@ const Features: React.FC<{
         title="Features"
         isBlurred={false}
         isLeftAligned={true}
-        bgColor={useColorModeValue("red.400", "gold.500")}
+        bgColor={useColorModeValue("red.400", sidebarColor)}
       />
 
       <Stack
@@ -135,7 +137,7 @@ const Features: React.FC<{
         position="absolute"
         right="7.5vw"
         h="85svh"
-        bg={useColorModeValue("black", "gold.600")}
+        bg={useColorModeValue("black", sidelineColor)}
       ></Divider>
     </HStack>
   );
