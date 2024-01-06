@@ -18,7 +18,7 @@ import Head from "next/head";
 import CustomLottiePlayer from "@/utils/CustomLottiePlayer";
 import { useTheme } from "@/ThemeContext";
 import Snowfall from "react-snowfall";
-import ChangeTheme from "@/components/ChangeTheme";
+import ChangeTheme from "@/utils/ChangeTheme";
 
 type formDataType = {
   email: string;
@@ -114,9 +114,6 @@ const Contact = () => {
         marginTop={["10svh", "15svh"]}
         bg={useColorModeValue("white", "black")}
       >
-        <Box position="fixed" zIndex={9999} right={`calc(7.5vw - 2em)`} bottom="2.5vw" display={['none',useColorModeValue('none','block')]}>
-          <ChangeTheme />
-        </Box>
         { isThemeOn && <Snowfall/>}
         {isAlertVisible && (
           <ShowAlert

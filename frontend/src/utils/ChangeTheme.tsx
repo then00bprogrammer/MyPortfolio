@@ -18,7 +18,8 @@ const ChangeTheme = () => {
       rotationAngleInclusive={false}
     >
       <CircleMenuItem
-        onClick={() => toggleTheme()}
+        onClick={() => toggleTheme()
+        }
         tooltip="Christmas"
         tooltipPlacement={TooltipPlacement.Left}
         style = {{backgroundColor:'#22c55e', color:'white'}}

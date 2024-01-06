@@ -20,6 +20,7 @@ const Banner: React.FC = () => {
 
   const {
     headingColor,
+    homeLottie
   } = useTheme();
 
   return (
@@ -77,7 +78,7 @@ const Banner: React.FC = () => {
         p={["10%", "5%"]}
       >
         <Center>
-          <CustomLottiePlayer src="coder" />
+          <CustomLottiePlayer src={homeLottie} />
         </Center>
       </Flex>
     </Flex>

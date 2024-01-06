@@ -1,6 +1,7 @@
 import { useTheme } from '@/ThemeContext';
 import { Button, useColorModeValue } from '@chakra-ui/react';
 import React, { ReactNode, MouseEvent } from 'react';
+import Snowfall from "react-snowfall";
 
 type solidButtonProps = {
   children: ReactNode;

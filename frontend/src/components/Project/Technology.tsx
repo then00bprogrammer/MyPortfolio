@@ -90,7 +90,7 @@ const Technology: React.FC<{
   techStack: string[];
 }> = ({ description, techStack }) => {
   const { sidebarColor, iconColor, sidelineColor, techLottie } = useTheme();
-  console.log(description);
+  
   const ref = useRef(null);
   return (
     <Stack
@@ -183,7 +183,7 @@ const Technology: React.FC<{
         >
           <Center>
             <CustomLottiePlayer
-              src={useColorModeValue("technology", techLottie)}
+              src={techLottie}
             />
           </Center>
         </Box>
