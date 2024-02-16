@@ -11,7 +11,6 @@ import ShowAlert from "@/utils/ShowAlert";
 import Loading from "@/utils/Loading";
 import { useTheme } from "@/ThemeContext";
 import Snowfall from "react-snowfall";
-import ChangeTheme from "@/utils/ChangeTheme";
 
 type Project = {
   title: string;
@@ -61,7 +60,7 @@ const Project = () => {
         );
         setData(res[0]);
         setIsAlertVisible(res[0].alertMessage ? true : false);
-        setIsLoading(false);
+        setTimeout(() => setIsLoading(false), 500);
       } catch (error) {
         console.error("Error fetching post:", error);
       }
@@ -76,41 +75,37 @@ const Project = () => {
         <Head>
           <title>Nikhil's Portfolio</title>
         </Head>
-        {isLoading ? (
-          <Loading />
-        ) : (
-          <VStack
-            w="full"
-            minH={["90svh", "85svh"]}
-            spacing={0}
-            bg={useColorModeValue("white", "black")}
-            marginTop={["10svh", "15svh"]}
-          >
-            {isThemeOn && <Snowfall />}
-            {data.alertMessage && isAlertVisible && (
-              <ShowAlert
-                alertTitle="Important"
-                message={data.alertMessage}
-                alertStatus="info"
-                setIsAlertVisible={setIsAlertVisible}
-              />
-            )}
-            <Banner
-              title={data.title}
-              description={data.description}
-              siteLink={data.siteLink}
-              githubRepoLink={data.githubRepoLink}
-              projectPhoto={data.projectPhoto}
-              projectVideoLink={data.projectVideoLink}
+        <VStack
+          w="full"
+          minH={["90svh", "85svh"]}
+          spacing={0}
+          bg={useColorModeValue("white", "black")}
+          marginTop={["10svh", "15svh"]}
+        >
+          {isThemeOn && <Snowfall />}
+          {data.alertMessage && isAlertVisible && (
+            <ShowAlert
+              alertTitle="Important"
+              message={data.alertMessage}
+              alertStatus="info"
+              setIsAlertVisible={setIsAlertVisible}
             />
-            <Social />
-            <Features features={data.features} />
-            <Technology
-              description={data.techStackDescription}
-              techStack={data.techStackNames}
-            />
-          </VStack>
-        )}
+          )}
+          <Banner
+            title={data.title}
+            description={data.description}
+            siteLink={data.siteLink}
+            githubRepoLink={data.githubRepoLink}
+            projectPhoto={data.projectPhoto}
+            projectVideoLink={data.projectVideoLink}
+          />
+          <Social />
+          <Features features={data.features} />
+          <Technology
+            description={data.techStackDescription}
+            techStack={data.techStackNames}
+          />
+        </VStack>
       </>
     );
   else return <Loading />;
