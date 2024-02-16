@@ -14,7 +14,7 @@ const Loading = () => {
   const { headingColor } = useTheme();
   return (
     <Flex
-      direction={["row", "column"]}
+      direction='column'
       w="full"
       h={["90svh", "85svh"]}
       mt="15svh"
