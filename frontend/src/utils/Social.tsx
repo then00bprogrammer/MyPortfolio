@@ -1,6 +1,7 @@
 import React from "react";
 import { Divider, HStack, Icon, useColorModeValue } from "@chakra-ui/react";
 import { FaGithub, FaLinkedin, FaEnvelope, FaTwitter } from "react-icons/fa6";
+import { SiCodechef } from "react-icons/si";
 import { SiLeetcode, SiCodeforces } from "react-icons/si";
 import { motion } from "framer-motion";
 import { useTheme } from "@/ThemeContext";
@@ -68,6 +69,11 @@ const Social: React.FC = () => {
           href="https://codeforces.com/profile/then00bprogrammer"
           icon={SiCodeforces}
           label="Codeforces"
+        />
+        <SocialButton
+          href="https://www.codechef.com/users/the_way_i_am"
+          icon={SiCodechef}
+          label="Codechef"
         />
         <SocialButton
           href="https://twitter.com/NikhilRanjan02"
