@@ -194,10 +194,7 @@ export default function ContactFormWithSocialButtons() {
                         size="lg"
                         fontSize="3xl"
                         icon={<MdEmail />}
-                        _hover={{
-                          bg: useColorModeValue("purple.500",'purple.300'),
-                          color: useColorModeValue("white", "gray.700"),
-                        }}
+                        _hover={{color:useColorModeValue('red.500',isThemeOn?'green.300':'gold.300')}}
                         isRound
                       />
                     </Box>
@@ -214,10 +211,7 @@ export default function ContactFormWithSocialButtons() {
                       size="lg"
                       fontSize="3xl"
                       icon={<BsGithub />}
-                      _hover={{
-                        bg: useColorModeValue("purple.500",'purple.300'),
-                        color: useColorModeValue("white", "gray.700"),
-                      }}
+                      _hover={{color:useColorModeValue('red.500',isThemeOn?'green.300':'gold.300')}}
                       isRound
                     />
                   </Box>
@@ -232,10 +226,7 @@ export default function ContactFormWithSocialButtons() {
                       variant="ghost"
                       size="lg"
                       icon={<BsTwitter size="28px" />}
-                      _hover={{
-                        bg: useColorModeValue("purple.500",'purple.300'),
-                        color: useColorModeValue("white", "gray.700"),
-                      }}
+                      _hover={{color:useColorModeValue('red.500',isThemeOn?'green.300':'gold.300')}}
                       isRound
                     />
                   </Box>
@@ -250,10 +241,7 @@ export default function ContactFormWithSocialButtons() {
                       variant="ghost"
                       size="lg"
                       icon={<BsLinkedin size="28px" />}
-                      _hover={{
-                        bg: useColorModeValue("purple.500",'purple.300'),
-                        color: useColorModeValue("white", "gray.700"),
-                      }}
+                      _hover={{color:useColorModeValue('red.500',isThemeOn?'green.300':'gold.300')}}
                       isRound
                     />
                   </Box>
