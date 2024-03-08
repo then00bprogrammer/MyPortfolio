@@ -195,7 +195,7 @@ export default function ContactFormWithSocialButtons() {
                         fontSize="3xl"
                         icon={<MdEmail />}
                         _hover={{
-                          bg: "purple.500",
+                          bg: useColorModeValue("purple.500",'purple.300'),
                           color: useColorModeValue("white", "gray.700"),
                         }}
                         isRound
@@ -215,7 +215,7 @@ export default function ContactFormWithSocialButtons() {
                       fontSize="3xl"
                       icon={<BsGithub />}
                       _hover={{
-                        bg: "purple.500",
+                        bg: useColorModeValue("purple.500",'purple.300'),
                         color: useColorModeValue("white", "gray.700"),
                       }}
                       isRound
@@ -233,7 +233,7 @@ export default function ContactFormWithSocialButtons() {
                       size="lg"
                       icon={<BsTwitter size="28px" />}
                       _hover={{
-                        bg: "purple.500",
+                        bg: useColorModeValue("purple.500",'purple.300'),
                         color: useColorModeValue("white", "gray.700"),
                       }}
                       isRound
@@ -251,7 +251,7 @@ export default function ContactFormWithSocialButtons() {
                       size="lg"
                       icon={<BsLinkedin size="28px" />}
                       _hover={{
-                        bg: "purple.500",
+                        bg: useColorModeValue("purple.500",'purple.300'),
                         color: useColorModeValue("white", "gray.700"),
                       }}
                       isRound
