@@ -1,28 +1,50 @@
-import React, { useEffect, useState } from "react";
+"use client";
+
+import CustomLottiePlayer from "@/utils/CustomLottiePlayer";
+import ShowAlert from "@/utils/ShowAlert";
 import {
   Box,
   Button,
-  Center,
+  Flex,
+  FormControl,
+  FormLabel,
   Heading,
+  IconButton,
   Input,
-  Stack,
+  InputGroup,
+  InputLeftElement,
   Text,
+  Stack,
   Textarea,
+  Tooltip,
+  useClipboard,
+  useColorModeValue,
   VStack,
   Wrap,
-  useColorModeValue,
+  Center,
 } from "@chakra-ui/react";
-import { FormLabel } from "@chakra-ui/react";
-import ShowAlert from "@/utils/ShowAlert";
 import Head from "next/head";
-import CustomLottiePlayer from "@/utils/CustomLottiePlayer";
-import { useTheme } from "@/ThemeContext";
+import { useState } from "react";
+import { BsGithub, BsLinkedin, BsPerson, BsTwitter } from "react-icons/bs";
+import { MdEmail, MdOutlineEmail } from "react-icons/md";
 import Snowfall from "react-snowfall";
-import ChangeTheme from "@/utils/ChangeTheme";
+import { useTheme } from "@/ThemeContext";
+
+const confetti = {
+  light: {
+    primary: "4299E1", // blue.400
+    secondary: "BEE3F8", // blue.100
+  },
+
+  dark: {
+    primary: "1A365D", // blue.900
+    secondary: "2A4365", // blue.800
+  },
+};
 
 type formDataType = {
+  name: string;
   email: string;
-  subject: string;
   messageText: string;
 };
 
@@ -31,18 +53,21 @@ type alertType = {
   success: boolean;
 };
 
-const Contact = () => {
-  const { isThemeOn, headingColor, buttonColor, formInputColor, formInputBorder, formInputHoverBorder, formInputFocusBorder, focusTextColor } = useTheme();
+export default function ContactFormWithSocialButtons() {
+  const {
+    isThemeOn,
+    headingColor,
+    buttonColor,
+    formInputColor,
+    formInputBorder,
+    formInputHoverBorder,
+    formInputFocusBorder,
+    focusTextColor,
+  } = useTheme();
 
   const PROJECT_ID = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
   const DATASET = process.env.NEXT_PUBLIC_SANITY_DATASET;
   const API_TOKEN = process.env.NEXT_PUBLIC_SANITY_API;
-
-  const [formData, setFormData] = useState<formDataType>({
-    email: "",
-    subject: "",
-    messageText: "",
-  });
 
   const [isAlertVisible, setIsAlertVisible] = useState<boolean>(false);
   const [alertState, setAlert] = useState<alertType>({
@@ -60,7 +85,13 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [formData, setFormData] = useState<formDataType>({
+    name: "",
+    email: "",
+    messageText: "",
+  });
+
+  const handleSubmit = (e: any) => {
     e.preventDefault();
     createSanityDocument();
   };
@@ -80,8 +111,8 @@ const Contact = () => {
               {
                 create: {
                   _type: "message",
+                  name: formData.name,
                   email: formData.email,
-                  subject: formData.subject,
                   messageText: formData.messageText,
                 },
               },
@@ -107,143 +138,210 @@ const Contact = () => {
       <Head>
         <title>Nikhil's Portfolio</title>
       </Head>
-
       <VStack
         w="full"
         minH={["90svh", "85svh"]}
         marginTop={["10svh", "15svh"]}
+        justify="space-between"
         bg={useColorModeValue("white", "black")}
+        bgRepeat="no-repeat"
+        bgPos="center"
       >
-        { isThemeOn && <Snowfall/>}
+        {isThemeOn && <Snowfall />}
         {isAlertVisible && (
           <ShowAlert
-            alertTitle={alertState?.success?'Success':'error'}
+            alertTitle={alertState?.success ? "Success" : "error"}
             message={alertState?.message}
-            alertStatus={alertState?.success?'success':'error'}
+            alertStatus={alertState?.success ? "success" : "error"}
             setIsAlertVisible={setIsAlertVisible}
           />
         )}
-
-        <Stack
-          direction={["column", "row"]}
-          w="80%"
-          m="auto"
-          minH={["90svh", "85svh"]}
+        <Box
+          borderRadius="lg"
+          w={['90%','80%']}
+          m='auto'
+          maxH={["90svh", "85svh"]}
         >
-          <VStack
-            lineHeight="2"
-            letterSpacing="wider"
-            w={["100%", "50%"]}
-            pl={["0%", "5%"]}
-            pr={["0%", "5%"]}
-          >
-            <Heading
-              fontSize={["4xl", "7xl"]}
-              fontWeight="extrabold"
-              mt="2.5svh"
-              mb="2.5svh"
-              color={useColorModeValue("gray.700", headingColor)}
-            >
-              CONTACT ME
-            </Heading>
-            <form onSubmit={handleSubmit} style={{ width: "100%" }}>
-              <FormLabel color={useColorModeValue("gray.800", "gray.400")}>
-                Email address
-              </FormLabel>
-              <Input
-                isRequired
-                type="email"
-                value={formData.email}
-                name="email"
-                onChange={handleChange}
-                variant="outline"
-                color="black"
-                borderColor={useColorModeValue("purple.100", formInputBorder)}
-                bg={useColorModeValue("purple.50", formInputColor)}
-                focusBorderColor={useColorModeValue("purple.300", formInputFocusBorder)}
-                _hover={{
-                  borderColor: useColorModeValue("purple.200", formInputHoverBorder),
-                }}
-                errorBorderColor="red"
-              />
-              <FormLabel color={useColorModeValue("gray.800", "gray.400")}>
-                Subject
-              </FormLabel>
-              <Input
-                type="text"
-                value={formData.subject}
-                name="subject"
-                onChange={handleChange}
-                variant="outline"
-                color="black"
-                borderColor={useColorModeValue("purple.100", formInputBorder)}
-                bg={useColorModeValue("purple.50", formInputColor)}
-                _hover={{
-                  borderColor: useColorModeValue("purple.200", formInputHoverBorder),
-                }}
-                focusBorderColor={useColorModeValue("purple.300", formInputFocusBorder)}
-              />
-              <FormLabel color={useColorModeValue("gray.800", "gray.400")}>
-                Message
-              </FormLabel>
-              <Textarea
-                value={formData.messageText}
-                name="messageText"
-                onChange={handleChange}
-                variant="outline"
-                color="black"
-                borderColor={useColorModeValue("purple.100", formInputBorder)}
-                bg={useColorModeValue("purple.50", formInputColor)}
-                _hover={{
-                  borderColor: useColorModeValue("purple.200", formInputHoverBorder),
-                }}
-                focusBorderColor={useColorModeValue("purple.300", formInputFocusBorder)}
-              />
-              <Button
-                type="submit"
-                variant="solid"
-                colorScheme={useColorModeValue("purple", buttonColor)}
-                borderRadius={0}
-                size="lg"
+          <Box>
+            <VStack w="100%">
+              <Heading
+                fontSize={["4xl", "7xl"]}
+                fontWeight="extrabold"
                 mt="2.5svh"
+                mb="2.5svh"
+                color={useColorModeValue("gray.700", headingColor)}
               >
-                Send
-              </Button>
-            </form>
-          </VStack>
-          <VStack
-            width={["100%", "50%"]}
-            pl={["0%", "5%"]}
-            pr={["0%", "5%"]}
-            justifyContent="center"
-            alignItems="center"
-          >
-            <Box width="100%">
-              <Center>
-                <CustomLottiePlayer src="contact" />
-              </Center>
-            </Box>
-            <Wrap mt="5svh" mb="2.5svh">
-              <Text
-                letterSpacing="wider"
-                color={useColorModeValue("gray.600", "gray.400")}
+                Get in Touch
+              </Heading>
+
+              <Stack
+                justify="space-evenly"
+                w="100%"
+                spacing={{ base: 4, md: 8, lg: 20 }}
+                direction={{ base: "column", md: "row" }}
               >
-                You can also email me at
-              </Text>
-              <a href="mailto:nikhilranjan1103@gmail.com">
-                <Text
-                  color={useColorModeValue("purple", focusTextColor)}
-                  _hover={{ textDecoration: "underline" }}
+                <Stack
+                  display={['none','none','none','flex']}
+                  align="center"
+                  justify="space-around"
+                  direction={{ base: "row", md: "column" }}
                 >
-                  nikhilranjan1103@gmail.com
-                </Text>
-              </a>
-            </Wrap>
-          </VStack>
-        </Stack>
+                  <Tooltip label="Mail me" closeOnClick={false} hasArrow>
+                    <Box as="a" href="mailto:nikhilranjan1103@gmail.com">
+                      <IconButton
+                        aria-label="email"
+                        variant="ghost"
+                        size="lg"
+                        fontSize="3xl"
+                        icon={<MdEmail />}
+                        _hover={{
+                          bg: "purple.500",
+                          color: useColorModeValue("white", "gray.700"),
+                        }}
+                        isRound
+                      />
+                    </Box>
+                  </Tooltip>
+
+                  <Box
+                    as="a"
+                    href="https://github.com/then00bprogrammer"
+                    target="_blank"
+                  >
+                    <IconButton
+                      aria-label="github"
+                      variant="ghost"
+                      size="lg"
+                      fontSize="3xl"
+                      icon={<BsGithub />}
+                      _hover={{
+                        bg: "purple.500",
+                        color: useColorModeValue("white", "gray.700"),
+                      }}
+                      isRound
+                    />
+                  </Box>
+
+                  <Box
+                    as="a"
+                    href="https://twitter.com/NikhilRanjan02"
+                    target="_blank"
+                  >
+                    <IconButton
+                      aria-label="twitter"
+                      variant="ghost"
+                      size="lg"
+                      icon={<BsTwitter size="28px" />}
+                      _hover={{
+                        bg: "purple.500",
+                        color: useColorModeValue("white", "gray.700"),
+                      }}
+                      isRound
+                    />
+                  </Box>
+
+                  <Box
+                    as="a"
+                    href="https://www.linkedin.com/in/nikhil-ranjan-tnp/"
+                    target="_blank"
+                  >
+                    <IconButton
+                      aria-label="linkedin"
+                      variant="ghost"
+                      size="lg"
+                      icon={<BsLinkedin size="28px" />}
+                      _hover={{
+                        bg: "purple.500",
+                        color: useColorModeValue("white", "gray.700"),
+                      }}
+                      isRound
+                    />
+                  </Box>
+                </Stack>
+
+                <Box
+                  // bg={useColorModeValue('white', 'gray.700')}
+                  w={["100%", "40%"]}
+                  borderRadius="lg"
+                  p={8}
+                  color={useColorModeValue("gray.700", "whiteAlpha.900")}
+                  shadow="base"
+                >
+                  <VStack spacing={5}>
+                    <FormControl isRequired>
+                      <FormLabel>Name</FormLabel>
+
+                      <InputGroup>
+                        <InputLeftElement>
+                          <BsPerson />
+                        </InputLeftElement>
+                        <Input
+                          type="messageText"
+                          name="name"
+                          onChange={handleChange}
+                          placeholder="Your Name"
+                        />
+                      </InputGroup>
+                    </FormControl>
+
+                    <FormControl isRequired>
+                      <FormLabel>Email</FormLabel>
+
+                      <InputGroup>
+                        <InputLeftElement>
+                          <MdOutlineEmail />
+                        </InputLeftElement>
+                        <Input
+                          type="email"
+                          name="email"
+                          onChange={handleChange}
+                          placeholder="Your Email"
+                        />
+                      </InputGroup>
+                    </FormControl>
+
+                    <FormControl isRequired>
+                      <FormLabel>Message</FormLabel>
+
+                      <Textarea
+                        name="messageText"
+                        onChange={handleChange}
+                        placeholder="Your Message"
+                        // rows={6}
+                        resize="none"
+                      />
+                    </FormControl>
+
+                    <Button
+                      colorScheme={useColorModeValue("red", useTheme().buttonColor)}
+                      size="lg"
+                      width="full"
+                      onClick={handleSubmit}
+                    >
+                      Send Message
+                    </Button>
+                  </VStack>
+                </Box>
+                
+                <VStack
+                  display={['none','none','none','block']}
+                  width={["100%", "50%"]}
+                  // pl={["0%", "2.5%"]}
+                  // pr={["0%", "2.5%"]}
+                  justifyContent="center"
+                  alignItems="center"
+                >
+                  <Box width="100%">
+                    <Center>
+                      <CustomLottiePlayer src="contact" />
+                    </Center>
+                  </Box>
+                </VStack>
+              </Stack>
+            </VStack>
+          </Box>
+        </Box>
       </VStack>
     </>
   );
-};
-
-export default Contact;
+}

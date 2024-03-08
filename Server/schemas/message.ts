@@ -6,17 +6,17 @@ export default {
     title: 'Message',
     fields: [
       {
+        name: 'name',
+        type: 'string',
+        title: 'Name',
+        description: 'Name of the sender'
+      }, 
+      {
         name: 'email',
         type: 'string',
         title: 'Email',
         description: 'Email of Sender',
       },
-      {
-        name: 'subject',
-        type: 'string',
-        title: 'Subject',
-        description: 'Subject of the message'
-      }, 
       {
         name: 'messageText',
         type: 'string',
