@@ -280,6 +280,7 @@ export default function ContactFormWithSocialButtons() {
                           name="name"
                           onChange={handleChange}
                           placeholder="Your Name"
+                          textAlign="left"
                         />
                       </InputGroup>
                     </FormControl>
@@ -296,6 +297,7 @@ export default function ContactFormWithSocialButtons() {
                           name="email"
                           onChange={handleChange}
                           placeholder="Your Email"
+                          textAlign="left"
                         />
                       </InputGroup>
                     </FormControl>
