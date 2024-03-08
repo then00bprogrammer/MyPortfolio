@@ -71,11 +71,6 @@ const Social: React.FC = () => {
           label="Codeforces"
         />
         <SocialButton
-          href="https://www.codechef.com/users/the_way_i_am"
-          icon={SiCodechef}
-          label="Codechef"
-        />
-        <SocialButton
           href="https://twitter.com/NikhilRanjan02"
           icon={FaTwitter}
           label="Twitter"
