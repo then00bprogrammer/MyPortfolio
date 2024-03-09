@@ -66,7 +66,7 @@ const Navbar: React.FC = () => {
           <NavItem text="About" link="/about" icon={IoPersonSharp} />
           <NavItem text="Contact" link="/contact" icon={LuContact} />
         </HStack>
-        <Icon
+        {/* <Icon
           cursor="pointer"
           boxSize="7"
           as={useColorModeValue(BsFillMoonFill, BsFillSunFill)}
@@ -74,7 +74,7 @@ const Navbar: React.FC = () => {
             toggleColorMode();
             if (isThemeOn) toggleTheme();
           }}
-        ></Icon>
+        ></Icon> */}
         <Icon
           cursor="pointer"
           boxSize="9"
