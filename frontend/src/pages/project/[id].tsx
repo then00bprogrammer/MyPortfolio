@@ -66,12 +66,12 @@ const Project = () => {
 
     fetchData();
   }, [router.query.id]);
-    return (
-      <>
-        <Head>
-          <title>Nikhil's Portfolio</title>
-        </Head>
-        if(data)
+  return (
+    <>
+      <Head>
+        <title>Nikhil's Portfolio</title>
+      </Head>
+      {data && (
         <VStack
           w="full"
           minH={["90svh", "85svh"]}
@@ -103,8 +103,9 @@ const Project = () => {
             techStack={data!.techStackNames}
           />
         </VStack>
-      </>
-    );
+      )}
+    </>
+  );
 };
 
 export default Project;
