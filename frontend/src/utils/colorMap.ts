@@ -52,7 +52,7 @@ const blueDark = {
   }
 
   const defaultDark = {
-    theme: 'black',
+    theme: 'blackAlpha.35',
     buttonColor: 'red',
     frameColor: 'red',
     borderColor: 'red',
