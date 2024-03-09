@@ -11,15 +11,6 @@ const Layout = ({ children }: React.PropsWithChildren<Props>) => {
     <>
       <Head>Nikhil's Portfolio</Head>
       <Navbar />
-      <Box
-        position="fixed"
-        zIndex={9999}
-        right={`calc(7.5vw - 2em)`}
-        bottom="2.5vw"
-        display={["none", useColorModeValue("none", "block")]}
-      >
-        <ChangeTheme />
-      </Box>
       {children}
     </>
   );

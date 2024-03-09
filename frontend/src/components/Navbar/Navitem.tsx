@@ -13,7 +13,7 @@ type Props = {
 
 const NavItem: React.FC<Props> = ({ text, link, icon }) => {
   const { isThemeOn, navbarUnderlineColor } = useTheme();
-  const linkColor = useColorModeValue("black", isThemeOn ? '#f87171' : '#C69749');
+  const linkColor = useColorModeValue("black", isThemeOn ? '#f87171' : '#805AD5');
   return (
     <Link href={link}>
       <motion.div whileHover={{ borderBottom: `2px solid ${linkColor}` }}>

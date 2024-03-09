@@ -29,19 +29,19 @@ export const ThemeProvider = ({ children }) => {
   const theme = {
     isThemeOn,
     toggleTheme,
-    headingColor: isThemeOn ? '#fecdd3' : 'gold.100',
-    focusTextColor: isThemeOn ? '#166534' : 'gold.600',
-    buttonColor: isThemeOn ? 'green' : 'gold',
+    headingColor: isThemeOn ? '#fecdd3' : 'purple.100',
+    focusTextColor: isThemeOn ? '#166534' : 'purple.600',
+    buttonColor: isThemeOn ? 'green' : 'purple',
 
-    sidelineColor: isThemeOn ? '#166534' : 'gold.600',
-    sidebarColor: isThemeOn ? '#f87171' : 'gold.500',
-    frameColor: isThemeOn ? '#fecdd3' : 'gold.600',
-    iconColor: isThemeOn ? '#166534' : 'gold.600',
+    sidelineColor: isThemeOn ? '#166534' : '#44337A',
+    sidebarColor: isThemeOn ? '#f87171' : 'rgba( 107, 70, 193, 0.1 )',
+    frameColor: isThemeOn ? '#fecdd3' : 'purple.900',
+    iconColor: isThemeOn ? '#166534' : 'purple.100',
     
-    navbarColor: isThemeOn ? '#fecaca' : 'gold.500',
-    navbarUnderlineColor: isThemeOn ? '#f87171' : 'gold.500',
-    phoneMenuButtonColor: isThemeOn ? '#f87171' : 'gold.500',
-    phoneMenuDividerColor: isThemeOn ? '#fecaca' : 'gold.400',
+    navbarColor: isThemeOn ? '#fecaca' : 'purple.200',
+    navbarUnderlineColor: isThemeOn ? '#f87171' : 'purple.500',
+    phoneMenuButtonColor: isThemeOn ? '#f87171' : 'purple.500',
+    phoneMenuDividerColor: isThemeOn ? '#fecaca' : 'purple.400',
     
     formInputColor: isThemeOn ? '#fef2f2' : 'gold.50',
     formInputBorder: isThemeOn ? '#fca5a5' : 'gold.200',
@@ -52,8 +52,8 @@ export const ThemeProvider = ({ children }) => {
     techLottie: isThemeOn ? 'technology-christmas' : 'technology-dark',
     homeLottie: isThemeOn ? 'coder-christmas' : 'coder',
     
-    scrollbarTrackColor: isThemeOn ? '#bbf7d0' : 'gold.200',
-    scrollbarThumbColor: isThemeOn ? '#166534' : 'gold.600',
+    scrollbarTrackColor: isThemeOn ? '#bbf7d0' : 'black',
+    scrollbarThumbColor: isThemeOn ? '#166534' : 'purple.200',
   };
 
   return (

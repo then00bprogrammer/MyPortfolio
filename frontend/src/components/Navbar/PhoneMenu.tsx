@@ -16,6 +16,7 @@ import { RiMenu3Fill } from "react-icons/ri";
 import { ImCross } from "react-icons/im";
 import { motion } from "framer-motion";
 import PhoneMenuItem from "./PhoneMenuItem";
+import { useTheme } from "@/ThemeContext";
 
 
 const PhoneMenu:React.FC = () => {
@@ -32,14 +33,15 @@ const PhoneMenu:React.FC = () => {
     damping: 25,
   };
 
-  const PhoneDivider = () => <MenuDivider bg='gold.400'/>
+  const PhoneDivider = () => <MenuDivider bg='purple.400'/>
+  const { isThemeOn, navbarColor, toggleTheme } = useTheme();
 
   return (
     <Box display={["flex", "flex", "none", "none"]}>
       <Menu onClose={toggleMenu} onOpen={toggleMenu}>
         <MenuButton
           bg="none"
-          color={useColorModeValue("black", "gold.500")}
+          color={useColorModeValue("black", isThemeOn?"#fecaca":"purple.200")}
           _hover={{ bg: "none" }}
           _selected={{ bg: "none" }}
           _active={{ bg: "none" }}

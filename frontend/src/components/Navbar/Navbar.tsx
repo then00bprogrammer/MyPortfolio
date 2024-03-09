@@ -13,6 +13,7 @@ import { IoHome, IoPersonSharp } from "react-icons/io5";
 import { AiOutlineFundProjectionScreen } from "react-icons/ai";
 import { LuContact } from "react-icons/lu";
 import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
+import { TbChristmasTree } from "react-icons/tb";
 
 import PhoneMenu from "./PhoneMenu";
 import NavItem from "./Navitem";
@@ -20,6 +21,7 @@ import CustomLottiePlayer from "@/utils/CustomLottiePlayer";
 import { useTheme } from "@/ThemeContext";
 
 const Navbar: React.FC = () => {
+  const { colorMode, setColorMode } = useColorMode();
   const { toggleColorMode } = useColorMode();
   const { isThemeOn, navbarColor, toggleTheme } = useTheme();
 
@@ -42,7 +44,9 @@ const Navbar: React.FC = () => {
             <CustomLottiePlayer src="santa" />
           </Box>
         ) : (
-          <Text fontSize="4xl" fontWeight="extrabold">Nr.</Text>
+          <Text fontSize="4xl" fontWeight="extrabold">
+            Nr.
+          </Text>
         )}
       </Link>
       <HStack
@@ -64,13 +68,29 @@ const Navbar: React.FC = () => {
         </HStack>
         <Icon
           cursor="pointer"
-          boxSize="9"
+          boxSize="7"
           as={useColorModeValue(BsFillMoonFill, BsFillSunFill)}
-          onClick={()=>{
+          onClick={() => {
             toggleColorMode();
-            if(isThemeOn)toggleTheme();
+            if (isThemeOn) toggleTheme();
           }}
         ></Icon>
+        <Icon
+          cursor="pointer"
+          boxSize="9"
+          as={TbChristmasTree}
+          onClick={() => {
+            if(colorMode==="dark") {
+             if(isThemeOn) setColorMode("light");
+             toggleTheme();
+            }
+            else {
+              setColorMode("dark");
+              toggleTheme();
+            }
+          }}
+        ></Icon>
+
         <PhoneMenu />
       </HStack>
     </Flex>

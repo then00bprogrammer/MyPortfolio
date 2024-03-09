@@ -53,7 +53,7 @@ const Banner: React.FC = () => {
               section?.scrollIntoView({ behavior: "smooth", block: "end" });
             }}
           >
-            See Projects
+            View Projects
           </SolidButton>
         </HStack>
       </VStack>

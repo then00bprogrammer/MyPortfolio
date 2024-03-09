@@ -42,6 +42,7 @@ const Projects: React.FC = () => {
       position="relative"
       id="projects"
       spacing={0}
+      bg={useColorModeValue('white','black')}
     >
       <SideBanner
         title="PROJECTS"
