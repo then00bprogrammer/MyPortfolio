@@ -7,6 +7,8 @@ import type { NextPage } from "next";
 import type { AppProps } from "next/app";
 import "../styles/button.css";
 import "../styles/container.css";
+import { Analytics } from "@vercel/analytics/react"
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
@@ -24,6 +26,8 @@ export default function App({ Component, pageProps }: AppPropsWithLayout) {
         <ColorModeScript initialColorMode={theme.config.initialColorMode} />
         <ThemeProvider>
           <ChakraProvider theme={theme}>
+            <Analytics/>
+            <SpeedInsights />
             <Layout>
               <Component {...pageProps} />
             </Layout>
