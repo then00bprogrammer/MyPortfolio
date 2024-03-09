@@ -71,6 +71,7 @@ const Project = () => {
         <Head>
           <title>Nikhil's Portfolio</title>
         </Head>
+        if(data)
         <VStack
           w="full"
           minH={["90svh", "85svh"]}
