@@ -62,7 +62,7 @@ const Banner: React.FC = () => {
             <SolidButton>Contact Me</SolidButton>
           </Link>
           <a
-            href="https://drive.google.com/file/d/1tx6O3BvmlPbQhyOSUVbSqN18U21HEQgg/view?usp=sharing"
+            href="https://drive.google.com/file/d/1Qh2ncrzAanj-v0wsHkjgF-V4r6kP-uSb/view?usp=drive_link"
             target="_blank"
           >
             <OutlineButton>My Resume</OutlineButton>
