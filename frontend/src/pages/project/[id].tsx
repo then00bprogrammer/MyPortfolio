@@ -36,7 +36,6 @@ const Project = () => {
   const router = useRouter();
   const [data, setData] = useState<Project | null>(null);
   const [isAlertVisible, setIsAlertVisible] = useState<boolean>(false);
-  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -60,7 +59,6 @@ const Project = () => {
         );
         setData(res[0]);
         setIsAlertVisible(res[0].alertMessage ? true : false);
-        setTimeout(() => setIsLoading(false), 500);
       } catch (error) {
         console.error("Error fetching post:", error);
       }
@@ -68,8 +66,6 @@ const Project = () => {
 
     fetchData();
   }, [router.query.id]);
-
-  if (!isLoading && data)
     return (
       <>
         <Head>
@@ -83,32 +79,31 @@ const Project = () => {
           marginTop={["10svh", "15svh"]}
         >
           {isThemeOn && <Snowfall />}
-          {data.alertMessage && isAlertVisible && (
+          {data!.alertMessage && isAlertVisible && (
             <ShowAlert
               alertTitle="Important"
-              message={data.alertMessage}
+              message={data!.alertMessage}
               alertStatus="info"
               setIsAlertVisible={setIsAlertVisible}
             />
           )}
           <Banner
-            title={data.title}
-            description={data.description}
-            siteLink={data.siteLink}
-            githubRepoLink={data.githubRepoLink}
-            projectPhoto={data.projectPhoto}
-            projectVideoLink={data.projectVideoLink}
+            title={data!.title}
+            description={data!.description}
+            siteLink={data!.siteLink}
+            githubRepoLink={data!.githubRepoLink}
+            projectPhoto={data!.projectPhoto}
+            projectVideoLink={data!.projectVideoLink}
           />
           <Social />
-          <Features features={data.features} />
+          <Features features={data!.features} />
           <Technology
-            description={data.techStackDescription}
-            techStack={data.techStackNames}
+            description={data!.techStackDescription}
+            techStack={data!.techStackNames}
           />
         </VStack>
       </>
     );
-  else return <Loading />;
 };
 
 export default Project;

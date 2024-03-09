@@ -87,10 +87,7 @@ const Services:React.FC = () => {
           <Text color={useColorModeValue("gray.600", "gray.400")} mb="2.5svh">
             I specialize in the MERN stack, excelling in MongoDB, Express.js,
             React.js, and Node.js for robust web apps. Next.js ensures top-notch
-            user experiences. Python Flask is my go-to for APIs and tailored web
-            apps. Neo4j handles intricate data relationships, while Firebase is
-            key for mobile and web development. Sanity streamlines content
-            management. This skill set enables me to tackle diverse web
+            user experiences. Flask is my go-to for APIs and Machine Learning related Websites. I use Neo4j, a graph database for complex relationships while Sanity is my choice for CMS. This skill set enables me to tackle diverse web
             development challenges with innovation.
           </Text>
           <HStack>
