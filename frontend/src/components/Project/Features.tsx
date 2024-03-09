@@ -113,8 +113,12 @@ const Features: React.FC<{
               mr="auto"
               key={index}
               color={useColorModeValue("gray.600", "gray.400")}
+              align='flex-start'
             >
+              <Box pt='1'>
+
               <Icon as={FaHashtag}></Icon>
+              </Box>
               <TypeAnimation
                 sequence={[1000, feature]}
                 wrapper="span"

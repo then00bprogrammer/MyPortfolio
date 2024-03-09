@@ -42,11 +42,28 @@ const blueDark = {
     borderColor: '#2F2519',
     playButtonColor: 'orange.200',
   };
+
+  const defaultLight = {
+    theme: 'red.50',
+    buttonColor: 'red',
+    frameColor: 'red',
+    borderColor: 'red',
+    playButtonColor: 'red'
+  }
+
+  const defaultDark = {
+    theme: 'black',
+    buttonColor: 'red',
+    frameColor: 'red',
+    borderColor: 'red',
+    playButtonColor: 'gold'
+  }
   
   const colorMap = {
     gray: [grayLight, grayDark],
     orange: [orangeLight, orangeDark],
     blue: [blueLight, blueDark],
+    default: [defaultLight, defaultDark]
   };
 
   export default colorMap;
