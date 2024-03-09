@@ -44,10 +44,10 @@ const blueDark = {
   };
 
   const defaultLight = {
-    theme: 'red.50',
+    theme: 'gray.50',
     buttonColor: 'red',
-    frameColor: 'red',
-    borderColor: 'red',
+    frameColor: 'black',
+    borderColor: 'black',
     playButtonColor: 'red'
   }
 
