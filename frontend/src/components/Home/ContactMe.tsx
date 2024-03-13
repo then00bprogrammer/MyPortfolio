@@ -47,7 +47,7 @@ const ContactMe: React.FC = () => {
             CONTACT
           </Heading>
           <Text lineHeight={2} letterSpacing="wider" mb="2.5svh">
-            Any questions or need a website, logo design or something else?
+            Any questions or need a website?
             Don't hesitate to contact me.
           </Text>
           <Link href="./contact">

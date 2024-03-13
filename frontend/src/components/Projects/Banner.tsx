@@ -43,7 +43,7 @@ const Banner: React.FC = () => {
           PROJECTS
         </Heading>
         <Text color={useColorModeValue("gray.600", "gray.400")} mb="2.5svh">
-          Top projects I've developed so far: Social Media, utility extensions,
+          Top projects I've developed so far: Social Media, Educational Websites, utility extensions,
           helper websites, etc. Web design, web development.
         </Text>
         <HStack mt="2.5svh">
