@@ -25,6 +25,8 @@ import { TbBrandCpp } from "react-icons/tb";
 
 import Frame from "@/utils/Frame";
 import { useTheme } from "@/ThemeContext";
+import OutlineButton from "@/utils/OutlineButton";
+import SolidButton from "@/utils/SolidButton";
 
 const Services:React.FC = () => {
   const {
@@ -92,27 +94,16 @@ const Services:React.FC = () => {
           </Text>
           <HStack>
             <a href="https://www.fiverr.com/nikhil03_" target="_blank">
-              <Button
-                variant="solid"
-                colorScheme={useColorModeValue("red", buttonColor)}
-                borderRadius={0}
-                size="lg"
-              >
-                My Services
-              </Button>
+            <SolidButton>My Services</SolidButton>
             </a>
-            <Button
-              variant="outline"
-              colorScheme={useColorModeValue("black", buttonColor)}
-              borderRadius={0}
-              size="lg"
+            <OutlineButton
               onClick={() => {
                 const section = document.querySelector("#projects");
                 section?.scrollIntoView({ behavior: "smooth", block: "start" });
               }}
             >
               Read More
-            </Button>
+            </OutlineButton>
           </HStack>
         </VStack>
         <VStack marginBottom={["2.5svh", "0"]} pr='4.25vw' pl='2.125vw'>

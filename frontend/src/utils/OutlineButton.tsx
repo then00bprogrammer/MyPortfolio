@@ -22,6 +22,11 @@ const OutlineButton: React.FC<outlineButtonProps> = ({
       borderRadius={0}
       size='lg'
       onClick={onClick}
+      // _hover={{
+      //   boxShadow:useColorModeValue("4px 4px 0px 0px rgba(0,0,0)",`4px 4px 0px 0px #2F855A`),
+      //   transition: "box-shadow 0.2s",
+      // }}
+      boxShadow={useColorModeValue("4px 4px 0px 0px rgba(0,0,0)",`4px 4px 0px 0px #2F855A`)}
     >
       {children}
     </Button>
