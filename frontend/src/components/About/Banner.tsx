@@ -9,6 +9,9 @@ import {
   Text,
   VStack,
   useColorModeValue,
+  UnorderedList,
+  OrderedList,
+  ListItem,
 } from "@chakra-ui/react";
 import CustomLottiePlayer from "@/utils/CustomLottiePlayer";
 import SolidButton from "@/utils/SolidButton";
@@ -20,47 +23,81 @@ import { useTheme } from "@/ThemeContext";
 
 const customComponent: PortableTextComponents = {
   marks: {
-    link: ({ value, children }) => {
-      return (
-        <Link
-          href={value?.href}
-          target="_blank"
-          color={useColorModeValue("teal", useTheme().focusTextColor)}
-          _hover={{ textDecoration: "underline" }}
-        >
-          {children}
-        </Link>
-      );
-    },
-  },
-  // Add list style modifications here
-  list: ({ children }) => {
-    return (
-      <VStack alignItems="flex-start" spacing={2}>
+    link: ({ value, children }) => (
+      <Link
+        href={value?.href}
+        target="_blank"
+        color={useColorModeValue("teal", useTheme().focusTextColor)}
+        _hover={{ textDecoration: "underline" }}
+      >
         {children}
-      </VStack>
-    );
+      </Link>
+    ),
+  },
+  list: {
+    bullet: ({ children }) => (
+      <UnorderedList
+        spacing={1}
+        styleType="disc"
+        color={useColorModeValue("gray.600", "gray.400")}
+      >
+        {children}
+      </UnorderedList>
+    ),
+    number: ({ children }) => (
+      <OrderedList
+        spacing={1}
+        styleType="decimal"
+        color={useColorModeValue("gray.600", "gray.400")}
+      >
+        {children}
+      </OrderedList>
+    ),
+  },
+  listItem: {
+    bullet: ({ children }) => (
+      <ListItem>
+        <Text as="span" color={useColorModeValue("gray.600", "gray.400")}>{children}</Text>
+      </ListItem>
+    ),
+    number: ({ children }) => (
+      <ListItem>
+        <Text as="span" color={useColorModeValue("gray.600", "gray.400")}>{children}</Text>
+      </ListItem>
+    ),
   },
 };
 
 const Banner: React.FC = () => {
   const { headingColor } = useTheme();
-  const [data, setData] = useState<any[]>([]);
+  const [aboutData, setAboutData] = useState({
+    heading: "",
+    subheading: "",
+    about: [],
+    lottieSrc: "puzzles",
+  });
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const res = await client.fetch(
-          `*[_type == "codingProfile"]{
-              about,
-            }`
+          `*[_type == "codingProfile"][0]{
+            heading,
+            subheading,
+            about,
+            lottieSrc
+          }`
         );
-        console.log(res[0].about);
-        setData(res[0].about);
+        setAboutData({
+          heading: res.heading || "ABOUT ME",
+          subheading: res.subheading || "I'm a pre-final year student at IIITL.",
+          about: res.about || [],
+          lottieSrc: res.lottieSrc || "puzzles",
+        });
       } catch (error) {
-        console.error("Error fetching post:", error);
+        console.error("Error fetching About section:", error);
       }
     };
-
     fetchData();
   }, []);
 
@@ -69,47 +106,51 @@ const Banner: React.FC = () => {
       w={`calc(100vw - 12px)`}
       minH={["90svh", "85svh"]}
       flexDir={["column-reverse", "row"]}
-      pl="7.5vw"
-      pr="7.5vw"
+      pl={["4vw", "7.5vw"]}
+      pr={["4vw", "7.5vw"]}
       alignItems="center"
       pb="2.5vh"
+      borderRadius="2xl"
+      mt={6}
     >
       <VStack
         w={["100%", "50%"]}
         h="full"
         color="black"
         justifyContent="center"
-        alignItems="center"
-        spacing={0}
+        alignItems="flex-start"
+        spacing={4}
+        px={[0, 8]}
       >
         <Heading
           fontSize={["4xl", "7xl"]}
           fontWeight="extrabold"
           mb="2.5svh"
           color={useColorModeValue("gray.700", headingColor)}
+          letterSpacing="tight"
         >
-          ABOUT ME
+          {aboutData.heading}
         </Heading>
         <Text
-          fontSize={["md", "xl"]}
+          fontSize={["lg", "2xl"]}
           color={useColorModeValue("gray.600", "gray.400")}
+          mb={2}
+          fontWeight="medium"
         >
-          <Heading
-            mb="2.5svh"
-            fontSize={["2xl", "4xl"]}
-            color={useColorModeValue("gray.700", headingColor)}
-          >
-            I'm a pre-final year student at IIITL.
-          </Heading>
-          <PortableText value={data} components={customComponent} />
+          {aboutData.subheading}
         </Text>
-        <HStack mt="5svh">
-          <Link href="./contact">
+        <Box>
+          <PortableText value={aboutData.about} components={customComponent} />
+        </Box>
+        <HStack mt={2}>
+          <Link href="./contact" aria-label="Contact Me">
             <SolidButton>Contact Me</SolidButton>
           </Link>
           <a
             href="https://drive.google.com/file/d/1Qh2ncrzAanj-v0wsHkjgF-V4r6kP-uSb/view?usp=drive_link"
             target="_blank"
+            rel="noopener noreferrer"
+            aria-label="My Resume"
           >
             <OutlineButton>My Resume</OutlineButton>
           </a>
@@ -123,7 +164,7 @@ const Banner: React.FC = () => {
       >
         <Box w={["100%", "80%"]} h={["100%", "80%"]}>
           <Center>
-            <CustomLottiePlayer src="puzzles" />
+            <CustomLottiePlayer src={aboutData.lottieSrc} />
           </Center>
         </Box>
       </Flex>
