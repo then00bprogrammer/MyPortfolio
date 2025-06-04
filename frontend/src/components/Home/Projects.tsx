@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
+import client from "@/client";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
@@ -31,6 +32,13 @@ const Projects: React.FC = () => {
     sidebarColor,
     footerBgImage,
   } = useTheme();
+  const [projectsHomeSubtitle, setProjectsHomeSubtitle] = useState("A glimpse of realizations I've developed so far. It doesn't matter whether it is about a simple business website or a live complex e-commerce webshop. Click the button to see my projects.");
+
+  useEffect(() => {
+    client.fetch(`*[_type == \"siteContent\"][0]{projectsHomeSubtitle}`).then((data) => {
+      setProjectsHomeSubtitle(data?.projectsHomeSubtitle || "A glimpse of realizations I've developed so far. It doesn't matter whether it is about a simple business website or a live complex e-commerce webshop. Click the button to see my projects.");
+    });
+  }, []);
   return (
     <HStack
       h={["90svh", "85svh"]}
@@ -86,10 +94,8 @@ const Projects: React.FC = () => {
             <Frame />
             <ProjectSlider />
           </VStack>
-          <Text mb="2.5svh" color={useColorModeValue("gray.600", "gray.400")}>
-            A glimpse of realizations I've developed so far. It doesn't matter
-            whether it is about a simple business website or a live complex
-            e-commerce webshop. Click the button to see my projects.
+          <Text mb="2.5svh" color={useColorModeValue("gray.600", "gray.400")}> 
+            {projectsHomeSubtitle}
           </Text>
           <HStack mr="auto">
             <Link href="./projects">

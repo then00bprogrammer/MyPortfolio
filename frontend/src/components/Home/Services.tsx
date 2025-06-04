@@ -1,4 +1,5 @@
 import React from "react";
+import client from "@/client";
 import {
   Box,
   Button,
@@ -40,6 +41,13 @@ const Services:React.FC = () => {
     sidebarColor,
     footerBgImage,
   } = useTheme();
+  const [servicesSubtitle, setServicesSubtitle] = React.useState("I specialize in the MERN stack, excelling in MongoDB, Express.js, React.js, and Node.js for robust web apps. Next.js ensures top-notch user experiences. Flask is my go-to for APIs and Machine Learning related Websites. I use Neo4j, a graph database for complex relationships while Sanity is my choice for CMS. This skill set enables me to tackle diverse web development challenges with innovation.");
+
+  React.useEffect(() => {
+    client.fetch(`*[_type == \"siteContent\"][0]{servicesSubtitle}`).then((data) => {
+      setServicesSubtitle(data?.servicesSubtitle || "I specialize in the MERN stack, excelling in MongoDB, Express.js, React.js, and Node.js for robust web apps. Next.js ensures top-notch user experiences. Flask is my go-to for APIs and Machine Learning related Websites. I use Neo4j, a graph database for complex relationships while Sanity is my choice for CMS. This skill set enables me to tackle diverse web development challenges with innovation.");
+    });
+  }, []);
   return (
     <HStack
       minH="100svh"
@@ -87,10 +95,7 @@ const Services:React.FC = () => {
           </Wrap>
 
           <Text color={useColorModeValue("gray.600", "gray.400")} mb="2.5svh">
-            I specialize in the MERN stack, excelling in MongoDB, Express.js,
-            React.js, and Node.js for robust web apps. Next.js ensures top-notch
-            user experiences. Flask is my go-to for APIs and Machine Learning related Websites. I use Neo4j, a graph database for complex relationships while Sanity is my choice for CMS. This skill set enables me to tackle diverse web
-            development challenges with innovation.
+            {servicesSubtitle}
           </Text>
           <HStack>
             <a href="https://www.fiverr.com/nikhil03_" target="_blank">

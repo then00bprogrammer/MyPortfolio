@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Center,
@@ -13,8 +13,18 @@ import CustomLottiePlayer from "@/utils/CustomLottiePlayer";
 import SolidButton from "@/utils/SolidButton";
 import { useTheme } from "@/ThemeContext";
 
+import client from "@/client";
+
 const Banner: React.FC = () => {
   const { headingColor } = useTheme();
+  const [subtitle, setSubtitle] = useState("");
+
+  useEffect(() => {
+    client.fetch(`*[_type == "siteContent"][0]{projectsPageSubtitle}`).then((data) => {
+      setSubtitle(data?.projectsPageSubtitle || "Top projects I've developed so far: Social Media, Educational Websites, utility extensions, helper websites, etc. Web design, web development.");
+    });
+  }, []);
+
   return (
     <Flex
       w={`calc(100vw - 12px)`}
@@ -43,8 +53,7 @@ const Banner: React.FC = () => {
           PROJECTS
         </Heading>
         <Text color={useColorModeValue("gray.600", "gray.400")} mb="2.5svh">
-          Top projects I've developed so far: Social Media, Educational Websites, utility extensions,
-          helper websites, etc. Web design, web development.
+          {subtitle}
         </Text>
         <HStack mt="2.5svh">
           <SolidButton
